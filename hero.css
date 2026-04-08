@@ -1,0 +1,203 @@
+/* ============================================================
+   HERO SECTION
+   Full-viewport video hero with reel switcher thumbnails.
+   Two layout versions — comment/uncomment in index.html.
+   ============================================================ */
+
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  background: var(--hero-bg);
+  overflow: hidden;
+}
+
+/* ── Video layer ─────────────────────────────────────── */
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+/* dims video as user scrolls down */
+.hero-video.dimmed { opacity: 0 !important; }
+
+.hero-video.active  { opacity: 1; z-index: 1; }
+.hero-video.inactive{ opacity: 0; z-index: 0; }
+
+/* dark gradient overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 13, 18, 0.25) 0%,
+    rgba(9, 13, 18, 0.15) 50%,
+    rgba(9, 13, 18, 0.65) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Content layer ────────────────────────────────────── */
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   VERSION 1: Title top-center, thumbnails bottom-center
+   To use Version 1: keep this block, comment out Version 2
+   ============================================================ */
+
+/* V1 — top center title */
+.hero-title-v1 {
+  text-align: center;
+  padding-top: calc(var(--nav-h) + var(--sp-lg));
+  animation: fadeUp 0.9s var(--ease-out) 0.2s both;
+}
+
+.hero-title-v1 .hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title-v1 .hero-roles {
+  font-size: clamp(0.72rem, 1.2vw, 0.85rem);
+  color: rgba(180, 215, 245, 0.65);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* V1 — thumbnails bottom center */
+.hero-thumbs-v1 {
+  margin-top: auto;
+  padding-bottom: var(--sp-lg);
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-sm);
+  animation: fadeUp 0.9s var(--ease-out) 0.4s both;
+}
+
+/* ============================================================
+   VERSION 2: Title + thumbnails bottom-left (truecolorfilms style)
+   To use Version 2: keep this block, comment out Version 1
+   ============================================================ */
+
+.hero-bottom-v2 {
+  margin-top: auto;
+  padding: 0 var(--sp-lg) var(--sp-lg);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  animation: fadeUp 0.9s var(--ease-out) 0.2s both;
+}
+
+.hero-title-v2 {}
+
+.hero-title-v2 .hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.hero-title-v2 .hero-roles {
+  font-size: clamp(0.68rem, 1vw, 0.78rem);
+  color: rgba(180, 215, 245, 0.6);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* V2 thumbnails bottom right */
+.hero-thumbs-v2 {
+  display: flex;
+  gap: var(--sp-sm);
+  align-items: flex-end;
+}
+
+/* ── Shared thumbnail styles ─────────────────────────── */
+
+.reel-thumb {
+  position: relative;
+  width: 120px;
+  aspect-ratio: 16/9;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.25s, transform 0.25s, opacity 0.25s;
+  opacity: 0.6;
+}
+
+.reel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* REPLACE FILE: images/thumbs/thumb-generalist.jpg
+   Still frame thumbnail for the generalist reel. ~400x225px. */
+/* REPLACE FILE: images/thumbs/thumb-layout.jpg
+   Still frame thumbnail for the layout reel. ~400x225px. */
+/* REPLACE FILE: images/thumbs/thumb-modelling.jpg
+   Still frame thumbnail for the modelling reel. ~400x225px. */
+
+.reel-thumb-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4px 6px;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  font-weight: 500;
+}
+
+.reel-thumb:hover,
+.reel-thumb.active {
+  opacity: 1;
+  border-color: var(--azure-light);
+  transform: translateY(-3px);
+}
+
+/* ── Animations ──────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .hero-thumbs-v1,
+  .hero-thumbs-v2 { gap: var(--sp-xs); }
+  .reel-thumb { width: 80px; }
+
+  .hero-bottom-v2 { flex-direction: column; align-items: flex-start; gap: var(--sp-sm); }
+  .hero-title-v2 .hero-name { font-size: 1.75rem; }
+
+  #hero { padding: 0 var(--sp-sm); }
+}

@@ -1,0 +1,93 @@
+/* ============================================================
+   DESIGN TOKENS
+   Central source of truth for all colours, spacing, type.
+   Edit here to retheme the whole site.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Brand */
+  --azure:       #1a6fa8;
+  --azure-dark:  #0e4f7a;
+  --azure-mid:   #3a8dc8;
+  --azure-light: #cce2f5;
+  --azure-pale:  #f0f7fd;
+
+  /* Neutrals */
+  --ink:         #0f1114;
+  --ink-mid:     #363b46;
+  --muted:       #7a8494;
+  --border:      rgba(0, 0, 0, 0.09);
+  --border-mid:  rgba(0, 0, 0, 0.15);
+  --page:        #ffffff;
+  --surface:     #f7f8fa;
+
+  /* Hero / dark surfaces */
+  --hero-bg:     #090d12;
+  --hero-overlay:rgba(9, 13, 18, 0.55);
+
+  /* Type */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --sp-xs:  0.5rem;
+  --sp-sm:  1rem;
+  --sp-md:  1.5rem;
+  --sp-lg:  2.5rem;
+  --sp-xl:  4rem;
+  --sp-2xl: 6rem;
+
+  /* Radii */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+
+  /* Easing */
+  --ease:     cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Nav */
+  --nav-h: 60px;
+
+  /* Max widths */
+  --max-w:      1200px;
+  --max-w-text: 680px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--page);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
