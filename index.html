@@ -39,13 +39,23 @@
   <a href="#" class="nav-logo">Raechel Padua</a>
 
   <!-- Desktop links -->
-  <nav class="nav-links" aria-label="Main navigation">
-    <a href="#hero">Home</a>
-    <a href="#specialty">Specialties</a>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="mailto:raepadua.art@gmail.com" class="nav-cta">Contact</a>
-  </nav>
+ <nav class="nav-links" aria-label="Main navigation">
+  <a href="#hero">Home</a>
+  <div class="nav-dropdown">
+    <button class="nav-dropdown-trigger">
+      Specialties
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="nav-dropdown-menu">
+      <a href="layout.html">Layout &amp; Set Dressing</a>
+      <a href="modelling.html">Modelling &amp; Look Dev</a>
+      <a href="modelling.html#rigging">Rigging</a>
+    </div>
+  </div>
+  <a href="#work">Work</a>
+  <a href="#about">About</a>
+  <a href="mailto:raepadua.art@gmail.com" class="nav-cta">Contact</a>
+</nav>
 
   <!-- Hamburger (mobile) -->
   <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -58,7 +68,12 @@
 <!-- Mobile drawer -->
 <nav id="nav-drawer" class="nav-drawer" aria-label="Mobile navigation">
   <a href="#hero">Home</a>
-  <a href="#specialty">Specialties</a>
+  <div class="nav-drawer-group">
+    <span class="nav-drawer-group-label">Specialties</span>
+    <a href="layout.html" class="nav-drawer-sub">Layout &amp; Set Dressing</a>
+    <a href="modelling.html" class="nav-drawer-sub">Modelling &amp; Look Dev</a>
+    <a href="modelling.html#rigging" class="nav-drawer-sub">Rigging</a>
+  </div>
   <a href="#work">Work</a>
   <a href="#about">About</a>
   <a href="mailto:raepadua.art@gmail.com">Contact</a>
@@ -67,6 +82,7 @@
 <!-- Scroll-to-top -->
 <button id="scroll-top" aria-label="Scroll to top">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  Top
 </button>
 
 
@@ -164,6 +180,13 @@
          <!-- @@@@ END VERSION 2 -->
 
   </div>
+  <!-- Scroll indicator -->
+<a href="#specialty" class="hero-scroll-hint" aria-label="Scroll down">
+  <span class="hero-scroll-hint-text">Scroll</span>
+  <div class="hero-scroll-hint-arrow">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</a>
 </section>
 
 
@@ -273,31 +296,42 @@
       <div class="section-rule-line"></div>
     </div>
 
-    <!-- Filter bar -->
-    <div class="filter-bar" role="group" aria-label="Filter work">
+<!-- Filter bar -->
+<div class="filter-bar" role="group" aria-label="Filter work">
 
-      <!-- Work type filters -->
-      <div class="filter-group">
-        <button class="filter-btn active" data-type="all">All</button>
-        <button class="filter-btn" data-type="animation">Animation</button>
-        <button class="filter-btn" data-type="modelling">Modelling</button>
-        <button class="filter-btn" data-type="rigging">Rigging</button>
-        <button class="filter-btn" data-type="layout">Layout</button>
-        <button class="filter-btn" data-type="vr">VR / XR</button>
-      </div>
-
-      <div class="filter-divider"></div>
-
-      <!-- Program filters -->
-      <div class="filter-group">
-        <button class="filter-btn" data-prog="all">All programs</button>
-        <button class="filter-btn" data-prog="unreal">Unreal Engine</button>
-        <button class="filter-btn" data-prog="maya">Maya</button>
-        <button class="filter-btn" data-prog="unity">Unity</button>
-        <button class="filter-btn" data-prog="blender">Blender</button>
-        <button class="filter-btn" data-prog="houdini">Houdini</button>
-      </div>
+  <div>
+    <div class="filter-group-label">Work type</div>
+    <div class="filter-segment">
+      <button class="filter-seg-btn active" data-type="all">All</button>
+      <button class="filter-seg-btn" data-type="layout">Layout &amp; Set Dressing</button>
+      <button class="filter-seg-btn" data-type="modelling">Modelling &amp; Look Dev</button>
+      <button class="filter-seg-btn" data-type="rigging">Rigging</button>
+      <button class="filter-seg-btn" data-type="animation">Animation</button>
+      <button class="filter-seg-btn" data-type="vr">VR / XR</button>
     </div>
+  </div>
+
+  <div>
+    <div class="filter-group-label">Filter by program</div>
+    <div class="filter-pills">
+      <button class="filter-pill active" data-prog="all">All programs</button>
+      <button class="filter-pill" data-prog="unreal">Unreal Engine</button>
+      <button class="filter-pill" data-prog="maya">Maya</button>
+      <button class="filter-pill" data-prog="unity">Unity</button>
+      <button class="filter-pill" data-prog="blender">Blender</button>
+      <button class="filter-pill" data-prog="houdini">Houdini</button>
+      <button class="filter-pill clear-btn" id="clear-filters">Clear filters</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Empty state (shown when no cards match) -->
+<div class="work-empty" id="work-empty" aria-live="polite">
+  <div class="work-empty-emoji">¯\_(ツ)_/¯</div>
+  <div class="work-empty-text">Nothing here for that combo.</div>
+  <div class="work-empty-sub">Try a different filter or clear them all.</div>
+</div>
 
     <!-- Work grid -->
     <div class="work-grid">
@@ -369,7 +403,7 @@
       <!-- BACKYARD BEANS -->
       <div class="project-card"
         data-types="rigging, animation, modelling"
-        data-progs="maya, houdini"
+        data-progs="maya"
         data-title="Backyard Beans"
         data-year="2024"
         data-roles="Character Pipeline Artist · Technical Animator · Costume Designer"
@@ -484,7 +518,7 @@
       <!-- VENUS MILL -->
       <div class="project-card"
         data-types="modelling, layout"
-        data-progs="blender"
+        data-progs="blender, maya"
         data-title="Yukon's Venus Mill"
         data-year="2025"
         data-roles="3D Environment Artist"

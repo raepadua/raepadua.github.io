@@ -1,88 +1,89 @@
 // ============================================================
-// filters.js
-// Dual filter system: work type (buttons) + program (buttons).
-// Both filters apply simultaneously (AND logic within groups,
-// OR logic across same-group selections).
-// Software strip logos trigger the program filter.
+// filters.js — segmented type filter + pill program filter
+// Shows empty state when no cards match.
+// Clear button appears only when a non-default filter is active.
 // ============================================================
 
 export function initFilters() {
-  const cards        = document.querySelectorAll('.project-card');
-  const typeButtons  = document.querySelectorAll('.filter-btn[data-type]');
-  const progButtons  = document.querySelectorAll('.filter-btn[data-prog]');
-  const logoButtons  = document.querySelectorAll('.software-logo[data-prog]');
+  const cards      = document.querySelectorAll('.project-card');
+  const segBtns    = document.querySelectorAll('.filter-seg-btn[data-type]');
+  const pillBtns   = document.querySelectorAll('.filter-pill[data-prog]');
+  const clearBtn   = document.getElementById('clear-filters');
+  const emptyState = document.getElementById('work-empty');
 
   if (!cards.length) return;
 
   let activeType = 'all';
   let activeProg = 'all';
 
-  // ── Apply current filters ────────────────────────────────
-
   function applyFilters() {
+    let visible = 0;
+
     cards.forEach(card => {
-      const cardTypes  = (card.dataset.types || '').split(',').map(s => s.trim().toLowerCase());
-      const cardProgs  = (card.dataset.progs  || '').split(',').map(s => s.trim().toLowerCase());
+      const types = (card.dataset.types || '').split(',').map(s => s.trim().toLowerCase());
+      const progs = (card.dataset.progs  || '').split(',').map(s => s.trim().toLowerCase());
 
-      const typeMatch = activeType === 'all' || cardTypes.includes(activeType);
-      const progMatch = activeProg === 'all' || cardProgs.includes(activeProg);
+      const typeMatch = activeType === 'all' || types.includes(activeType);
+      const progMatch = activeProg === 'all' || progs.includes(activeProg);
+      const show = typeMatch && progMatch;
 
-      card.classList.toggle('hidden', !(typeMatch && progMatch));
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
     });
+
+    // Empty state
+    if (emptyState) emptyState.classList.toggle('visible', visible === 0);
+
+    // Clear button visibility
+    const isFiltered = activeType !== 'all' || activeProg !== 'all';
+    if (clearBtn) clearBtn.classList.toggle('visible', isFiltered);
   }
 
-  // ── Type filter buttons ──────────────────────────────────
+  function clearAll() {
+    activeType = 'all';
+    activeProg = 'all';
+    segBtns.forEach(b => b.classList.toggle('active', b.dataset.type === 'all'));
+    pillBtns.forEach(b => b.classList.toggle('active', b.dataset.prog === 'all'));
+    syncLogoState();
+    applyFilters();
+  }
 
-  typeButtons.forEach(btn => {
+  segBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       activeType = btn.dataset.type.toLowerCase();
-      typeButtons.forEach(b => b.classList.toggle('active', b === btn));
+      segBtns.forEach(b => b.classList.toggle('active', b === btn));
       applyFilters();
     });
   });
 
-  // ── Program filter buttons ───────────────────────────────
-
-  progButtons.forEach(btn => {
+  pillBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       activeProg = btn.dataset.prog.toLowerCase();
-      progButtons.forEach(b => b.classList.toggle('active', b === btn));
+      pillBtns.forEach(b => b.classList.toggle('active', b === btn));
       syncLogoState();
       applyFilters();
     });
   });
 
-  // ── Software logo strip ───────────────────────────────────
-  // Clicking a logo scrolls to work section and sets that prog filter.
+  if (clearBtn) clearBtn.addEventListener('click', clearAll);
 
-  logoButtons.forEach(logo => {
+  // Software strip logos
+  document.querySelectorAll('.software-logo[data-prog]').forEach(logo => {
     logo.addEventListener('click', () => {
       const prog = logo.dataset.prog.toLowerCase();
-
-      // Toggle off if already active
-      if (activeProg === prog) {
-        activeProg = 'all';
-      } else {
-        activeProg = prog;
-      }
-
-      // Sync prog filter buttons
-      progButtons.forEach(b => b.classList.toggle('active', b.dataset.prog.toLowerCase() === activeProg));
+      activeProg = activeProg === prog ? 'all' : prog;
+      pillBtns.forEach(b => b.classList.toggle('active', b.dataset.prog.toLowerCase() === activeProg));
       syncLogoState();
       applyFilters();
-
-      // Scroll to work section
-      const work = document.getElementById('work');
-      if (work) work.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
   function syncLogoState() {
-    logoButtons.forEach(logo => {
+    document.querySelectorAll('.software-logo[data-prog]').forEach(logo => {
       logo.classList.toggle('active', logo.dataset.prog.toLowerCase() === activeProg);
     });
   }
 
-  // Init
   applyFilters();
 }

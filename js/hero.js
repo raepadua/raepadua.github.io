@@ -101,3 +101,4 @@ export function initHero() {
   switchTo(0);
   startCycle();
 }
+
