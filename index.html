@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raechel Padua — 3D Artist · Layout · Technical Animator</title>
-  <meta name="description" content="Portfolio of Raechel Padua. Realtime 3D artist with 12+ years across games, film, heritage, and interactive media. Based in Ottawa, Ontario.">
-
+  <meta name="description" content="Portfolio of Raechel Padua. Realtime 3D artist with 12+ years across games, film, heritage, and interactive media. Based in Ontario, Canada.">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/loader.css">
   <link rel="stylesheet" href="css/nav.css">
@@ -14,11 +13,8 @@
 </head>
 <body>
 
-<!-- ================================================================
-     LOADING SCREEN
-     ================================================================ -->
+<!-- LOADING SCREEN -->
 <div id="loader" role="status" aria-label="Loading">
-  <!-- REPLACE FILE: images/LoadingAnim.gif — your custom loading GIF -->
   <img class="loader-gif" src="images/LoadingAnim.gif" alt="">
   <div class="loader-bar-wrap">
     <div class="loader-bar" id="loader-bar"></div>
@@ -26,44 +22,32 @@
   <span class="loader-pct" id="loader-pct">0%</span>
 </div>
 
-
-<!-- ================================================================
-     NAV BAR
-     ================================================================ -->
+<!-- NAV -->
 <header id="nav">
   <a href="#" class="nav-logo">Raechel Padua</a>
-
-  <!-- Desktop links -->
   <nav class="nav-links" aria-label="Main navigation">
     <a href="#hero">Home</a>
-
-    <!-- Specialties dropdown -->
     <div class="nav-dropdown">
       <button class="nav-dropdown-trigger">
         Specialties
-        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
+      <div class="nav-dropdown-bridge"></div>
       <div class="nav-dropdown-menu">
         <a href="layout.html">Layout &amp; Set Dressing</a>
         <a href="modelling.html">Modelling &amp; Look Dev</a>
         <a href="modelling.html#rigging">Rigging</a>
       </div>
     </div>
-
     <a href="#work">Work</a>
     <a href="#about">About</a>
     <a href="mailto:raepadua.art@gmail.com" class="nav-cta">Contact</a>
   </nav>
-
-  <!-- Hamburger (mobile) -->
   <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- Mobile drawer -->
 <nav id="nav-drawer" class="nav-drawer" aria-label="Mobile navigation">
   <a href="#hero">Home</a>
   <div class="nav-drawer-group">
@@ -77,65 +61,40 @@
   <a href="mailto:raepadua.art@gmail.com">Contact</a>
 </nav>
 
-<!-- Scroll-to-top -->
 <button id="scroll-top" aria-label="Scroll to top">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
   Top
 </button>
 
-
-<!-- ================================================================
-     HERO SECTION
-     ================================================================ -->
+<!-- HERO -->
 <section id="hero">
-
   <!--
-    HERO VIDEOS — short muted looping clips per specialty page.
-    Hover thumbnail switches clip. Click thumbnail navigates to page.
-
-    REPLACE FILE: videos/hero-layout.mp4     — short clip of layout/cinematic work
-    REPLACE FILE: videos/hero-modelling.mp4  — short clip of environment/model work
-    REPLACE FILE: videos/hero-rigging.mp4    — short clip of rigging/character work
-
-    GENERALIST REEL (commented out — uncomment if you make one):
-    <video class="hero-video" src="videos/hero-generalist.mp4" muted loop playsinline
-      poster="images/thumbs/thumb-generalist.jpg"></video>
+    REPLACE FILE: videos/hero-layout.mp4
+    REPLACE FILE: videos/hero-modelling.mp4
+    REPLACE FILE: videos/hero-rigging.mp4
+    Generalist reel (commented — uncomment if you make one):
+    <video class="hero-video" src="videos/hero-generalist.mp4" muted loop playsinline poster="images/thumbs/thumb-generalist.jpg"></video>
   -->
-  <video class="hero-video active"
-    src="videos/hero-layout.mp4"
-    autoplay muted loop playsinline
-    poster="images/thumbs/thumb-layout.jpg">
-  </video>
-  <video class="hero-video inactive"
-    src="videos/hero-modelling.mp4"
-    muted loop playsinline
-    poster="images/thumbs/thumb-modelling.jpg">
-  </video>
-  <video class="hero-video inactive"
-    src="videos/hero-rigging.mp4"
-    muted loop playsinline
-    poster="images/thumbs/thumb-rigging.jpg">
-  </video>
+  <video class="hero-video active" src="videos/hero-layout.mp4" autoplay muted loop playsinline poster="images/thumbs/thumb-layout.jpg"></video>
+  <video class="hero-video inactive" src="videos/hero-modelling.mp4" muted loop playsinline poster="images/thumbs/thumb-modelling.jpg"></video>
+  <video class="hero-video inactive" src="videos/hero-rigging.mp4" muted loop playsinline poster="images/thumbs/thumb-rigging.jpg"></video>
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
 
-    <!-- ============================================================
-         VERSION 1: Title top-center, thumbnails bottom-center
-         Currently commented out. To use: uncomment this, comment V2.
-         ============================================================
+    <!-- VERSION 1: top-center — uncomment to compare
     <div class="hero-title-v1">
       <div class="hero-name">Raechel Padua</div>
       <div class="hero-roles">3D Artist &nbsp;&middot;&nbsp; Layout &nbsp;&middot;&nbsp; Technical Animator</div>
     </div>
     <div class="hero-thumbs-v1">
       <div class="reel-thumb active" data-index="0" data-href="layout.html">
-        <img src="images/thumbs/thumb-layout.jpg" alt="Layout & Set Dressing">
+        <img src="images/thumbs/thumb-layout.jpg" alt="Layout">
         <span class="reel-thumb-label">Layout</span>
       </div>
       <div class="reel-thumb" data-index="1" data-href="modelling.html">
-        <img src="images/thumbs/thumb-modelling.jpg" alt="Modelling & Look Dev">
+        <img src="images/thumbs/thumb-modelling.jpg" alt="Modelling">
         <span class="reel-thumb-label">Modelling</span>
       </div>
       <div class="reel-thumb" data-index="2" data-href="modelling.html#rigging">
@@ -143,29 +102,24 @@
         <span class="reel-thumb-label">Rigging</span>
       </div>
     </div>
-         END VERSION 1 -->
+    END VERSION 1 -->
 
-    <!-- ============================================================
-         VERSION 2: Name + thumbnails bottom-left (currently active)
-         To switch to V1: comment this out, uncomment V1 above.
-         ============================================================ -->
+    <!-- VERSION 2: bottom-left — active -->
     <div class="hero-bottom-v2">
       <div class="hero-title-v2">
         <div class="hero-name">Raechel Padua</div>
         <div class="hero-roles">3D Artist &nbsp;&middot;&nbsp; Layout &nbsp;&middot;&nbsp; Technical Animator</div>
       </div>
       <div class="hero-thumbs-v2">
-        <!--
-          REPLACE FILE: images/thumbs/thumb-layout.jpg    ~400x225px still
-          REPLACE FILE: images/thumbs/thumb-modelling.jpg ~400x225px still
-          REPLACE FILE: images/thumbs/thumb-rigging.jpg   ~400x225px still
-        -->
+        <!-- REPLACE FILE: images/thumbs/thumb-layout.jpg ~400x225px -->
+        <!-- REPLACE FILE: images/thumbs/thumb-modelling.jpg ~400x225px -->
+        <!-- REPLACE FILE: images/thumbs/thumb-rigging.jpg ~400x225px -->
         <div class="reel-thumb active" data-index="0" data-href="layout.html">
-          <img src="images/thumbs/thumb-layout.jpg" alt="Layout & Set Dressing">
+          <img src="images/thumbs/thumb-layout.jpg" alt="Layout">
           <span class="reel-thumb-label">Layout</span>
         </div>
         <div class="reel-thumb" data-index="1" data-href="modelling.html">
-          <img src="images/thumbs/thumb-modelling.jpg" alt="Modelling & Look Dev">
+          <img src="images/thumbs/thumb-modelling.jpg" alt="Modelling">
           <span class="reel-thumb-label">Modelling</span>
         </div>
         <div class="reel-thumb" data-index="2" data-href="modelling.html#rigging">
@@ -178,20 +132,15 @@
 
   </div>
 
-  <!-- Scroll indicator -->
   <a href="#specialty" class="hero-scroll-hint" aria-label="Scroll down">
     <span class="hero-scroll-hint-text">Scroll</span>
     <div class="hero-scroll-hint-arrow">
       <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </a>
-
 </section>
 
-
-<!-- ================================================================
-     SPECIALTY SECTION
-     ================================================================ -->
+<!-- SPECIALTY -->
 <section id="specialty">
   <div class="section-wrap">
     <div class="section-rule">
@@ -199,100 +148,49 @@
       <div class="section-rule-line"></div>
     </div>
 
-    <!-- LAYOUT & SET DRESSING -->
     <div class="specialty-item">
       <div class="specialty-text">
         <span class="specialty-number">01</span>
         <h2 class="specialty-title">Layout &amp; Set Dressing</h2>
-        <p class="specialty-desc">
-          Spatial composition, camera staging, and cinematic storytelling in realtime environments.
-          12 years building shots in Unreal Engine Sequencer and Unity, from heritage VR experiences
-          to architectural visualisation featured at Unreal Fest Seattle 2024 and Chicago 2026.
-          Set dressing, asset placement, and scene composition for both interactive and linear output.
-        </p>
-        <a href="layout.html" class="specialty-cta">
-          See layout work
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <p class="specialty-desc">Spatial composition, camera staging, and cinematic storytelling in realtime environments. 12 years building shots in Unreal Engine Sequencer and Unity, from heritage VR experiences to architectural visualisation featured at Unreal Fest Seattle 2024 and Chicago 2026. Set dressing, asset placement, and scene composition for both interactive and linear output.</p>
+        <a href="layout.html" class="specialty-cta">See layout work <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
       <div class="specialty-media">
-        <!--
-          REPLACE FILE: videos/specialty-layout.mp4
-          Short looping clip showcasing layout / cinematics / set dressing work.
-          Or: <img src="images/specialty-layout.jpg" alt="Layout work">
-          Or: <model-viewer src="models/scene.glb" auto-rotate camera-controls></model-viewer>
-        -->
-        <div class="specialty-media-placeholder">
-          <span>videos/specialty-layout.mp4<br>or images/specialty-layout.jpg</span>
-        </div>
+        <!-- REPLACE FILE: videos/specialty-layout.mp4 or images/specialty-layout.jpg -->
+        <div class="specialty-media-placeholder"><span>videos/specialty-layout.mp4<br>or images/specialty-layout.jpg</span></div>
       </div>
     </div>
 
-    <!-- MODELLING & LOOK DEV -->
     <div class="specialty-item">
       <div class="specialty-text">
         <span class="specialty-number">02</span>
         <h2 class="specialty-title">Modelling &amp; Look Dev</h2>
-        <p class="specialty-desc">
-          From character pipelines for shipped games to procedural architectural panels
-          installed on real buildings. End-to-end look development in Unreal Engine and Unity:
-          PBR materials, shaders, lighting, and realtime optimisation across VR, web, and game targets.
-          Comfortable with photogrammetry cleanup, BIM conversion, and pointcloud-sourced environments.
-        </p>
-        <a href="modelling.html" class="specialty-cta">
-          See modelling work
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <p class="specialty-desc">From character pipelines for shipped games to procedural architectural panels installed on real buildings. End-to-end look development in Unreal Engine and Unity: PBR materials, shaders, lighting, and realtime optimisation across VR, web, and game targets. Comfortable with photogrammetry cleanup, BIM conversion, and pointcloud-sourced environments.</p>
+        <a href="modelling.html" class="specialty-cta">See modelling work <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
       <div class="specialty-media">
-        <!--
-          REPLACE FILE: videos/specialty-modelling.mp4
-          Short looping clip of modelling / look dev work.
-          Or use model-viewer for a live 3D embed:
-          <model-viewer src="models/your-model.glb" auto-rotate camera-controls></model-viewer>
-          To enable model-viewer, add to <head>:
-          <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-        -->
-        <div class="specialty-media-placeholder">
-          <span>videos/specialty-modelling.mp4<br>or a .glb via model-viewer</span>
-        </div>
+        <!-- REPLACE FILE: videos/specialty-modelling.mp4 or images/specialty-modelling.jpg -->
+        <div class="specialty-media-placeholder"><span>videos/specialty-modelling.mp4<br>or a .glb via model-viewer</span></div>
       </div>
     </div>
 
-    <!-- RIGGING & TECHNICAL ANIMATION -->
     <div class="specialty-item">
       <div class="specialty-text">
         <span class="specialty-number">03</span>
         <h2 class="specialty-title">Rigging &amp; Technical Animation</h2>
-        <p class="specialty-desc">
-          Custom body and facial rigs, blend shape systems, and full mocap-driven character pipelines.
-          Built the character rig for Canada's first fully Deaf musical with ASL-accurate hand controls,
-          and delivered the complete character pipeline for Backyard Beans, launched at Gamescom 2024.
-          Experience with Vicon Blade full-body capture and CaraPost facial capture end to end.
-        </p>
-        <a href="modelling.html#rigging" class="specialty-cta">
-          See rigging work
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <p class="specialty-desc">Custom body and facial rigs, blend shape systems, and full mocap-driven character pipelines. Built the character rig for Canada's first fully Deaf musical with ASL-accurate hand controls, and delivered the complete character pipeline for Backyard Beans, launched at Gamescom 2024. Experience with Vicon Blade full-body capture and CaraPost facial capture end to end.</p>
+        <a href="modelling.html#rigging" class="specialty-cta">See rigging work <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
       <div class="specialty-media">
-        <!--
-          REPLACE FILE: videos/specialty-rigging.mp4
-          Short looping clip of rig demo, blend shapes, or mocap output.
-        -->
-        <div class="specialty-media-placeholder">
-          <span>videos/specialty-rigging.mp4</span>
-        </div>
+        <!-- REPLACE FILE: videos/specialty-rigging.mp4 -->
+        <div class="specialty-media-placeholder"><span>videos/specialty-rigging.mp4</span></div>
       </div>
     </div>
 
   </div>
 </section>
 
-
-<!-- ================================================================
-     SELECTED WORK SECTION
-     ================================================================ -->
+<!-- SELECTED WORK -->
 <section id="work">
   <div class="section-wrap">
     <div class="section-rule">
@@ -300,9 +198,7 @@
       <div class="section-rule-line"></div>
     </div>
 
-    <!-- Filter bar — segmented type + pill program -->
     <div class="filter-bar" role="group" aria-label="Filter work">
-
       <div>
         <div class="filter-group-label">Work type</div>
         <div class="filter-segment" role="group">
@@ -314,7 +210,6 @@
           <button class="filter-seg-btn" data-type="vr">VR / XR</button>
         </div>
       </div>
-
       <div>
         <div class="filter-group-label">Filter by program</div>
         <div class="filter-pills">
@@ -327,33 +222,24 @@
           <button class="filter-pill clear-btn" id="clear-filters">Clear filters</button>
         </div>
       </div>
-
     </div>
 
-    <!-- Empty state -->
     <div class="work-empty" id="work-empty" aria-live="polite">
       <div class="work-empty-emoji">¯\_(ツ)_/¯</div>
       <div class="work-empty-text">Nothing here for that combo.</div>
       <div class="work-empty-sub">Try a different filter or clear them all.</div>
     </div>
 
-    <!-- Work grid
-         data-types: comma-separated — all, layout, modelling, rigging, animation, vr
-         data-progs:  comma-separated — all, unreal, maya, unity, blender, houdini
-    -->
     <div class="work-grid">
 
-      <!-- CENTRE BLOCK REHABILITATION -->
       <div class="project-card"
+        data-project="cbr"
         data-types="layout, modelling, vr"
         data-progs="unreal, maya, houdini"
         data-title="Centre Block Rehabilitation"
         data-year="2023 — ongoing"
-        data-roles="Team Lead · Cinematics Director · Unreal Engine Look Dev · Technical 3D Artist"
-        data-desc="A joint project between Carleton Immersive Media Studio and CENTRUS to build an interactive Pixel Streaming application serving as a visual twin of Parliament's Centre Block Rehabilitation. I led the team, directed cinematic sequences in Unreal Sequencer, handled look development end-to-end, and optimised BIM, photogrammetry, and pointcloud data for realtime use. Featured at Unreal Fest Seattle 2024 and Unreal Fest Chicago 2026."
+        data-roles="Team Lead · Producer · Cinematics Director · Unreal Engine Look Dev · Technical 3D Artist"
         data-tools="Unreal Engine 5, Maya, Houdini, Substance Painter"
-        data-thumb="images/projects/cbr.jpg"
-        data-thumb-file="images/projects/cbr.jpg"
         data-awards=""
         data-links="">
         <div class="project-thumb-wrap">
@@ -369,20 +255,16 @@
             </div>
           </div>
         </div>
-        <div class="project-mobile-title">Centre Block Rehabilitation</div>
       </div>
 
-      <!-- PARLIAMENT VR -->
       <div class="project-card"
+        data-project="parliament"
         data-types="layout, modelling, vr"
         data-progs="unity, maya"
         data-title="Parliament: The Virtual Experience"
         data-year="2019 — 2020"
         data-roles="3D Lead · Unity Look Dev · Technical 3D Artist"
-        data-desc="A VR experience of Canada's Parliament buildings, created with Carleton Immersive Media Studio for the National Film Board of Canada. I led the modelling team, converting BIM and photogrammetric data into game-ready meshes, creating PBR materials, and assembling and lighting the environments in Unity. The experience is publicly available on Steam, Oculus, and the web."
         data-tools="Unity, Maya, 3ds Max, Substance Painter"
-        data-thumb="images/projects/parliament.jpg"
-        data-thumb-file="images/projects/parliament.jpg"
         data-awards="Prix Gemeaux 2020 — Best Interactive Experience|https://academie.ca/prixgemeaux/483/finalistes-et-laureats|Prix NUMIX 2021 — XR Experience Immersive|https://numix.ca/palmares-2021/"
         data-links="View experience|https://www.experienceparliament.ca/">
         <div class="project-thumb-wrap">
@@ -398,28 +280,24 @@
             </div>
           </div>
         </div>
-        <div class="project-mobile-title">Parliament: The Virtual Experience</div>
       </div>
 
-      <!-- BACKYARD BEANS -->
       <div class="project-card"
+        data-project="backyard-beans"
         data-types="rigging, animation, modelling"
-        data-progs="maya"
+        data-progs="maya, houdini"
         data-title="Backyard Beans"
         data-year="2021 — 2024"
-        data-roles="Character Pipeline Artist · Technical Animator · Costume Designer"
-        data-desc="Backyard Beans is a chaotic physics-based arena brawler by Kevin Suckert, published by Rocketbeans Entertainment and launched at Gamescom 2024. I built the full character pipeline: custom body and facial rigs with squash-and-stretch systems, blend shape-driven facial animation, weight painting across layered clothing meshes, and modelled multiple in-game costumes."
-        data-tools="Maya"
-        data-thumb="images/projects/backyard-beans.jpg"
-        data-thumb-file="images/projects/backyard-beans.jpg"
+        data-roles="Character Pipeline Artist · Character Animator · 3D Artist · Costume Designer"
+        data-tools="Maya, Houdini"
         data-awards=""
-        data-links="Steam page|https://store.steampowered.com/app/1469430/Backyard_Beans/">
+        data-links="Backyard Beans on Steam|https://store.steampowered.com/app/1469430/Backyard_Beans/">
         <div class="project-thumb-wrap">
           <!-- REPLACE FILE: images/projects/backyard-beans.jpg -->
           <div class="thumb-placeholder"><span>images/projects/backyard-beans.jpg</span></div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Backyard Beans</div>
-            <div class="project-hover-roles">Character Pipeline · Technical Animator</div>
+            <div class="project-hover-roles">Character Pipeline · Animator · Costume</div>
             <div class="project-hover-tags">
               <span class="project-hover-tag">Game</span>
               <span class="project-hover-tag">Rigging</span>
@@ -427,78 +305,41 @@
             </div>
           </div>
         </div>
-        <div class="project-mobile-title">Backyard Beans</div>
       </div>
 
-      <!-- BLACK DRUM -->
       <div class="project-card"
-        data-types="animation, rigging, modelling"
-        data-progs="maya"
-        data-title="The Black Drum"
-        data-year="2021"
-        data-roles="Project Lead · 3D Artist · Rigger · Motion Capture"
-        data-desc="Canada's first fully Deaf musical, produced by the Canadian Cultural Society of the Deaf and Deaf Culture Centre. I designed and modelled a biped CG character based on an inanimate object, built custom body and facial rigs, operated full-body and facial mocap (Vicon Blade and CaraPost), cleaned and retargeted performance data, and keyframe animated hands and arms to accurately perform ASL sign language."
-        data-tools="Maya, Vicon Blade, CaraPost"
-        data-thumb="images/projects/black-drum.jpg"
-        data-thumb-file="images/projects/black-drum.jpg"
+        data-project="familiar-fate"
+        data-types="animation, rigging, layout"
+        data-progs="maya, unreal"
+        data-title="A Familiar Fate"
+        data-year="2017 — 2018"
+        data-roles="3D Lead · Character Animator · Modeller · Technical Animator"
+        data-tools="Maya, Unreal Engine, After Effects"
         data-awards=""
-        data-links="">
+        data-links="Watch Playthrough|https://www.youtube.com/watch?v=alzvcMKcr0c">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/black-drum.jpg -->
-          <div class="thumb-placeholder"><span>images/projects/black-drum.jpg</span></div>
+          <!-- REPLACE FILE: images/projects/familiar-fate.jpg -->
+          <div class="thumb-placeholder"><span>images/projects/familiar-fate.jpg</span></div>
           <div class="project-hover-overlay">
-            <div class="project-hover-title">The Black Drum</div>
-            <div class="project-hover-roles">Lead · Rigging · Mocap · ASL Animation</div>
+            <div class="project-hover-title">A Familiar Fate</div>
+            <div class="project-hover-roles">3D Lead · Animation · Cinematics</div>
             <div class="project-hover-tags">
-              <span class="project-hover-tag">Mocap</span>
-              <span class="project-hover-tag">Character</span>
-              <span class="project-hover-tag">ASL</span>
+              <span class="project-hover-tag">Game</span>
+              <span class="project-hover-tag">Animation</span>
+              <span class="project-hover-tag">Cinematics</span>
             </div>
           </div>
         </div>
-        <div class="project-mobile-title">The Black Drum</div>
       </div>
 
-      <!-- STONE FACADE -->
       <div class="project-card"
-        data-types="modelling"
-        data-progs="houdini, maya"
-        data-title="Stone Building Facade"
-        data-year="2019 — 2020"
-        data-roles="Project Lead · 3D Artist · Procedural Modelling"
-        data-desc="Five fabrication-ready precast concrete panel designs for the Library and Archives Canada preservation facility in Gatineau, now permanently installed. Each panel is 9.5x2.6 metres; the full facade wraps 13 rows high and 7 columns wide. I created procedural rock textures with seamless tiling and variation, ran CNC and KUKA milling simulations to verify physical constraints, and optimised mesh density for the milling robot. From a distance the panels read as natural stone; up close the machined lines become visible."
-        data-tools="Houdini, Maya, Rhinoceros 3D"
-        data-thumb="images/projects/stone-facade.jpg"
-        data-thumb-file="images/projects/stone-facade.jpg"
-        data-awards=""
-        data-links="B+H Architects project page|https://bharchitects.com/en/project/library-and-archives-of-canada-gatineau-2/">
-        <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/stone-facade.jpg -->
-          <div class="thumb-placeholder"><span>images/projects/stone-facade.jpg</span></div>
-          <div class="project-hover-overlay">
-            <div class="project-hover-title">Stone Building Facade</div>
-            <div class="project-hover-roles">Lead · Procedural Modelling · Fabrication</div>
-            <div class="project-hover-tags">
-              <span class="project-hover-tag">Fabrication</span>
-              <span class="project-hover-tag">Procedural</span>
-              <span class="project-hover-tag">Houdini</span>
-            </div>
-          </div>
-        </div>
-        <div class="project-mobile-title">Stone Building Facade</div>
-      </div>
-
-      <!-- DRAGOONS MEDALLION -->
-      <div class="project-card"
+        data-project="dragoons"
         data-types="modelling"
         data-progs="houdini, maya"
         data-title="Royal Canadian Dragoons Medallion"
         data-year="2021"
-        data-roles="Project Lead · 3D Artist · Fabrication"
-        data-desc="A 1.6-metre diameter bronze-cast medallion for The Royal Canadian Dragoons' new building entrance, now permanently installed. I translated a 2D concept design into a fabrication-ready 3D mesh using sculpting, procedural noise, and classical modelling. Required precise control of concavity, protrusion slopes, and polycount-to-detail ratios to survive the casting process."
-        data-tools="Maya, Houdini, Rhinoceros 3D"
-        data-thumb="images/projects/dragoons.jpg"
-        data-thumb-file="images/projects/dragoons.jpg"
+        data-roles="Project Lead · Producer · 3D Artist"
+        data-tools="Maya, Houdini, ZBrush, Rhinoceros 3D"
         data-awards=""
         data-links="">
         <div class="project-thumb-wrap">
@@ -513,131 +354,497 @@
             </div>
           </div>
         </div>
-        <div class="project-mobile-title">Royal Canadian Dragoons Medallion</div>
       </div>
 
-      <!-- VENUS MILL -->
       <div class="project-card"
+        data-project="venus-mill"
         data-types="modelling, layout"
-        data-progs="blender"
+        data-progs="maya, blender"
         data-title="Yukon's Venus Mill"
-        data-year="2025"
-        data-roles="3D Environment Artist · Look Dev"
-        data-desc="A web-based 3D heritage environment built for Yukon Heritage through Carleton Immersive Media Studio. I modelled and textured the historic mill environments, handled look development, and prepared all assets for deployment in a realtime web application."
-        data-tools="Blender, Substance Painter"
-        data-thumb="images/projects/venus-mill.jpg"
-        data-thumb-file="images/projects/venus-mill.jpg"
+        data-year="2024 — 2025"
+        data-roles="Project Lead · Producer · 3D Artist · Asset Artist"
+        data-tools="Maya, Blender, Three.js"
         data-awards=""
-        data-links="">
+        data-links="Venus Mill Website|https://venusmillstory.ca/">
         <div class="project-thumb-wrap">
           <!-- REPLACE FILE: images/projects/venus-mill.jpg -->
           <div class="thumb-placeholder"><span>images/projects/venus-mill.jpg</span></div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Yukon's Venus Mill</div>
-            <div class="project-hover-roles">Environment Artist · Look Dev</div>
+            <div class="project-hover-roles">Lead · Environment · Look Dev</div>
             <div class="project-hover-tags">
               <span class="project-hover-tag">Heritage</span>
               <span class="project-hover-tag">Web 3D</span>
-              <span class="project-hover-tag">Blender</span>
             </div>
           </div>
         </div>
-        <div class="project-mobile-title">Yukon's Venus Mill</div>
       </div>
 
-      <!-- FAMILIAR FATE -->
       <div class="project-card"
-        data-types="animation, rigging, layout"
-        data-progs="maya, unreal"
-        data-title="A Familiar Fate"
-        data-year="2018"
-        data-roles="Lead 3D Director · Character Animator · Rigger · Lead Cinematics · Sound Design"
-        data-desc="A senior thesis indie adventure game developed with Carleton University and Algonquin College, exhibited at Games Con Canada 2017 and Canadian Gaming Expo 2018. I handled all in-game character 3D: custom rigs for bipedal and quadrupedal characters, seamless animation systems in Maya, cinematic cutscenes built in Unreal Engine Sequencer, original background music, and 2D loading screen animations in After Effects."
-        data-tools="Maya, Unreal Engine, After Effects"
-        data-thumb="images/projects/familiar-fate.jpg"
-        data-thumb-file="images/projects/familiar-fate.jpg"
+        data-project="stone-facade"
+        data-types="modelling"
+        data-progs="houdini, maya"
+        data-title="Stone Building Facade"
+        data-year="2019 — 2020"
+        data-roles="Project Lead · Producer · 3D Artist"
+        data-tools="Houdini, Maya, Rhinoceros 3D"
+        data-awards=""
+        data-links="B+H Architects — more photos|https://bharchitects.com/en/project/library-and-archives-of-canada-gatineau-2/">
+        <div class="project-thumb-wrap">
+          <!-- REPLACE FILE: images/projects/stone-facade.jpg -->
+          <div class="thumb-placeholder"><span>images/projects/stone-facade.jpg</span></div>
+          <div class="project-hover-overlay">
+            <div class="project-hover-title">Stone Building Facade</div>
+            <div class="project-hover-roles">Lead · Procedural · Fabrication</div>
+            <div class="project-hover-tags">
+              <span class="project-hover-tag">Fabrication</span>
+              <span class="project-hover-tag">Procedural</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card"
+        data-project="black-drum"
+        data-types="animation, rigging, modelling"
+        data-progs="maya"
+        data-title="The Black Drum"
+        data-year="2021"
+        data-roles="3D Artist · Animator · Technical Artist · Motion Capture Cleanup"
+        data-tools="Maya, Vicon Blade, CaraPost"
         data-awards=""
         data-links="">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/familiar-fate.jpg -->
-          <div class="thumb-placeholder"><span>images/projects/familiar-fate.jpg</span></div>
+          <!-- REPLACE FILE: images/projects/black-drum.jpg -->
+          <div class="thumb-placeholder"><span>images/projects/black-drum.jpg</span></div>
           <div class="project-hover-overlay">
-            <div class="project-hover-title">A Familiar Fate</div>
-            <div class="project-hover-roles">Lead 3D · Cinematics · Sound Design</div>
+            <div class="project-hover-title">The Black Drum</div>
+            <div class="project-hover-roles">Rigging · Mocap · ASL Animation</div>
             <div class="project-hover-tags">
-              <span class="project-hover-tag">Game</span>
-              <span class="project-hover-tag">Animation</span>
-              <span class="project-hover-tag">Cinematics</span>
+              <span class="project-hover-tag">Mocap</span>
+              <span class="project-hover-tag">Character</span>
+              <span class="project-hover-tag">ASL</span>
             </div>
           </div>
         </div>
-        <div class="project-mobile-title">A Familiar Fate</div>
       </div>
 
-    </div><!-- /work-grid -->
+    </div>
   </div>
 </section>
 
 
 <!-- ================================================================
-     SOFTWARE STRIP
+     PROJECT CONTENT TEMPLATES
+     Add your images/videos/embeds inside each template block.
+     To add a real image replace a placeholder div with:
+       <img src="images/projects/FOLDER/FILENAME.jpg" alt="description">
+     To add a real video:
+       <video src="videos/projects/FOLDER/FILENAME.mp4" controls></video>
+     To add a YouTube embed the iframe is already there — it uses lazy loading.
      ================================================================ -->
+
+<template data-project="cbr">
+  <div class="ov-section">
+    <p class="ov-overview">A joint effort between Carleton Immersive Media Studio (CIMS) and CENTRUS to create a Pixel Streaming application serving as a Visual Twin of Parliament's Centre Block Rehabilitation. The interactive application allows users to view existing models, proposed designs, and catalogue heritage assets using the real-time rendering capabilities of Unreal Engine 5.</p>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Leading the multidisciplinary team and communicating with clients</li>
+      <li>Creating visually engaging cinematic shots using Unreal Engine Sequencer</li>
+      <li>Setting up and optimising the scene in Unreal Engine</li>
+      <li>Optimising architectural data: BIM, photogrammetry, pointcloud</li>
+      <li>Creating PBR materials and visual effects</li>
+    </ul>
+  </div>
+  <div class="ov-media-grid">
+    <!-- REPLACE FILE: images/projects/cbr/cbr-day-cycle.gif -->
+    <div class="ov-placeholder">images/projects/cbr/cbr-day-cycle.gif</div>
+    <!-- REPLACE FILE: images/projects/cbr/cbr-peace-tower.gif -->
+    <div class="ov-placeholder">images/projects/cbr/cbr-peace-tower.gif</div>
+    <!-- REPLACE FILE: images/projects/cbr/cbr-orbit.gif -->
+    <div class="ov-placeholder">images/projects/cbr/cbr-orbit.gif</div>
+    <!-- REPLACE FILE: images/projects/cbr/cbr-sunset.gif -->
+    <div class="ov-placeholder">images/projects/cbr/cbr-sunset.gif</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">ArchViz Reel (includes CBR shots)</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/oe2zM_vsr4g" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Unreal Fest Seattle 2024 — Featured Presentation</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/zVLCuKxAdjk" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+    <p class="ov-caption">Project also featured at Unreal Fest Chicago 2026.</p>
+  </div>
+</template>
+
+<template data-project="parliament">
+  <div class="ov-section">
+    <p class="ov-overview">A joint effort between Carleton Immersive Media Studio (CIMS), the National Film Board of Canada, and the Parliament of Canada. Due to ongoing renovations, Parliament was inaccessible to the public — this VR experience allows anyone to explore the site through immersive technology. I was part of the team responsible for creating the assets and assembling the overall environment in Unity.</p>
+  </div>
+  <!-- REPLACE FILE: images/projects/parliament/rotunda.jpg -->
+  <div class="ov-placeholder">images/projects/parliament/rotunda.jpg</div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Lead of the modelling team</li>
+      <li>Optimising photogrammetry and BIM models for VR</li>
+      <li>Creating PBR materials, UVs, baking lighting</li>
+      <li>Setting up the scenes in Unity</li>
+    </ul>
+  </div>
+  <div class="ov-media-grid">
+    <!-- REPLACE FILE: images/projects/parliament/img1.jpg -->
+    <div class="ov-placeholder">images/projects/parliament/img1.jpg</div>
+    <!-- REPLACE FILE: images/projects/parliament/img2.jpg -->
+    <div class="ov-placeholder">images/projects/parliament/img2.jpg</div>
+    <!-- REPLACE FILE: images/projects/parliament/img3.jpg -->
+    <div class="ov-placeholder">images/projects/parliament/img3.jpg</div>
+    <!-- REPLACE FILE: images/projects/parliament/img4.jpg -->
+    <div class="ov-placeholder">images/projects/parliament/img4.jpg</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Experience walkthrough</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/1K4cXuOl_lM" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+<template data-project="backyard-beans">
+  <div class="ov-section">
+    <p class="ov-overview">Backyard Beans is a chaotic physics-based arena brawler created by Kevin Suckert (developer of Pigeon Simulator), featuring fast-paced matches for 1 to 4 players in local and online multiplayer. I animated a variety of characters, created their rigs and handled weight painting to support expressive, exaggerated movement. I also designed and produced multiple character costumes.</p>
+  </div>
+  <!-- REPLACE FILE: images/projects/backyard-beans/facial-rig.gif -->
+  <div class="ov-placeholder">images/projects/backyard-beans/facial-rig.gif</div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Full-body and facial rigging for playable characters</li>
+      <li>Skinning characters and costumes, ensuring proper deformation during movement</li>
+      <li>Animating facial expressions to convey character personality</li>
+      <li>Modelling and designing in-game costumes</li>
+    </ul>
+  </div>
+  <div class="ov-media-grid">
+    <!-- REPLACE FILE: images/projects/backyard-beans/blend-shapes.gif -->
+    <div class="ov-placeholder">images/projects/backyard-beans/blend-shapes.gif</div>
+    <!-- REPLACE FILE: images/projects/backyard-beans/costumes.jpg -->
+    <div class="ov-placeholder">images/projects/backyard-beans/costumes.jpg</div>
+    <!-- REPLACE FILE: images/projects/backyard-beans/houdini-wip.jpg -->
+    <div class="ov-placeholder">images/projects/backyard-beans/houdini-wip.jpg</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Initial rig and skinning test with costumes</div>
+    <!-- REPLACE with: <video src="videos/projects/backyard-beans/skinning-test.mp4" controls style="width:100%;border-radius:4px;"></video> -->
+    <div class="ov-placeholder">videos/projects/backyard-beans/skinning-test.mp4</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Official launch showcase — Gamescom 2024, Cologne</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/fnI0SbfGBI8" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+<template data-project="familiar-fate">
+  <div class="ov-section">
+    <p class="ov-overview">A Familiar Fate is a narrative-based two-player local co-operative adventure game. The story follows twins who must retrieve pieces of their soul representing personality traits. I modelled different types of stylised characters — bipeds, quadrupeds, and creatures — and created unique rigs and animations for each.</p>
+  </div>
+  <div class="ov-media-grid">
+    <!-- REPLACE FILE: images/projects/familiar-fate/main-chars.jpg -->
+    <div class="ov-placeholder">images/projects/familiar-fate/main-chars.jpg</div>
+    <!-- REPLACE FILE: images/projects/familiar-fate/main-rig.jpg -->
+    <div class="ov-placeholder">images/projects/familiar-fate/main-rig.jpg</div>
+    <!-- REPLACE FILE: images/projects/familiar-fate/boss-rig.jpg -->
+    <div class="ov-placeholder">images/projects/familiar-fate/boss-rig.jpg</div>
+    <!-- REPLACE FILE: images/projects/familiar-fate/boss-ingame.jpg -->
+    <div class="ov-placeholder">images/projects/familiar-fate/boss-ingame.jpg</div>
+    <!-- REPLACE FILE: images/projects/familiar-fate/fox-anim.gif -->
+    <div class="ov-placeholder">images/projects/familiar-fate/fox-anim.gif</div>
+    <!-- REPLACE FILE: images/projects/familiar-fate/fox-rig.jpg -->
+    <div class="ov-placeholder">images/projects/familiar-fate/fox-rig.jpg</div>
+    <!-- REPLACE FILE: images/projects/familiar-fate/guardian-rig.jpg -->
+    <div class="ov-placeholder">images/projects/familiar-fate/guardian-rig.jpg</div>
+    <!-- REPLACE FILE: images/projects/familiar-fate/guardian-ingame.jpg -->
+    <div class="ov-placeholder">images/projects/familiar-fate/guardian-ingame.jpg</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>3D character modelling, rigging, skinning, and animating</li>
+      <li>Unreal Engine animation to gameplay implementation</li>
+      <li>Unreal Engine Sequencer setup for cinematics</li>
+      <li>2D animation of loading screens, graphics, logos, and credits</li>
+      <li>Music composition</li>
+    </ul>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">All cutscenes and loading screens</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/wyVrJ3wnHB0" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Clips from the game</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/tphRthrthpk" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+<template data-project="dragoons">
+  <div class="ov-section">
+    <p class="ov-overview">Created a full-scale, fabrication-ready 3D medallion for the Royal Canadian Dragoons' new building entrance. Developed the crest from a 2D concept into a highly detailed, accurately measured 1.6-metre digital model suitable for bronze casting. Combined precision modelling, sculpting, and procedural techniques.</p>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Design concept</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/dragoons/logo.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/logo.jpg</div>
+      <!-- REPLACE FILE: images/projects/dragoons/coin-concept.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/coin-concept.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Houdini procedural workflow</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/dragoons/houdini-banner.gif -->
+      <div class="ov-placeholder">images/projects/dragoons/houdini-banner.gif</div>
+      <!-- REPLACE FILE: images/projects/dragoons/houdini-lettering.gif -->
+      <div class="ov-placeholder">images/projects/dragoons/houdini-lettering.gif</div>
+      <!-- REPLACE FILE: images/projects/dragoons/houdini-assembly.gif -->
+      <div class="ov-placeholder">images/projects/dragoons/houdini-assembly.gif</div>
+      <!-- REPLACE FILE: images/projects/dragoons/final-houdini.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/final-houdini.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Measurement workflow</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/dragoons/side-view.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/side-view.jpg</div>
+      <!-- REPLACE FILE: images/projects/dragoons/workflow.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/workflow.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Sculpt iterations</div>
+    <!-- REPLACE FILE: images/projects/dragoons/zbrush-sculpt.gif -->
+    <div class="ov-placeholder">images/projects/dragoons/zbrush-sculpt.gif</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Installed at the Dragoons</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/dragoons/install.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/install.jpg</div>
+      <!-- REPLACE FILE: images/projects/dragoons/group.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/group.jpg</div>
+      <!-- REPLACE FILE: images/projects/dragoons/installed.jpg -->
+      <div class="ov-placeholder">images/projects/dragoons/installed.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Designing and modelling based on logo and 2D concept</li>
+      <li>Running simulations to ensure designs meet strict measurements (depth, volume)</li>
+      <li>Optimising mesh for CNC machine output while maintaining surface detail</li>
+    </ul>
+  </div>
+</template>
+
+<template data-project="venus-mill">
+  <div class="ov-section">
+    <p class="ov-overview">Venus Mill was the first and largest of the early mills operating in Yukon, and the only remaining gravity-fed ore processing mill in the territory. Since the mill is heavily deteriorated and unsafe for public viewing, my team created a website to educate the public and digitally preserve the site. I modelled four pieces of machinery based on photographs of what remains on site.</p>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">3D machinery models</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/venus-mill/flotation-tank.jpg -->
+      <div class="ov-placeholder">images/projects/venus-mill/flotation-tank.jpg</div>
+      <!-- REPLACE FILE: images/projects/venus-mill/boiler.jpg -->
+      <div class="ov-placeholder">images/projects/venus-mill/boiler.jpg</div>
+      <!-- REPLACE FILE: images/projects/venus-mill/boiler-wire.jpg -->
+      <div class="ov-placeholder">images/projects/venus-mill/boiler-wire.jpg</div>
+      <!-- REPLACE FILE: images/projects/venus-mill/jaw-crusher.jpg -->
+      <div class="ov-placeholder">images/projects/venus-mill/jaw-crusher.jpg</div>
+      <!-- REPLACE FILE: images/projects/venus-mill/jaw-crusher-wire.jpg -->
+      <div class="ov-placeholder">images/projects/venus-mill/jaw-crusher-wire.jpg</div>
+      <!-- REPLACE FILE: images/projects/venus-mill/trommel.jpg -->
+      <div class="ov-placeholder">images/projects/venus-mill/trommel.jpg</div>
+      <!-- REPLACE FILE: images/projects/venus-mill/trommel-wire.jpg -->
+      <div class="ov-placeholder">images/projects/venus-mill/trommel-wire.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Animated machinery compilation</div>
+    <!-- REPLACE FILE: images/projects/venus-mill/animated-machinery.gif -->
+    <div class="ov-placeholder">images/projects/venus-mill/animated-machinery.gif</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Leading the team to create the website</li>
+      <li>Modelling machinery accurately based on photographs of deteriorated parts</li>
+      <li>Creating accurate PBR materials</li>
+      <li>Animating machinery to depict its main use</li>
+      <li>Optimising models, animation, and materials for web</li>
+    </ul>
+  </div>
+</template>
+
+<template data-project="stone-facade">
+  <div class="ov-section">
+    <p class="ov-overview">Created 5 different digital rock designs using procedurally generated textures and sculpting for Library and Archives Canada's new preservation facility in Gatineau. Each panel is 9.5x2.6 metres; the full facade wraps 13 rows high and 7 columns wide and is cast in concrete. From a distance the panels read as natural stone; up close the machined lines become apparent.</p>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Design concept</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/stone-facade/layout-concept.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/layout-concept.jpg</div>
+      <!-- REPLACE FILE: images/projects/stone-facade/measurements.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/measurements.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Measurement workflow</div>
+    <!-- REPLACE FILE: images/projects/stone-facade/workflow.jpg -->
+    <div class="ov-placeholder">images/projects/stone-facade/workflow.jpg</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Final panels and CNC simulations</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/stone-facade/sandstone.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/sandstone.jpg</div>
+      <!-- REPLACE FILE: images/projects/stone-facade/granite.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/granite.jpg</div>
+      <!-- REPLACE FILE: images/projects/stone-facade/limestone.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/limestone.jpg</div>
+      <!-- REPLACE FILE: images/projects/stone-facade/glacial-till.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/glacial-till.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Rock generator and tiling</div>
+    <!-- REPLACE FILE: images/projects/stone-facade/rock-generator.jpg -->
+    <div class="ov-placeholder">images/projects/stone-facade/rock-generator.jpg</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Panel installation</div>
+    <div class="ov-media-grid">
+      <!-- REPLACE FILE: images/projects/stone-facade/install.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/install.jpg</div>
+      <!-- REPLACE FILE: images/projects/stone-facade/final1.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/final1.jpg</div>
+      <!-- REPLACE FILE: images/projects/stone-facade/final2.jpg -->
+      <div class="ov-placeholder">images/projects/stone-facade/final2.jpg</div>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Creating 2 to 3 tileable meshes for each of the 5 rock designs</li>
+      <li>Running simulations to verify depth, weight limit, and sunlight direction</li>
+      <li>Optimising mesh for CNC readability while retaining texture detail</li>
+    </ul>
+    <p class="ov-caption" style="margin-top:0.75rem;">An academic paper based on this project is forthcoming — a link will be added here when published.</p>
+  </div>
+</template>
+
+<template data-project="black-drum">
+  <div class="ov-section">
+    <p class="ov-overview">The Black Drum is Canada's first fully Deaf musical, produced by the Canadian Cultural Society of the Deaf and Deaf Culture Centre. The production combines live stage performance with digital elements, including CG characters that interact with the actors.</p>
+  </div>
+  <!-- REPLACE FILE: images/projects/black-drum/facial-mocap.jpg -->
+  <div class="ov-placeholder">images/projects/black-drum/facial-mocap.jpg</div>
+  <div class="ov-section">
+    <div class="ov-section-label">Angry Tree — mocap cleaned up with facial animation</div>
+    <!-- REPLACE with: <video src="videos/projects/black-drum/angry-tree.mp4" controls style="width:100%;border-radius:4px;"></video> -->
+    <div class="ov-placeholder">videos/projects/black-drum/angry-tree.mp4</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Blend shapes</div>
+    <!-- REPLACE FILE: images/projects/black-drum/blend-shapes.jpg -->
+    <div class="ov-placeholder">images/projects/black-drum/blend-shapes.jpg</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Happy Tree — mocap cleaned up with facial animation</div>
+    <!-- REPLACE with: <video src="videos/projects/black-drum/happy-tree.mp4" controls style="width:100%;border-radius:4px;"></video> -->
+    <div class="ov-placeholder">videos/projects/black-drum/happy-tree.mp4</div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Designing, modelling, and rigging a custom CG character</li>
+      <li>Setting up and operating facial and body motion capture equipment</li>
+      <li>Cleaning up mocap animation data</li>
+      <li>Keyframe animating hands and arms to accurately perform sign language</li>
+      <li>Creating blend shapes and matching facial animation to character movements</li>
+    </ul>
+  </div>
+  <!-- REPLACE FILE: images/projects/black-drum/vicon-cara.jpg -->
+  <div class="ov-placeholder">images/projects/black-drum/vicon-cara.jpg</div>
+  <div class="ov-section">
+    <div class="ov-section-label">Play trailer</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/Z3SynP1OJj0" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+
+<!-- SOFTWARE STRIP -->
 <div id="software-strip">
   <div class="software-strip-inner">
     <p class="software-strip-label">Software &amp; tools</p>
     <div class="software-logos">
       <div class="software-logo has-filter" data-prog="maya">
-        <!-- REPLACE FILE: images/logos/maya.webp — 72x72px -->
-        <img src="images/logos/maya.webp" alt="Autodesk Maya" onerror="this.style.display='none'">
+        <img src="images/logos/maya.webp" alt="Maya" onerror="this.style.display='none'">
         <span class="software-logo-name">Maya</span>
       </div>
       <div class="software-logo has-filter" data-prog="houdini">
-        <!-- REPLACE FILE: images/logos/houdini.webp -->
         <img src="images/logos/houdini.webp" alt="Houdini" onerror="this.style.display='none'">
         <span class="software-logo-name">Houdini</span>
       </div>
       <div class="software-logo has-filter" data-prog="unreal">
-        <!-- REPLACE FILE: images/logos/unreal.webp -->
         <img src="images/logos/unreal.webp" alt="Unreal Engine" onerror="this.style.display='none'">
         <span class="software-logo-name">Unreal Engine</span>
       </div>
       <div class="software-logo has-filter" data-prog="unity">
-        <!-- REPLACE FILE: images/logos/unity.webp -->
         <img src="images/logos/unity.webp" alt="Unity" onerror="this.style.display='none'">
         <span class="software-logo-name">Unity</span>
       </div>
       <div class="software-logo has-filter" data-prog="blender">
-        <!-- REPLACE FILE: images/logos/blender.webp -->
         <img src="images/logos/blender.webp" alt="Blender" onerror="this.style.display='none'">
         <span class="software-logo-name">Blender</span>
       </div>
       <div class="software-logo">
-        <!-- REPLACE FILE: images/logos/3dsmax.webp -->
         <img src="images/logos/3dsmax.webp" alt="3ds Max" onerror="this.style.display='none'">
         <span class="software-logo-name">3ds Max</span>
       </div>
       <div class="software-logo">
-        <!-- REPLACE FILE: images/logos/substance-painter.webp -->
         <img src="images/logos/substance-painter.webp" alt="Substance Painter" onerror="this.style.display='none'">
         <span class="software-logo-name">Substance</span>
       </div>
       <div class="software-logo">
-        <!-- REPLACE FILE: images/logos/after-effects.webp -->
         <img src="images/logos/after-effects.webp" alt="After Effects" onerror="this.style.display='none'">
         <span class="software-logo-name">After Effects</span>
       </div>
       <div class="software-logo">
-        <!-- REPLACE FILE: images/logos/premiere.webp -->
         <img src="images/logos/premiere.webp" alt="Premiere Pro" onerror="this.style.display='none'">
         <span class="software-logo-name">Premiere</span>
       </div>
       <div class="software-logo">
-        <!-- REPLACE FILE: images/logos/audition.webp -->
         <img src="images/logos/audition.webp" alt="Adobe Audition" onerror="this.style.display='none'">
         <span class="software-logo-name">Audition</span>
       </div>
       <div class="software-logo">
-        <!-- REPLACE FILE: images/logos/vicon.webp -->
         <img src="images/logos/vicon.webp" alt="Vicon Blade" onerror="this.style.display='none'">
         <span class="software-logo-name">Vicon</span>
       </div>
@@ -646,32 +853,27 @@
 </div>
 
 
-<!-- ================================================================
-     PROJECT OVERLAY (popup)
-     ================================================================ -->
+<!-- OVERLAY -->
 <div id="overlay" role="dialog" aria-modal="true" aria-labelledby="ov-title">
   <div class="overlay-panel">
     <button class="overlay-close" id="overlay-close" aria-label="Close">&times;</button>
-    <div class="overlay-media-wrap" id="ov-media"></div>
-    <div class="overlay-body">
+    <div class="overlay-header">
       <div class="overlay-meta">
         <span id="ov-year" class="overlay-year"></span>
         <span id="ov-awards"></span>
       </div>
       <h2 id="ov-title" class="overlay-title"></h2>
       <div id="ov-roles" class="overlay-roles"></div>
-      <p id="ov-desc" class="overlay-desc"></p>
       <div class="overlay-section-label">Programs used</div>
       <div id="ov-tools" class="overlay-tools"></div>
       <div id="ov-links" class="overlay-links"></div>
     </div>
+    <div id="ov-body" class="overlay-rich-body"></div>
   </div>
 </div>
 
 
-<!-- ================================================================
-     ABOUT SECTION
-     ================================================================ -->
+<!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
     <div class="section-rule">
@@ -681,14 +883,11 @@
     <div class="about-grid">
 
       <div class="about-photo-wrap">
-        <!--
-          REPLACE FILE: images/photo.jpg — your headshot, square crop recommended.
-          Swap placeholder div with: <img src="images/photo.jpg" alt="Raechel Padua" class="about-photo">
-        -->
+        <!-- REPLACE FILE: images/photo.jpg
+             Swap the div below with: <img src="images/photo.jpg" alt="Raechel Padua" class="about-photo"> -->
         <div class="about-photo-placeholder">images/photo.jpg</div>
         <div class="about-photo-name">Raechel Padua</div>
         <div class="about-photo-location">Ontario, Canada</div>
-
         <div class="about-icon-links">
           <a href="mailto:raepadua.art@gmail.com" class="about-icon-link" aria-label="Email">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -717,65 +916,54 @@
           <a href="modelling.html#rigging" class="about-specialty-link">Rigging</a>
         </div>
 
-        <!-- Awards — compact list, quietly below the blurb -->
         <div class="about-awards">
           <div class="about-awards-label">Recognition</div>
           <ul class="about-awards-list">
             <li>
               <span class="about-award-year">2020</span>
-              <span class="about-award-title">Winner, Best Interactive Experience</span>
-              <a href="https://academie.ca/prixgemeaux/483/finalistes-et-laureats" target="_blank" rel="noopener" class="about-award-link">Prix Gemeaux</a>
+              <span class="about-award-body">Winner, Best Interactive Experience — <a href="https://academie.ca/prixgemeaux/483/finalistes-et-laureats" target="_blank" rel="noopener" class="about-award-link">Prix Gemeaux</a></span>
             </li>
             <li>
               <span class="about-award-year">2021</span>
-              <span class="about-award-title">XR Experience — Immersive</span>
-              <a href="https://numix.ca/palmares-2021/" target="_blank" rel="noopener" class="about-award-link">Prix NUMIX</a>
+              <span class="about-award-body">XR Experience Immersive — <a href="https://numix.ca/palmares-2021/" target="_blank" rel="noopener" class="about-award-link">Prix NUMIX</a></span>
             </li>
             <li>
               <span class="about-award-year">2024</span>
-              <span class="about-award-title">Featured project — Unreal Fest Seattle 2024</span>
+              <span class="about-award-body">Featured project — Unreal Fest Seattle 2024</span>
             </li>
             <li>
               <span class="about-award-year">2026</span>
-              <span class="about-award-title">Featured project — Unreal Fest Chicago 2026</span>
+              <span class="about-award-body">Featured project — Unreal Fest Chicago 2026</span>
             </li>
             <li>
               <span class="about-award-year">2013</span>
-              <span class="about-award-title">Silver Medal, 3D Character Animation</span>
-              <span class="about-award-org">Ontario Technological Skills Competition</span>
+              <span class="about-award-body">Silver Medal, 3D Character Animation — Ontario Technological Skills Competition</span>
             </li>
             <li>
               <span class="about-award-year">2014</span>
-              <span class="about-award-title">3rd Place, 3D Character Animation</span>
-              <span class="about-award-org">Ontario Technological Skills Competition</span>
+              <span class="about-award-body">3rd Place, 3D Character Animation — Ontario Technological Skills Competition</span>
             </li>
             <li>
               <span class="about-award-year">2014</span>
-              <span class="about-award-title">Winner, Best Concept — Film &amp; Broadcasting</span>
-              <a href="https://www.youtube.com/watch?v=bwYnOwjo3Z0" target="_blank" rel="noopener" class="about-award-link">#FlashForward</a>
+              <span class="about-award-body">Winner, Best Concept Film &amp; Broadcasting — <a href="https://www.youtube.com/watch?v=bwYnOwjo3Z0" target="_blank" rel="noopener" class="about-award-link">#FlashForward</a></span>
             </li>
             <li>
               <span class="about-award-year">2013</span>
-              <span class="about-award-title">Best Band / Best Orchestra</span>
-              <a href="https://youtu.be/-IJPrISodzo?t=7074" target="_blank" rel="noopener" class="about-award-link">Canada's Capital Cappies</a>
+              <span class="about-award-body">Best Band / Best Orchestra — <a href="https://youtu.be/-IJPrISodzo?t=7074" target="_blank" rel="noopener" class="about-award-link">Canada's Capital Cappies</a></span>
             </li>
           </ul>
         </div>
-
       </div>
+
     </div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     FOOTER
-     ================================================================ -->
+<!-- FOOTER -->
 <footer>
   <span class="footer-logo">Raechel Padua</span>
   <span class="footer-copy">&copy; 2026</span>
 </footer>
-
 
 <script type="module" src="js/main.js"></script>
 </body>

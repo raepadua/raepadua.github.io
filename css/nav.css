@@ -1,42 +1,22 @@
 /* ============================================================
    NAV BAR
-   Single persistent nav. Transparent over hero, solid after.
-   Includes specialty dropdown, mobile hamburger + drawer,
-   and scroll-to-top button.
    ============================================================ */
 
 #nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 500;
   height: var(--nav-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--sp-lg);
-  transition:
-    background 0.4s var(--ease),
-    border-color 0.4s var(--ease),
-    box-shadow 0.4s var(--ease);
+  transition: background 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
   border-bottom: 1px solid transparent;
 }
 
-#nav.nav-hero {
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-}
-
-#nav.nav-solid {
-  background: rgba(255, 255, 255, 0.97);
-  border-color: var(--border);
-  box-shadow: 0 1px 0 var(--border);
-  backdrop-filter: blur(12px);
-}
-
-/* ── Logo ────────────────────────────────────────────── */
+#nav.nav-hero  { background: transparent; border-color: transparent; box-shadow: none; }
+#nav.nav-solid { background: rgba(255,255,255,0.97); border-color: var(--border); box-shadow: 0 1px 0 var(--border); backdrop-filter: blur(12px); }
 
 .nav-logo {
   font-family: var(--font-display);
@@ -46,10 +26,8 @@
   flex-shrink: 0;
 }
 
-#nav.nav-hero  .nav-logo { color: rgba(255, 255, 255, 0.92); }
+#nav.nav-hero  .nav-logo { color: rgba(255,255,255,0.92); }
 #nav.nav-solid .nav-logo { color: var(--ink); }
-
-/* ── Desktop links ───────────────────────────────────── */
 
 .nav-links {
   display: flex;
@@ -65,8 +43,8 @@
   transition: color 0.2s;
 }
 
-#nav.nav-hero  .nav-links a { color: rgba(180, 215, 245, 0.6); }
-#nav.nav-hero  .nav-links a:hover { color: rgba(255, 255, 255, 0.95); }
+#nav.nav-hero  .nav-links a { color: rgba(180,215,245,0.6); }
+#nav.nav-hero  .nav-links a:hover { color: rgba(255,255,255,0.95); }
 #nav.nav-solid .nav-links a { color: var(--muted); }
 #nav.nav-solid .nav-links a:hover { color: var(--azure); }
 
@@ -82,7 +60,7 @@
 #nav.nav-solid .nav-links a.nav-cta { border-color: var(--azure-light); color: var(--azure); }
 #nav.nav-solid .nav-links a.nav-cta:hover { background: var(--azure); color: #fff; border-color: var(--azure); }
 
-/* ── Specialties dropdown ────────────────────────────── */
+/* ── Dropdown ────────────────────────────────────────── */
 
 .nav-dropdown {
   position: relative;
@@ -104,43 +82,47 @@
   transition: color 0.2s;
 }
 
-.nav-dropdown-trigger svg {
-  transition: transform 0.2s;
-  flex-shrink: 0;
-}
-
+.nav-dropdown-trigger svg { transition: transform 0.2s; flex-shrink: 0; }
 .nav-dropdown:hover .nav-dropdown-trigger svg,
-.nav-dropdown:focus-within .nav-dropdown-trigger svg {
-  transform: rotate(180deg);
-}
+.nav-dropdown:focus-within .nav-dropdown-trigger svg { transform: rotate(180deg); }
 
-#nav.nav-hero  .nav-dropdown-trigger { color: rgba(180, 215, 245, 0.6); }
-#nav.nav-hero  .nav-dropdown-trigger:hover { color: rgba(255, 255, 255, 0.95); }
+#nav.nav-hero  .nav-dropdown-trigger { color: rgba(180,215,245,0.6); }
+#nav.nav-hero  .nav-dropdown-trigger:hover { color: rgba(255,255,255,0.95); }
 #nav.nav-solid .nav-dropdown-trigger { color: var(--muted); }
 #nav.nav-solid .nav-dropdown-trigger:hover { color: var(--azure); }
+
+/* Invisible bridge fills the gap between trigger and menu
+   so the menu doesn't vanish when moving the mouse down */
+.nav-dropdown-bridge {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 16px;
+  background: transparent;
+}
 
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 14px);
+  top: calc(100% + 16px);
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.99);
+  background: rgba(255,255,255,0.99);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   padding: 6px;
   min-width: 220px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
   z-index: 600;
   flex-direction: column;
   animation: dropIn 0.18s var(--ease-out);
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
-  display: flex;
-}
+.nav-dropdown:focus-within .nav-dropdown-menu { display: flex; }
 
 .nav-dropdown-menu a {
   font-size: 0.85rem;
@@ -154,35 +136,27 @@
   display: block;
 }
 
-.nav-dropdown-menu a:hover {
-  background: var(--azure-pale);
-  color: var(--azure);
-}
+.nav-dropdown-menu a:hover { background: var(--azure-pale); color: var(--azure); }
 
 @keyframes dropIn {
   from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* ── Hamburger (mobile) ──────────────────────────────── */
+/* ── Hamburger ───────────────────────────────────────── */
 
 .nav-hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
+  width: 36px; height: 36px;
   padding: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
+  background: none; border: none; cursor: pointer;
 }
 
 .nav-hamburger span {
-  display: block;
-  height: 1.5px;
-  border-radius: 99px;
+  display: block; height: 1.5px; border-radius: 99px;
   transition: transform 0.3s, opacity 0.3s, background 0.3s;
 }
 
@@ -198,10 +172,8 @@
 .nav-drawer {
   display: none;
   position: fixed;
-  top: var(--nav-h);
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.99);
+  top: var(--nav-h); left: 0; right: 0;
+  background: rgba(255,255,255,0.99);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: var(--sp-xs) var(--sp-sm) var(--sp-md);
@@ -224,28 +196,17 @@
 
 .nav-drawer > a:hover { color: var(--azure); }
 
-/* Specialty sub-group in drawer */
-.nav-drawer-group {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: var(--sp-xs);
-}
+.nav-drawer-group { border-bottom: 1px solid var(--border); padding-bottom: var(--sp-xs); }
 
 .nav-drawer-group-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 11px 0 6px;
-  display: block;
-  font-weight: 500;
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); padding: 11px 0 6px; display: block; font-weight: 500;
 }
 
 .nav-drawer-sub {
-  font-size: 0.85rem;
-  color: var(--ink-mid);
+  font-size: 0.85rem; color: var(--ink-mid);
   padding: 7px 0 7px var(--sp-sm);
-  display: block;
-  border-bottom: 1px solid var(--border);
+  display: block; border-bottom: 1px solid var(--border);
   letter-spacing: 0.02em;
 }
 
@@ -261,48 +222,27 @@
 
 #scroll-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 2rem; right: 2rem;
   z-index: 400;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: flex; align-items: center; gap: 6px;
   padding: 9px 16px 9px 12px;
   border-radius: var(--r-md);
-  background: var(--azure);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
+  background: var(--azure); color: #fff; border: none; cursor: pointer;
+  opacity: 0; pointer-events: none;
   transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(26, 111, 168, 0.4);
+  box-shadow: 0 4px 20px rgba(26,111,168,0.4);
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+  font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.07em; text-transform: uppercase;
 }
 
-#scroll-top.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-#scroll-top:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(26, 111, 168, 0.45);
-}
+#scroll-top.visible { opacity: 1; pointer-events: auto; }
+#scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(26,111,168,0.45); }
 
 #scroll-top svg {
-  width: 15px;
-  height: 15px;
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
+  width: 15px; height: 15px;
+  fill: none; stroke: #fff; stroke-width: 2.5;
+  stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
 }
 
 /* ── Responsive ──────────────────────────────────────── */
