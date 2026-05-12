@@ -657,7 +657,10 @@
   .about-photo, .about-photo-placeholder { max-width: 180px; }
   .about-awards-list { grid-template-columns: 1fr; }
 }
-
+@media (max-width: 600px) {
+  .section-wrap { padding: var(--sp-xl) var(--sp-sm); }
+  .filter-bar { padding: 0; }
+}
 /* ============================================================
    FOOTER
    ============================================================ */

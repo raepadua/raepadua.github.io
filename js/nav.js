@@ -64,7 +64,13 @@ export function initNav() {
       hamburger.classList.remove('open');
     });
   });
-
+// Clicking the trigger navigates to specialty section
+const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
+if (dropdownTrigger) {
+  dropdownTrigger.addEventListener('click', () => {
+    document.querySelector('#specialty')?.scrollIntoView({ behavior: 'smooth' });
+  });
+}
   // Close drawer on outside click
   document.addEventListener('click', e => {
     if (!nav.contains(e.target) && !drawer.contains(e.target)) {
