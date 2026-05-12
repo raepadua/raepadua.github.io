@@ -1,28 +1,15 @@
 /* ============================================================
-   SECTION SHARED
+   SECTIONS CSS
+   Specialty, work grid, software strip, overlay,
+   about (with inline awards), footer.
    ============================================================ */
+
+/* ── Shared section ──────────────────────────────────── */
 
 .section-wrap {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: var(--sp-xl) var(--sp-lg);
-}
-
-.section-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--azure);
-  font-weight: 500;
-  margin-bottom: var(--sp-xs);
-}
-
-.section-heading {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--ink);
-  line-height: 1.15;
-  margin-bottom: var(--sp-sm);
 }
 
 .section-rule {
@@ -49,95 +36,34 @@
 
 /* ============================================================
    SPECIALTY SECTION
-   Alternating left/right text + media cards.
+   Desktop: overlapping text/media layout.
+   Mobile: stacked box layout.
    ============================================================ */
 
 #specialty {
   background: var(--surface);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .specialty-item {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--sp-xl);
-  align-items: center;
-  padding: var(--sp-xl) 0;
+  min-height: 420px;
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .specialty-item:last-child { border-bottom: none; }
 
-/* alternate: even items flip media to left */
-.specialty-item:nth-child(even) .specialty-media { order: -1; }
-
-.specialty-text {}
-
-.specialty-number {
-  font-family: var(--font-display);
-  font-size: 4rem;
-  color: var(--azure-light);
-  line-height: 1;
-  margin-bottom: var(--sp-xs);
-  display: block;
-}
-
-.specialty-title {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  color: var(--ink);
-  margin-bottom: var(--sp-xs);
-}
-
-.specialty-desc {
-  font-size: 0.95rem;
-  color: var(--ink-mid);
-  line-height: 1.8;
-  margin-bottom: var(--sp-md);
-  max-width: 420px;
-}
-
-.specialty-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: var(--azure);
-  border: 1px solid var(--azure-light);
-  padding: 8px 20px;
-  border-radius: 99px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.specialty-cta:hover {
-  background: var(--azure);
-  color: #fff;
-  border-color: var(--azure);
-}
-
-.specialty-cta svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: transform 0.2s;
-}
-
-.specialty-cta:hover svg { transform: translateX(3px); }
-
+/* Media fills its column fully */
 .specialty-media {
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  aspect-ratio: 16/10;
-  background: var(--azure-light);
   position: relative;
+  overflow: hidden;
+  background: var(--azure-light);
+  min-height: 380px;
 }
 
 .specialty-media video,
@@ -145,11 +71,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .specialty-media-placeholder {
   width: 100%;
   height: 100%;
+  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,6 +96,86 @@
   line-height: 1.6;
 }
 
+/* Text overlaps the media slightly on desktop */
+.specialty-text {
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+  padding: var(--sp-xl) var(--sp-xl) var(--sp-xl) var(--sp-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Negative margin pulls text over media */
+  margin-right: -3rem;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.06);
+}
+
+/* Alternate: even items — media on right, text pulls left over it */
+.specialty-item:nth-child(even) .specialty-media { order: 2; }
+.specialty-item:nth-child(even) .specialty-text  {
+  order: 1;
+  margin-right: 0;
+  margin-left: -3rem;
+  padding: var(--sp-xl) var(--sp-lg) var(--sp-xl) var(--sp-xl);
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.06);
+}
+
+.specialty-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--azure-light);
+  line-height: 1;
+  margin-bottom: var(--sp-xs);
+  display: block;
+}
+
+.specialty-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--ink);
+  margin-bottom: var(--sp-xs);
+  line-height: 1.15;
+}
+
+.specialty-desc {
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  margin-bottom: var(--sp-md);
+  max-width: 380px;
+}
+
+.specialty-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--azure);
+  border: 1px solid var(--azure-light);
+  padding: 8px 20px;
+  border-radius: 99px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.specialty-cta:hover { background: var(--azure); color: #fff; border-color: var(--azure); }
+
+.specialty-cta svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s;
+}
+
+.specialty-cta:hover svg { transform: translateX(3px); }
+
 /* model-viewer embed */
 .specialty-media model-viewer {
   width: 100%;
@@ -175,10 +183,28 @@
   background: var(--azure-pale);
 }
 
+/* Mobile: stacked boxes, no overlap */
 @media (max-width: 900px) {
-  .specialty-item { grid-template-columns: 1fr; gap: var(--sp-md); }
+  .specialty-item {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
   .specialty-item:nth-child(even) .specialty-media { order: 0; }
+  .specialty-item:nth-child(even) .specialty-text  { order: 1; }
+
+  .specialty-text,
+  .specialty-item:nth-child(even) .specialty-text {
+    margin: 0;
+    box-shadow: none;
+    padding: var(--sp-lg) var(--sp-sm);
+  }
+
+  .specialty-media,
+  .specialty-media-placeholder { min-height: 240px; }
   .specialty-number { font-size: 2.5rem; }
+  .specialty-title  { font-size: 1.5rem; }
+  .specialty-desc   { max-width: 100%; }
 }
 
 /* ============================================================
@@ -187,12 +213,12 @@
 
 #work {}
 
-/* ── Filter bar ──────────────────────────────────────── */
+/* ── Filter bar — segmented type + pill program ───────── */
 
 .filter-bar {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   margin-bottom: var(--sp-xl);
 }
 
@@ -201,21 +227,22 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   font-weight: 500;
 }
 
+/* Segmented control for work type */
 .filter-segment {
   display: inline-flex;
   border: 1px solid var(--border-mid);
   border-radius: var(--r-md);
-  overflow: hidden;
+  overflow: visible;
   flex-wrap: wrap;
 }
 
 .filter-seg-btn {
   font-size: 0.75rem;
-  padding: 7px 14px;
+  padding: 8px 15px;
   border: none;
   border-right: 1px solid var(--border-mid);
   color: var(--muted);
@@ -225,12 +252,14 @@
   letter-spacing: 0.03em;
   transition: background 0.15s, color 0.15s;
   white-space: nowrap;
+  line-height: 1;
 }
 
 .filter-seg-btn:last-child { border-right: none; }
 .filter-seg-btn:hover { background: var(--azure-pale); color: var(--azure); }
 .filter-seg-btn.active { background: var(--azure); color: #fff; }
 
+/* Pill buttons for programs */
 .filter-pills {
   display: flex;
   flex-wrap: wrap;
@@ -240,7 +269,7 @@
 
 .filter-pill {
   font-size: 0.73rem;
-  padding: 5px 14px;
+  padding: 6px 15px;
   border-radius: 99px;
   border: 1px solid var(--border-mid);
   color: var(--muted);
@@ -249,24 +278,29 @@
   font-family: var(--font-body);
   letter-spacing: 0.03em;
   transition: border-color 0.15s, color 0.15s, background 0.15s;
+  line-height: 1;
 }
 
 .filter-pill:hover { border-color: var(--azure-mid); color: var(--azure); }
 .filter-pill.active { background: var(--azure); color: #fff; border-color: var(--azure); }
+
+/* Clear button — only visible when filters active */
 .filter-pill.clear-btn {
-  border-color: transparent;
-  color: var(--muted);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s, color 0.15s;
+  border-color: transparent;
+  color: var(--muted);
+  transition: opacity 0.2s, color 0.15s, border-color 0.15s, background 0.15s;
 }
+
 .filter-pill.clear-btn.visible {
   opacity: 1;
   pointer-events: auto;
   color: #c0392b;
-  border-color: #fadbd8;
+  border-color: #f5c6c5;
 }
-.filter-pill.clear-btn:hover { background: #fdecea; border-color: #fadbd8; }
+
+.filter-pill.clear-btn:hover { background: #fdecea; border-color: #f5c6c5; }
 
 /* Empty state */
 .work-empty {
@@ -276,28 +310,15 @@
   padding: var(--sp-xl) var(--sp-lg);
   flex-direction: column;
   align-items: center;
-  gap: var(--sp-sm);
+  gap: var(--sp-xs);
 }
 
 .work-empty.visible { display: flex; }
+.work-empty-emoji  { font-size: 2rem; line-height: 1; }
+.work-empty-text   { font-size: 1rem; color: var(--muted); }
+.work-empty-sub    { font-size: 0.85rem; color: var(--muted); opacity: 0.6; }
 
-.work-empty-emoji {
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.work-empty-text {
-  font-size: 1rem;
-  color: var(--muted);
-}
-
-.work-empty-sub {
-  font-size: 0.85rem;
-  color: var(--muted);
-  opacity: 0.6;
-}
-
-/* ── Work grid ───────────────────────────────────────── */
+/* ── Work grid — 2 col, wider aspect ratio ────────────── */
 
 .work-grid {
   display: grid;
@@ -320,15 +341,13 @@
   box-shadow: 0 16px 40px rgba(26, 111, 168, 0.12);
 }
 
-/* hidden cards from filter */
-.project-card.hidden {
-  display: none;
-}
+.project-card.hidden { display: none; }
 
+/* 4:3 aspect ratio — wider than square */
 .project-thumb-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--azure-pale);
 }
@@ -343,7 +362,7 @@
 
 .project-card:hover .project-thumb { transform: scale(1.04); }
 
-/* Hover overlay */
+/* Hover overlay — title reveals on hover */
 .project-hover-overlay {
   position: absolute;
   inset: 0;
@@ -360,9 +379,10 @@
 
 .project-hover-title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: #fff;
   margin-bottom: 4px;
+  line-height: 1.2;
 }
 
 .project-hover-roles {
@@ -387,7 +407,7 @@
   letter-spacing: 0.04em;
 }
 
-/* mobile: always show title */
+/* Mobile: always show title */
 .project-mobile-title {
   display: none;
   padding: 0.75rem var(--sp-sm);
@@ -422,11 +442,12 @@
   .work-grid { grid-template-columns: 1fr; }
   .project-hover-overlay { opacity: 1; background: rgba(9,13,18,0.5); }
   .project-mobile-title { display: block; }
+  .filter-segment { width: 100%; }
+  .filter-seg-btn { flex: 1; text-align: center; }
 }
 
 /* ============================================================
    SOFTWARE STRIP
-   Logo icons below the work grid, clickable to filter.
    ============================================================ */
 
 #software-strip {
@@ -465,12 +486,13 @@
   gap: 6px;
   opacity: 0.4;
   transition: opacity 0.2s, transform 0.2s;
-  cursor: pointer;
+  cursor: default;
 }
 
-.software-logo:hover { opacity: 0.85; transform: translateY(-2px); }
-.software-logo.has-filter { opacity: 0.55; }
-.software-logo.has-filter:hover { opacity: 1; }
+.software-logo.has-filter { opacity: 0.45; cursor: pointer; }
+.software-logo.has-filter:hover { opacity: 0.9; transform: translateY(-2px); }
+.software-logo.active { opacity: 1; }
+.software-logo.active img { filter: grayscale(0) !important; }
 
 .software-logo img {
   width: 36px;
@@ -480,8 +502,7 @@
   transition: filter 0.2s;
 }
 
-.software-logo:hover img,
-.software-logo.active img { filter: grayscale(0); }
+.software-logo.has-filter:hover img { filter: grayscale(0); }
 
 .software-logo-name {
   font-size: 0.6rem;
@@ -491,7 +512,7 @@
 }
 
 /* ============================================================
-   PROJECT OVERLAY (popup)
+   PROJECT OVERLAY
    ============================================================ */
 
 #overlay {
@@ -512,7 +533,7 @@
   background: var(--page);
   border-radius: var(--r-lg);
   width: 100%;
-  max-width: 860px;
+  max-width: 900px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
@@ -559,6 +580,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .overlay-body {
@@ -573,10 +595,7 @@
   margin-bottom: 0.6rem;
 }
 
-.overlay-year {
-  font-size: 0.78rem;
-  color: var(--muted);
-}
+.overlay-year { font-size: 0.78rem; color: var(--muted); }
 
 .overlay-award {
   font-size: 0.68rem;
@@ -643,7 +662,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-sm);
-  margin-top: var(--sp-sm);
+  margin-top: var(--sp-xs);
 }
 
 .overlay-link {
@@ -670,74 +689,11 @@
 }
 
 /* ============================================================
-   AWARDS SECTION
-   ============================================================ */
-
-#awards {
-  background: var(--azure-pale);
-  border-top: 1px solid var(--azure-light);
-  border-bottom: 1px solid var(--azure-light);
-}
-
-.awards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: var(--sp-sm);
-}
-
-.award-card {
-  background: var(--page);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: var(--sp-sm) var(--sp-md);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.award-card:hover {
-  border-color: var(--azure-light);
-  box-shadow: 0 4px 16px rgba(26, 111, 168, 0.08);
-}
-
-.award-year {
-  font-size: 0.68rem;
-  color: var(--azure);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.award-title {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 4px;
-  line-height: 1.4;
-}
-
-.award-org {
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-.award-link {
-  display: inline-block;
-  font-size: 0.72rem;
-  color: var(--azure);
-  margin-top: 6px;
-  border-bottom: 1px solid var(--azure-light);
-  transition: border-color 0.2s;
-}
-
-.award-link:hover { border-color: var(--azure); }
-
-/* ============================================================
    ABOUT SECTION
+   Awards are embedded quietly inside the about text column.
    ============================================================ */
 
-#about {
-  background: var(--page);
-}
+#about { background: var(--page); }
 
 .about-grid {
   display: grid;
@@ -756,10 +712,7 @@
   aspect-ratio: 1;
   border-radius: var(--r-lg);
   object-fit: cover;
-  background: var(--azure-light);
   display: block;
-  /* REPLACE FILE: images/photo.jpg
-     Your headshot or portrait photo. Square crop works best. */
 }
 
 .about-photo-placeholder {
@@ -821,8 +774,6 @@
   fill: currentColor;
 }
 
-.about-text {}
-
 .about-blurb {
   font-size: 1rem;
   color: var(--ink-mid);
@@ -836,7 +787,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: var(--sp-md);
+  margin-bottom: var(--sp-xl);
 }
 
 .about-specialty-link {
@@ -854,6 +805,66 @@
   color: #fff;
   border-color: var(--azure);
 }
+
+/* Awards — compact inline list under about text */
+.about-awards {
+  border-top: 1px solid var(--border);
+  padding-top: var(--sp-md);
+}
+
+.about-awards-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: var(--sp-sm);
+}
+
+.about-awards-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-awards-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.about-award-year {
+  font-size: 0.7rem;
+  color: var(--azure);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 32px;
+}
+
+.about-award-title {
+  color: var(--ink-mid);
+  flex: 1;
+}
+
+.about-award-org {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.about-award-link {
+  font-size: 0.75rem;
+  color: var(--azure);
+  border-bottom: 1px solid var(--azure-light);
+  white-space: nowrap;
+  transition: border-color 0.2s;
+}
+
+.about-award-link:hover { border-color: var(--azure); }
 
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }

@@ -24,13 +24,10 @@
   transition: opacity 0.6s var(--ease-out);
 }
 
-/* dims video as user scrolls down */
-.hero-video.dimmed { opacity: 0 !important; }
+.hero-video.active   { opacity: 1; z-index: 1; }
+.hero-video.inactive { opacity: 0; z-index: 0; }
 
-.hero-video.active  { opacity: 1; z-index: 1; }
-.hero-video.inactive{ opacity: 0; z-index: 0; }
-
-/* dark gradient overlay */
+/* gradient overlay */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -39,12 +36,12 @@
     to bottom,
     rgba(9, 13, 18, 0.25) 0%,
     rgba(9, 13, 18, 0.15) 50%,
-    rgba(9, 13, 18, 0.65) 100%
+    rgba(9, 13, 18, 0.7) 100%
   );
   pointer-events: none;
 }
 
-/* ── Content layer ────────────────────────────────────── */
+/* ── Content layer ───────────────────────────────────── */
 
 .hero-content {
   position: absolute;
@@ -56,10 +53,9 @@
 
 /* ============================================================
    VERSION 1: Title top-center, thumbnails bottom-center
-   To use Version 1: keep this block, comment out Version 2
+   Currently commented out in index.html.
    ============================================================ */
 
-/* V1 — top center title */
 .hero-title-v1 {
   text-align: center;
   padding-top: calc(var(--nav-h) + var(--sp-lg));
@@ -83,10 +79,9 @@
   font-weight: 300;
 }
 
-/* V1 — thumbnails bottom center */
 .hero-thumbs-v1 {
   margin-top: auto;
-  padding-bottom: var(--sp-lg);
+  padding-bottom: 5rem; /* space above scroll hint */
   display: flex;
   justify-content: center;
   gap: var(--sp-sm);
@@ -94,20 +89,17 @@
 }
 
 /* ============================================================
-   VERSION 2: Title + thumbnails bottom-left (truecolorfilms style)
-   To use Version 2: keep this block, comment out Version 1
+   VERSION 2: Name + thumbnails bottom-left (currently active)
    ============================================================ */
 
 .hero-bottom-v2 {
   margin-top: auto;
-  padding: 0 var(--sp-lg) var(--sp-lg);
+  padding: 0 var(--sp-lg) 5rem; /* space above scroll hint */
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   animation: fadeUp 0.9s var(--ease-out) 0.2s both;
 }
-
-.hero-title-v2 {}
 
 .hero-title-v2 .hero-name {
   font-family: var(--font-display);
@@ -126,7 +118,6 @@
   font-weight: 300;
 }
 
-/* V2 thumbnails bottom right */
 .hero-thumbs-v2 {
   display: flex;
   gap: var(--sp-sm);
@@ -137,14 +128,14 @@
 
 .reel-thumb {
   position: relative;
-  width: 120px;
+  width: 130px;
   aspect-ratio: 16/9;
   border-radius: var(--r-sm);
   overflow: hidden;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.25s, transform 0.25s, opacity 0.25s;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .reel-thumb img {
@@ -154,13 +145,6 @@
   pointer-events: none;
 }
 
-/* REPLACE FILE: images/thumbs/thumb-generalist.jpg
-   Still frame thumbnail for the generalist reel. ~400x225px. */
-/* REPLACE FILE: images/thumbs/thumb-layout.jpg
-   Still frame thumbnail for the layout reel. ~400x225px. */
-/* REPLACE FILE: images/thumbs/thumb-modelling.jpg
-   Still frame thumbnail for the modelling reel. ~400x225px. */
-
 .reel-thumb-label {
   position: absolute;
   bottom: 0;
@@ -168,18 +152,72 @@
   right: 0;
   padding: 4px 6px;
   font-size: 0.62rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
   font-weight: 500;
 }
 
 .reel-thumb:hover,
 .reel-thumb.active {
   opacity: 1;
-  border-color: var(--azure-light);
+  border-color: rgba(180, 215, 245, 0.7);
   transform: translateY(-3px);
+}
+
+/* ── Scroll indicator ────────────────────────────────── */
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  animation: fadeUp 1s var(--ease-out) 0.8s both;
+}
+
+.hero-scroll-hint-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(180, 215, 245, 0.45);
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.hero-scroll-hint-arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(180, 215, 245, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+  animation: bounceScroll 2.4s ease-in-out 2s infinite;
+}
+
+.hero-scroll-hint:hover .hero-scroll-hint-text { color: rgba(180, 215, 245, 0.85); }
+.hero-scroll-hint:hover .hero-scroll-hint-arrow {
+  border-color: rgba(180, 215, 245, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-scroll-hint svg {
+  width: 14px;
+  height: 14px;
+  stroke: rgba(180, 215, 245, 0.65);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* ── Animations ──────────────────────────────────────── */
@@ -189,70 +227,17 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes bounceScroll {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(5px); }
+}
+
 /* ── Responsive ──────────────────────────────────────── */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero-thumbs-v1,
   .hero-thumbs-v2 { gap: var(--sp-xs); }
-  .reel-thumb { width: 80px; }
-
-  .hero-bottom-v2 { flex-direction: column; align-items: flex-start; gap: var(--sp-sm); }
+  .reel-thumb { width: 90px; }
+  .hero-bottom-v2 { flex-direction: column; align-items: flex-start; gap: var(--sp-sm); padding: 0 var(--sp-sm) 5rem; }
   .hero-title-v2 .hero-name { font-size: 1.75rem; }
-
-  #hero { padding: 0 var(--sp-sm); }
-}
-/* ── Scroll indicator ────────────────────────────────── */
-
-.hero-scroll-hint {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  animation: bounceScroll 2.4s ease-in-out 1.5s infinite;
-}
-
-.hero-scroll-hint-text {
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(180, 215, 245, 0.5);
-  font-weight: 400;
-}
-
-.hero-scroll-hint-arrow {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid rgba(180, 215, 245, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.hero-scroll-hint:hover .hero-scroll-hint-arrow {
-  border-color: rgba(180, 215, 245, 0.7);
-  background: rgba(255,255,255,0.08);
-}
-
-.hero-scroll-hint svg {
-  width: 14px;
-  height: 14px;
-  stroke: rgba(180, 215, 245, 0.6);
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-@keyframes bounceScroll {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(6px); }
 }
