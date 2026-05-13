@@ -109,7 +109,6 @@
   top: calc(100% + 16px);
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.99);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
@@ -119,6 +118,38 @@
   z-index: 600;
   flex-direction: column;
   animation: dropIn 0.18s var(--ease-out);
+}
+
+/* Over hero: dark menu */
+#nav.nav-hero .nav-dropdown-menu {
+  background: rgba(10, 18, 28, 0.92);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* Scrolled: light menu */
+#nav.nav-solid .nav-dropdown-menu {
+  background: rgba(255,255,255,0.99);
+  border-color: var(--border);
+}
+
+/* Link colours per context */
+#nav.nav-hero .nav-dropdown-menu a {
+  color: rgba(210,235,255,0.85);
+}
+
+#nav.nav-hero .nav-dropdown-menu a:hover {
+  background: rgba(26,111,168,0.25);
+  color: #fff;
+}
+
+#nav.nav-solid .nav-dropdown-menu a {
+  color: var(--ink-mid);
+}
+
+#nav.nav-solid .nav-dropdown-menu a:hover {
+  background: var(--azure-pale);
+  color: var(--azure);
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,

@@ -78,4 +78,10 @@ if (dropdownTrigger) {
       hamburger.classList.remove('open');
     }
   });
+
+  // On dark-background pages with no video hero, keep nav solid immediately
+if (document.body.classList.contains('page-audio')) {
+  nav.classList.remove('nav-hero');
+  nav.classList.add('nav-solid');
+}
 }

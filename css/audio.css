@@ -108,9 +108,45 @@ body.page-audio footer { background: #06090e; }
 
 /* ── Featured (instrumental cover) ─────────────────────── */
 
-.audio-feature {
-  display: grid; grid-template-columns: 1fr 1.6fr;
-  gap: var(--sp-xl); align-items: center;
+/* ── Hero layout with video ───────────────────────────── */
+
+.audio-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-xl);
+  align-items: center;
+}
+
+.audio-hero-text {}
+
+.audio-hero-video {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  max-width: 480px;
+  justify-self: end;
+}
+
+.audio-hero-video iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  display: block;
+}
+
+.audio-embed-placeholder {
+  aspect-ratio: 16/9;
+  background: rgba(26,111,168,0.08);
+  border: 1px dashed rgba(26,111,168,0.25);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.68rem; color: rgba(180,215,245,0.3);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-align: center; padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .audio-hero-layout { grid-template-columns: 1fr; }
+  .audio-hero-video { max-width: 100%; justify-self: stretch; }
 }
 
 .audio-label {
@@ -172,8 +208,12 @@ body.page-audio footer { background: #06090e; }
   font-size: 0.88rem; color: rgba(180,215,245,0.55); line-height: 1.7;
 }
 
+/* Soundcloud wrapper — softens the contrast against dark bg */
 .audio-embed {
-  border-radius: var(--r-md); overflow: hidden; margin-top: var(--sp-sm);
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--r-md);
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .audio-embed-video {
@@ -198,3 +238,8 @@ body.page-audio footer { background: #06090e; }
   .audio-feature { grid-template-columns: 1fr; gap: var(--sp-md); }
   .audio-wave-deco { display: none; }
 }
+/* Nav overrides for dark audio page */
+#nav.nav-hero .nav-dropdown-trigger { color: rgba(255,255,255,0.92); }
+#nav.nav-hero .nav-links a { color: rgba(180,215,245,0.7); }
+#nav.nav-hero .nav-links a:hover { color: #fff; }
+#nav.nav-hero .nav-logo { color: rgba(255,255,255,0.92); }

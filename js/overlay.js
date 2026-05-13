@@ -22,6 +22,16 @@ export function initOverlay() {
   const elBody   = document.getElementById('ov-body');
 
   function open(card) {
+    // Hero image at top of overlay
+    const elHeroImg = document.getElementById('ov-hero-img');
+    if (elHeroImg) {
+      if (d.thumb) {
+        elHeroImg.innerHTML = `<img src="${d.thumb}" alt="${d.title || ''}">`;
+        elHeroImg.style.display = 'block';
+      } else {
+        elHeroImg.style.display = 'none';
+      }
+    }
     const d         = card.dataset;
     const projectId = d.project;
     const tmpl      = projectId
