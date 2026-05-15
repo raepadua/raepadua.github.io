@@ -30,17 +30,32 @@
   <a href="#about">About Me</a>
 </nav>
 
-<div class="page-header">
-  <h1 class="page-title">Raechel Padua</h1>
-  <p class="page-subtitle">Realtime 3D Artist &amp; Technical Generalist</p>
-  <a href="#work" class="scroll-hint">
-    <span class="scroll-hint-text">Work</span>
-    <div class="scroll-hint-arrow">
-      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+<!-- HERO — reel at top, name bottom left, scroll button bottom centre -->
+<section id="hero">
+  <iframe
+    id="hero-iframe"
+    src="https://www.youtube.com/embed/ujmQUXGUZwc?autoplay=1&mute=1&loop=1&playlist=ujmQUXGUZwc&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-bottom">
+      <div class="hero-text">
+        <div class="hero-name">Raechel Padua</div>
+        <div class="hero-subtitle">Realtime 3D Artist &amp; Technical Generalist</div>
+      </div>
     </div>
-  </a>
-</div>
+    <button class="hero-scroll-btn" id="hero-scroll-btn" aria-label="Scroll to work">
+      <span class="hero-scroll-text">See My Work</span>
+      <div class="hero-scroll-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </button>
+  </div>
+</section>
 
+<!-- WORK GRID -->
 <section class="grid-section" id="work">
   <div class="section-rule">
     <span class="section-rule-label">Selected Work</span>
@@ -49,7 +64,9 @@
 
   <div class="work-grid">
 
-    <div class="project-card"
+    <!-- 1. CENTRE BLOCK -->
+    <!-- hero: 01-CB-Hero.gif 1000x563 (stationary 3/4 day cycle) -->
+    <div class="project-card" data-project="cbr"
       data-title="Centre Block Rehabilitation"
       data-year="2023 — ongoing"
       data-roles="Team Lead · Producer · Cinematics Director · Unreal Engine Look Dev · Technical 3D Artist"
@@ -57,9 +74,9 @@
       data-tools="Unreal Engine 5, Maya, Houdini, Substance Painter"
       data-awards=""
       data-links=""
-      data-thumb="images/projects/cbr.jpg">
+      data-thumb="images/projects/cbr.jpg"
+      data-hero="images/projects/01-CB-Hero.gif">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/cbr.jpg -->
         <div class="project-thumb-placeholder">images/projects/cbr.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">Centre Block Rehabilitation</div>
@@ -68,17 +85,19 @@
       </div>
     </div>
 
-    <div class="project-card"
+    <!-- 2. PARLIAMENT -->
+    <!-- hero: 02-PAR-Hero.webp 1902x893 (rotunda eye level) -->
+    <div class="project-card" data-project="parliament"
       data-title="Parliament: The Virtual Experience"
       data-year="2019 — 2020"
       data-roles="3D Lead · Unity Look Dev · Technical 3D Artist"
-      data-desc="A VR experience of Canada's Parliament buildings, created with CIMS for the National Film Board of Canada. Due to Parliament renovations, it was inaccessible to the public. I led the modelling team, converting BIM and photogrammetric data into game-ready meshes, creating PBR materials, and assembling environments in Unity. Available on Steam, Oculus, and the web."
+      data-desc="A VR experience of Canada's Parliament buildings, created with CIMS for the National Film Board of Canada. Due to Parliament renovations, it was inaccessible to the public. I led the modelling team, converting BIM and photogrammetric data into game-ready meshes, creating PBR materials, and assembling environments in Unity."
       data-tools="Unity, Maya, 3ds Max, Substance Painter"
       data-awards="Prix Gemeaux 2020 — Best Interactive Experience|https://academie.ca/prixgemeaux/483/finalistes-et-laureats|Prix NUMIX 2021 — XR Experience Immersive|https://numix.ca/palmares-2021/"
       data-links="View experience|https://www.experienceparliament.ca/"
-      data-thumb="images/projects/parliament.jpg">
+      data-thumb="images/projects/parliament.jpg"
+      data-hero="images/projects/02-PAR-Hero.webp">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/parliament.jpg -->
         <div class="project-thumb-placeholder">images/projects/parliament.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">Parliament: The Virtual Experience</div>
@@ -87,7 +106,9 @@
       </div>
     </div>
 
-    <div class="project-card"
+    <!-- 3. BACKYARD BEANS -->
+    <!-- hero: 03-BB-hero.webp 1920x1080 -->
+    <div class="project-card" data-project="beans"
       data-title="Backyard Beans"
       data-year="2021 — 2024"
       data-roles="Character Pipeline Artist · Character Animator · 3D Artist · Costume Designer"
@@ -95,9 +116,9 @@
       data-tools="Maya, Houdini"
       data-awards=""
       data-links="Backyard Beans on Steam|https://store.steampowered.com/app/1469430/Backyard_Beans/"
-      data-thumb="images/projects/backyard-beans.jpg">
+      data-thumb="images/projects/backyard-beans.jpg"
+      data-hero="images/projects/03-BB-hero.webp">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/backyard-beans.jpg -->
         <div class="project-thumb-placeholder">images/projects/backyard-beans.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">Backyard Beans</div>
@@ -106,7 +127,9 @@
       </div>
     </div>
 
-    <div class="project-card"
+    <!-- 4. FAMILIAR FATE -->
+    <!-- hero: 04-FF-Hero.webp 963x964 (near square) -->
+    <div class="project-card" data-project="famfate"
       data-title="A Familiar Fate"
       data-year="2017 — 2018"
       data-roles="3D Lead · Character Animator · Modeller · Technical Animator"
@@ -114,9 +137,9 @@
       data-tools="Maya, Unreal Engine, After Effects"
       data-awards=""
       data-links="Watch Playthrough|https://www.youtube.com/watch?v=alzvcMKcr0c"
-      data-thumb="images/projects/familiar-fate.jpg">
+      data-thumb="images/projects/familiar-fate.jpg"
+      data-hero="images/projects/04-FF-Hero.webp">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/familiar-fate.jpg -->
         <div class="project-thumb-placeholder">images/projects/familiar-fate.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">A Familiar Fate</div>
@@ -125,7 +148,9 @@
       </div>
     </div>
 
-    <div class="project-card"
+    <!-- 5. DRAGOONS -->
+    <!-- hero: 05-Dragoons-Hero.webp 1920x1080 -->
+    <div class="project-card" data-project="dragoons"
       data-title="Royal Canadian Dragoons Medallion"
       data-year="2021"
       data-roles="Project Lead · Producer · 3D Artist"
@@ -133,9 +158,9 @@
       data-tools="Maya, Houdini, ZBrush, Rhinoceros 3D"
       data-awards=""
       data-links=""
-      data-thumb="images/projects/dragoons.jpg">
+      data-thumb="images/projects/dragoons.jpg"
+      data-hero="images/projects/05-Dragoons-Hero.webp">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/dragoons.jpg -->
         <div class="project-thumb-placeholder">images/projects/dragoons.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">Royal Canadian Dragoons Medallion</div>
@@ -144,7 +169,8 @@
       </div>
     </div>
 
-    <div class="project-card"
+    <!-- 6. VENUS MILL -->
+    <div class="project-card" data-project="venus"
       data-title="Yukon's Venus Mill"
       data-year="2024 — 2025"
       data-roles="Project Lead · Producer · 3D Artist · Asset Artist"
@@ -152,9 +178,9 @@
       data-tools="Maya, Blender, Three.js"
       data-awards=""
       data-links="Venus Mill Website|https://venusmillstory.ca/"
-      data-thumb="images/projects/venus-mill.jpg">
+      data-thumb="images/projects/venus-mill.jpg"
+      data-hero="images/projects/venus-mill.jpg">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/venus-mill.jpg -->
         <div class="project-thumb-placeholder">images/projects/venus-mill.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">Yukon's Venus Mill</div>
@@ -163,17 +189,19 @@
       </div>
     </div>
 
-    <div class="project-card"
+    <!-- 7. STONE FACADE -->
+    <!-- hero: 06-Stone-Hero.webp 1360x773 -->
+    <div class="project-card" data-project="stone"
       data-title="Stone Building Facade"
       data-year="2019 — 2020"
       data-roles="Project Lead · Producer · 3D Artist"
-      data-desc="Created 5 different digital rock designs using procedurally generated textures and sculpting for the Library and Archives Canada's new preservation facility in Gatineau. Each panel is 9.5x2.6 metres; the full facade wraps 13 rows high and 7 columns wide and is cast in concrete. From a distance they read as natural stone; up close the machined lines become apparent."
+      data-desc="Created 5 different digital rock designs using procedurally generated textures and sculpting for the Library and Archives Canada's new preservation facility in Gatineau. Each panel is 9.5x2.6 metres; the full facade wraps 13 rows high and 7 columns wide and is cast in concrete."
       data-tools="Houdini, Maya, Rhinoceros 3D"
       data-awards=""
       data-links="B+H Architects — more photos|https://bharchitects.com/en/project/library-and-archives-of-canada-gatineau-2/"
-      data-thumb="images/projects/stone-facade.jpg">
+      data-thumb="images/projects/stone-facade.jpg"
+      data-hero="images/projects/06-Stone-Hero.webp">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/stone-facade.jpg -->
         <div class="project-thumb-placeholder">images/projects/stone-facade.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">Stone Building Facade</div>
@@ -182,7 +210,9 @@
       </div>
     </div>
 
-    <div class="project-card"
+    <!-- 8. BLACK DRUM -->
+    <!-- hero: 07-BD-Hero.webp 3512x3024 (near square) -->
+    <div class="project-card" data-project="blackdrum"
       data-title="The Black Drum"
       data-year="2021"
       data-roles="3D Artist · Animator · Technical Artist · Motion Capture Cleanup"
@@ -190,9 +220,9 @@
       data-tools="Maya, Vicon Blade, CaraPost"
       data-awards=""
       data-links=""
-      data-thumb="images/projects/black-drum.jpg">
+      data-thumb="images/projects/black-drum.jpg"
+      data-hero="images/projects/07-BD-Hero.webp">
       <div class="project-thumb-wrap">
-        <!-- REPLACE FILE: images/projects/black-drum.jpg -->
         <div class="project-thumb-placeholder">images/projects/black-drum.jpg</div>
         <div class="project-hover-overlay">
           <div class="project-hover-title">The Black Drum</div>
@@ -204,6 +234,347 @@
   </div>
 </section>
 
+<!-- PROJECT CONTENT TEMPLATES -->
+
+<template data-project="cbr">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Leading the multidisciplinary team and communicating with clients</li>
+      <li>Creating visually engaging cinematic shots using Unreal Engine Sequencer</li>
+      <li>Setting up and optimising the scene in Unreal Engine</li>
+      <li>Optimising architectural data: BIM, photogrammetry, pointcloud</li>
+      <li>Creating PBR materials and visual effects</li>
+    </ul>
+  </div>
+  <!-- 16:9 landscape — full width -->
+  <div class="ov-media-full">
+    <img src="images/projects/01-CB-PT.gif" alt="Peace Tower cinematic shot">
+  </div>
+  <!-- 16:9 + square — 2 col, but square gets letterboxed to match -->
+  <div class="ov-media-grid ov-grid-2">
+    <img src="images/projects/01-CB-orbit.gif" alt="Orbit shot" style="aspect-ratio:16/9;object-fit:cover;">
+    <img src="images/projects/01-CB-top.gif" alt="Top down sunset" style="aspect-ratio:16/9;object-fit:cover;">
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">ArchViz Reel — includes CBR shots</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/oe2zM_vsr4g" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Featured at Unreal Fest Seattle 2024</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/zVLCuKxAdjk" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+<template data-project="parliament">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Lead of the modelling team</li>
+      <li>Optimising photogrammetry and BIM models for VR</li>
+      <li>Creating PBR materials, UVs, baking lighting</li>
+      <li>Setting up the scenes in Unity</li>
+    </ul>
+  </div>
+  <!-- Library 1649x1541 near square, rotunda top 1916x907 landscape — 2 col -->
+  <div class="ov-media-grid ov-grid-2">
+    <img src="images/projects/02-PAR-Library.webp" alt="Library" style="aspect-ratio:1;object-fit:cover;">
+    <img src="images/projects/02-PAR-Rotunda-Top.webp" alt="Rotunda top view" style="aspect-ratio:1;object-fit:cover;">
+  </div>
+  <!-- 3 landscape images — 3 col grid -->
+  <div class="ov-media-grid ov-grid-3">
+    <img src="images/projects/02-PAR-Gold.webp" alt="Gold chamber" style="aspect-ratio:4/3;object-fit:cover;">
+    <img src="images/projects/02-PAR-Entrance.webp" alt="Entrance" style="aspect-ratio:4/3;object-fit:cover;">
+    <img src="images/projects/02-PAR-Court.webp" alt="Courtyard" style="aspect-ratio:4/3;object-fit:cover;">
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Experience walkthrough</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/1K4cXuOl_lM" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="ov-section">
+    <a href="https://www.experienceparliament.ca/" target="_blank" rel="noopener" class="ov-btn">View experience</a>
+  </div>
+</template>
+
+<template data-project="beans">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Full-body and facial rigging for playable characters</li>
+      <li>Skinning characters and costumes, ensuring proper deformation during movement</li>
+      <li>Animating facial expressions to convey character personality</li>
+      <li>Modelling and designing in-game costumes</li>
+    </ul>
+  </div>
+  <!-- 540x304 and 600x379 — both roughly 16:9, put in 2 col -->
+  <div class="ov-media-grid ov-grid-2">
+    <img src="images/projects/03-BB-Skinning.gif" alt="Skinning test" style="aspect-ratio:16/9;object-fit:cover;">
+    <img src="images/projects/03-BB-Expressions.gif" alt="Facial expressions" style="aspect-ratio:16/9;object-fit:cover;">
+  </div>
+  <!-- Rig video 870x490 ~16:9 — full width -->
+  <div class="ov-section">
+    <div class="ov-section-label">Rig demonstration</div>
+    <video src="images/projects/03-BB-rig.mp4" controls style="width:100%;border-radius:6px;"></video>
+  </div>
+  <!-- Costumes 1078x485 wide panoramic — full width -->
+  <div class="ov-media-full">
+    <img src="images/projects/03-BB-Costumes.webp" alt="Character costumes">
+  </div>
+  <!-- Wireframe 2650x558 very wide — full width -->
+  <div class="ov-media-full">
+    <img src="images/projects/03-BB-wireframe.webp" alt="Wireframe" style="object-fit:cover;">
+  </div>
+  <!-- Duck 1125x619 ~16:9 — full width -->
+  <div class="ov-media-full">
+    <img src="images/projects/03-BB-duck.webp" alt="Duck character">
+  </div>
+  <!-- Trailer video 1920x1080 — full width -->
+  <div class="ov-section">
+    <div class="ov-section-label">Game trailer</div>
+    <video src="images/projects/03-BB-Trailer.mp4" controls style="width:100%;border-radius:6px;"></video>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Official Launch Showcase — Gamescom 2024, Cologne</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/fnI0SbfGBI8" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+<template data-project="famfate">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>3D character modelling, rigging, skinning, and animating</li>
+      <li>Unreal Engine animation to gameplay implementation</li>
+      <li>Unreal Engine Sequencer setup for cinematics</li>
+      <li>2D animation of loading screens, graphics, logos, and credits</li>
+      <li>Music composition</li>
+    </ul>
+  </div>
+  <!-- Main characters — 644x608 and 644x608 near square — 2 col -->
+  <div class="ov-media-grid ov-grid-2">
+    <img src="images/projects/04-FF-Character-Full.webp" alt="Main character" style="aspect-ratio:1;object-fit:cover;">
+    <img src="images/projects/04-FF-Character-Rig.webp" alt="Main character rig" style="aspect-ratio:1;object-fit:cover;">
+  </div>
+  <!-- Boss — 553x506 and 614x608 near square — 2 col -->
+  <div class="ov-media-grid ov-grid-2">
+    <img src="images/projects/04-FF-Boss-rig.webp" alt="Boss rig" style="aspect-ratio:1;object-fit:cover;">
+    <img src="images/projects/04-FF-Boss-full.webp" alt="Boss in game" style="aspect-ratio:1;object-fit:cover;">
+  </div>
+  <!-- Fox + fish — all near square — 3 col or 2x2 arrangement -->
+  <div class="ov-media-grid ov-grid-3">
+    <img src="images/projects/04-FF-Fox-anim.gif" alt="Fox animation" style="aspect-ratio:1;object-fit:cover;">
+    <img src="images/projects/04-FF-Fox-rig.webp" alt="Fox rig" style="aspect-ratio:1;object-fit:cover;">
+    <img src="images/projects/04-FF-Fish-rig.webp" alt="Fish rig" style="aspect-ratio:1;object-fit:cover;">
+  </div>
+  <div class="ov-media-full">
+    <img src="images/projects/04-FF-Fish-full.webp" alt="Fish character">
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">All cutscenes and loading screens I animated (2D &amp; 3D)</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/wyVrJ3wnHB0" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">In-game supercut</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/tphRthrthpk" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+<template data-project="dragoons">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Designing and modelling based on logo and 2D concept</li>
+      <li>Running simulations to ensure designs meet strict measurements (depth, volume)</li>
+      <li>Optimising mesh for CNC machine output while maintaining surface detail</li>
+    </ul>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Design concept</div>
+    <!-- 364x335 and 512x512 near square — 2 col -->
+    <div class="ov-media-grid ov-grid-2">
+      <img src="images/projects/05-Dragoons-logo.webp" alt="Dragoons logo" style="aspect-ratio:1;object-fit:contain;background:#f8f8f8;">
+      <img src="images/projects/05-Dragoons-ref.webp" alt="Reference coin" style="aspect-ratio:1;object-fit:cover;">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Houdini procedural workflow</div>
+    <!-- 512x329, 512x452, 466x512 — mix of landscape/portrait — 3 col equal height -->
+    <div class="ov-media-grid ov-grid-3">
+      <img src="images/projects/05-Dragoons-Banner.gif" alt="Banner procedure" style="aspect-ratio:1;object-fit:cover;">
+      <img src="images/projects/05-Dragoons-Lettering.gif" alt="Lettering procedure" style="aspect-ratio:1;object-fit:cover;">
+      <img src="images/projects/05-Dragoons-Combine.gif" alt="Assembly procedure" style="aspect-ratio:1;object-fit:cover;">
+    </div>
+    <div class="ov-media-full" style="margin-top:8px;">
+      <img src="images/projects/05-Dragoons-Medallion.webp" alt="Final medallion in Houdini">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Workflow for accurate measurements</div>
+    <!-- All wide panoramic — full width stacked -->
+    <div class="ov-media-full">
+      <img src="images/projects/05-Dragoons-depth.webp" alt="Depth measurement">
+    </div>
+    <div class="ov-media-full" style="margin-top:8px;">
+      <img src="images/projects/05-Dragoons-workflow.webp" alt="Workflow">
+    </div>
+    <div class="ov-media-full" style="margin-top:8px;">
+      <img src="images/projects/05-Dragoons-bottom.webp" alt="Bottom view">
+    </div>
+    <div class="ov-media-full" style="margin-top:8px;">
+      <img src="images/projects/05-Dragoons-sculpt.gif" alt="Sculpt iterations">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Medallion installed at the Dragoons entrance</div>
+    <!-- 4032x3024 portrait-ish — 3 col -->
+    <div class="ov-media-grid ov-grid-3">
+      <img src="images/projects/05-Dragoons-installing.webp" alt="Installing" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/05-Dragoons-promo.webp" alt="Promotional photo" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/05-Dragoons-floor.webp" alt="Installed medallion" style="aspect-ratio:4/3;object-fit:cover;">
+    </div>
+  </div>
+</template>
+
+<template data-project="venus">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Leading the team to create the website</li>
+      <li>Modelling machinery accurately based on photographs of deteriorated parts</li>
+      <li>Creating accurate PBR materials</li>
+      <li>Animating machinery to depict its main use</li>
+      <li>Optimising models, animation, and materials for web</li>
+    </ul>
+  </div>
+</template>
+
+<template data-project="stone">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Creating 2 to 3 tileable meshes for each of the 5 rock designs</li>
+      <li>Running simulations to verify depth, weight limit, and sunlight direction</li>
+      <li>Optimising mesh for CNC readability while retaining texture detail</li>
+    </ul>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Design concept</div>
+    <!-- 766x642 and 1399x662 — first near square, second wide landscape — 2 col -->
+    <div class="ov-media-grid ov-grid-2">
+      <img src="images/projects/06-Stone-PanelArrange.webp" alt="Panel arrangement" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-StoneProfile.webp" alt="Stone profile" style="aspect-ratio:4/3;object-fit:cover;">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Workflow for accurate measurements</div>
+    <div class="ov-media-full">
+      <img src="images/projects/06-Stone-Workflow.webp" alt="Workflow">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Final panels and CNC simulations</div>
+
+    <!-- Each rock type: CNC top + CNC corner + full render -->
+    <!-- Sandstone -->
+    <p class="ov-caption" style="margin-bottom:6px;font-weight:500;color:var(--ink);">Sandstone</p>
+    <div class="ov-media-grid ov-grid-3">
+      <img src="images/projects/06-Stone-Sandstone-CNC-Top.webp" alt="Sandstone CNC top" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-Sandstone-CNC-Corner.webp" alt="Sandstone CNC corner" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-Sandstone.webp" alt="Sandstone panel" style="aspect-ratio:4/3;object-fit:cover;">
+    </div>
+
+    <!-- Granite -->
+    <p class="ov-caption" style="margin:12px 0 6px;font-weight:500;color:var(--ink);">Granite</p>
+    <div class="ov-media-grid ov-grid-3">
+      <img src="images/projects/06-Stone-Granite-CNC-Top.webp" alt="Granite CNC top" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-Granite-CNC-Corner.webp" alt="Granite CNC corner" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-Granite.webp" alt="Granite panel" style="aspect-ratio:4/3;object-fit:cover;">
+    </div>
+
+    <!-- Limestone -->
+    <p class="ov-caption" style="margin:12px 0 6px;font-weight:500;color:var(--ink);">Limestone</p>
+    <div class="ov-media-grid ov-grid-3">
+      <img src="images/projects/06-Stone-Limestone-CNC-Top.webp" alt="Limestone CNC top" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-Limestone-CNC-Corner.webp" alt="Limestone CNC corner" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-Limestone.webp" alt="Limestone panel" style="aspect-ratio:4/3;object-fit:cover;">
+    </div>
+
+    <!-- Glacial Till -->
+    <p class="ov-caption" style="margin:12px 0 6px;font-weight:500;color:var(--ink);">Glacial Till</p>
+    <div class="ov-media-grid ov-grid-3">
+      <img src="images/projects/06-Stone-GlacialTill-CNC-Top.webp" alt="Glacial Till CNC top" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-GlacialTill-CNC-Corner.webp" alt="Glacial Till CNC corner" style="aspect-ratio:4/3;object-fit:cover;">
+      <img src="images/projects/06-Stone-GlacialTill.webp" alt="Glacial Till panel" style="aspect-ratio:4/3;object-fit:cover;">
+    </div>
+
+    <!-- Rock generator — wide, put full width -->
+    <div class="ov-media-full" style="margin-top:12px;">
+      <img src="images/projects/06-Stone-RockGenerator.webp" alt="Rock generator and tiling in Maya">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Panel installation</div>
+    <div class="ov-media-grid ov-grid-2">
+      <img src="images/projects/06-Stone-Construction.webp" alt="Construction" style="aspect-ratio:16/9;object-fit:cover;">
+      <img src="images/projects/06-Stone-Facade.webp" alt="Installed facade" style="aspect-ratio:16/9;object-fit:cover;">
+    </div>
+  </div>
+</template>
+
+<template data-project="blackdrum">
+  <div class="ov-section">
+    <div class="ov-section-label">My responsibilities</div>
+    <ul class="ov-list">
+      <li>Designing, modelling, and rigging a custom CG character</li>
+      <li>Setting up and operating facial and body motion capture equipment</li>
+      <li>Cleaning up mocap animation data</li>
+      <li>Keyframe animating hands and arms to accurately perform sign language</li>
+      <li>Creating blend shapes and matching facial animation to character movements</li>
+    </ul>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Angry Tree — mocap cleaned up + facial animation</div>
+    <video src="images/projects/07-BD-AngryTree.mp4" controls style="width:100%;border-radius:6px;"></video>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Blend shapes created for Angry animation</div>
+    <!-- 2367x843 very wide — full width -->
+    <div class="ov-media-full">
+      <img src="images/projects/07-BD-BlendShapes.webp" alt="Blend shapes">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Happy Tree — mocap cleaned up + facial animation</div>
+    <video src="images/projects/07-BD-HappyTree.mp4" controls style="width:100%;border-radius:6px;"></video>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Face tracking setup</div>
+    <!-- 2868x1036 wide — full width -->
+    <div class="ov-media-full">
+      <img src="images/projects/07-BD-Facetrack.webp" alt="Face tracking">
+    </div>
+  </div>
+  <div class="ov-section">
+    <div class="ov-section-label">Play trailer</div>
+    <div class="ov-embed">
+      <iframe src="https://www.youtube.com/embed/Z3SynP1OJj0" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</template>
+
+<!-- OVERLAY -->
 <div id="overlay">
   <div class="overlay-panel">
     <button class="overlay-close" id="overlay-close">&times;</button>
@@ -220,13 +591,14 @@
       <div id="ov-tools" class="overlay-tools"></div>
       <div id="ov-links" class="overlay-links"></div>
     </div>
+    <div id="ov-body" class="overlay-rich-body"></div>
   </div>
 </div>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
     <div>
-      <!-- REPLACE: swap div for <img src="images/photo.jpg" style="width:100%;aspect-ratio:1;border-radius:12px;object-fit:cover;"> -->
       <div class="about-photo-placeholder">images/photo.jpg</div>
       <div class="about-name">Raechel Padua</div>
       <div class="about-location">Ontario, Canada</div>
@@ -234,11 +606,9 @@
         <a href="mailto:raepadua.art@gmail.com" class="about-icon-link" aria-label="Email">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
-        <!-- REPLACE: your LinkedIn URL -->
         <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" class="about-icon-link" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-        <!-- REPLACE: your YouTube URL -->
         <a href="https://youtube.com/YOUR_CHANNEL" target="_blank" rel="noopener" class="about-icon-link" aria-label="YouTube">
           <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
@@ -273,8 +643,9 @@
 </footer>
 
 <script>
+  // Hamburger
   const hamburger = document.querySelector('.nav-hamburger');
-  const drawer = document.getElementById('nav-drawer');
+  const drawer    = document.getElementById('nav-drawer');
   hamburger?.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', open);
@@ -284,8 +655,33 @@
     hamburger.classList.remove('open');
   }));
 
-  const overlay  = document.getElementById('overlay');
-  const closeBtn = document.getElementById('overlay-close');
+  // Hero scroll button — pause video and scroll to work
+  const scrollBtn = document.getElementById('hero-scroll-btn');
+  const heroIframe = document.getElementById('hero-iframe');
+
+  scrollBtn?.addEventListener('click', () => {
+    // Pause YouTube iframe by posting message
+    heroIframe?.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Dim hero video as user scrolls down
+  const hero = document.getElementById('hero');
+  window.addEventListener('scroll', () => {
+    if (!hero || !heroIframe) return;
+    const rect = hero.getBoundingClientRect();
+    const progress = 1 - (rect.bottom / window.innerHeight);
+    const clamp = Math.max(0, Math.min(1, progress * 2));
+    heroIframe.style.opacity = (0.4 * (1 - clamp));
+    // Pause when scrolled past
+    if (rect.bottom <= 0) {
+      heroIframe?.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    }
+  }, { passive: true });
+
+  // Overlay
+  const overlay   = document.getElementById('overlay');
+  const closeBtn  = document.getElementById('overlay-close');
   const elHeroImg = document.getElementById('ov-hero-img');
   const elTitle   = document.getElementById('ov-title');
   const elYear    = document.getElementById('ov-year');
@@ -294,12 +690,17 @@
   const elTools   = document.getElementById('ov-tools');
   const elAwards  = document.getElementById('ov-awards');
   const elLinks   = document.getElementById('ov-links');
+  const elBody    = document.getElementById('ov-body');
 
   function openOverlay(card) {
     const d = card.dataset;
+    const tmpl = d.project
+      ? document.querySelector(`template[data-project="${d.project}"]`)
+      : null;
 
-    if (d.thumb) {
-      elHeroImg.innerHTML = `<img src="${d.thumb}" alt="${d.title || ''}">`;
+    // Hero image
+    if (d.hero) {
+      elHeroImg.innerHTML = `<img src="${d.hero}" alt="${d.title || ''}">`;
       elHeroImg.style.display = 'block';
     } else {
       elHeroImg.style.display = 'none';
@@ -349,12 +750,18 @@
       }
     }
 
+    elBody.innerHTML = '';
+    if (tmpl) elBody.appendChild(tmpl.content.cloneNode(true));
+
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     document.querySelector('.overlay-panel').scrollTop = 0;
   }
 
   function closeOverlay() {
+    // Stop all media inside overlay
+    overlay.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
+    overlay.querySelectorAll('video').forEach(v => v.pause());
     overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
