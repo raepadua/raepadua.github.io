@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raechel Padua — Realtime 3D Artist</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: var(--hero-bg); overflow: hidden; }
+
+    #hero {
+      position: fixed; inset: 0;
+      background: var(--hero-bg);
+      overflow: hidden;
+    }
+
+    #hero iframe {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw; height: 56.25vw;
+      min-height: 100vh; min-width: 177.77vh;
+      pointer-events: none; border: none;
+      opacity: 0.4;
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(9,13,18,0.3) 0%, rgba(9,13,18,0.65) 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
+      animation: fadeUp 1s var(--ease-out) 0.3s both;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      color: #fff; line-height: 1.05;
+      letter-spacing: -0.01em; margin-bottom: 0.6rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      color: rgba(180,215,245,0.65);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 300; margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: #fff; border: 1px solid rgba(255,255,255,0.4);
+      padding: 12px 28px; border-radius: 99px;
+      transition: background 0.2s, border-color 0.2s;
+      font-family: var(--font-body);
+    }
+
+    .hero-cta:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.8); }
+
+    .hero-cta svg {
+      width: 14px; height: 14px; stroke: #fff; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    #nav {
+      background: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      position: fixed;
+    }
+
+    #nav .nav-links a { color: rgba(180,215,245,0.65); }
+    #nav .nav-links a:hover { color: #fff; }
+    #nav .nav-hamburger span { background: rgba(255,255,255,0.8); }
+    #nav .nav-drawer { background: rgba(10,16,24,0.98); border-color: rgba(255,255,255,0.08); }
+    #nav .nav-drawer a { color: rgba(210,230,255,0.8); border-color: rgba(255,255,255,0.08); }
+    #nav .nav-drawer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<header id="nav">
+  <a href="work.html" class="nav-logo">
+    <!-- REPLACE FILE: images/logo.png -->
+    <img src="images/logo.png" alt="Raechel Padua" onerror="this.style.display='none'">
+  </a>
+  <nav class="nav-links">
+    <a href="work.html">Work</a>
+    <a href="animation.html">Animation</a>
+    <a href="audio.html">Audio</a>
+    <a href="work.html#about">About Me</a>
+  </nav>
+  <button class="nav-hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="nav-drawer" id="nav-drawer">
+  <a href="work.html">Work</a>
+  <a href="animation.html">Animation</a>
+  <a href="audio.html">Audio</a>
+  <a href="work.html#about">About Me</a>
+</nav>
+
+<section id="hero">
+  <iframe
+    src="https://www.youtube.com/embed/ujmQUXGUZwc?autoplay=1&mute=1&loop=1&playlist=ujmQUXGUZwc&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-name">Raechel Padua</div>
+    <div class="hero-subtitle">Realtime 3D Artist</div>
+    <a href="work.html" class="hero-cta">
+      See My Work
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<script>
+  const hamburger = document.querySelector('.nav-hamburger');
+  const drawer = document.getElementById('nav-drawer');
+  hamburger?.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+  });
+</script>
+</body>
+</html>
