@@ -8,15 +8,15 @@
 </head>
 <body>
 
-<header id="nav">
-  <a href="work.html" class="nav-logo">
+<header id="nav" class="nav-solid">
+  <a href="index.html" class="nav-logo">
     <img src="images/logo.png" alt="Raechel Padua" onerror="this.style.display='none'">
   </a>
   <nav class="nav-links">
-    <a href="work.html">Work</a>
+    <a href="index.html#work">Work</a>
     <a href="animation.html" class="active">Animation</a>
     <a href="audio.html">Audio</a>
-    <a href="#about">About Me</a>
+    <a href="index.html#about">About Me</a>
   </nav>
   <button class="nav-hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -24,11 +24,15 @@
 </header>
 
 <nav class="nav-drawer" id="nav-drawer">
-  <a href="work.html">Work</a>
+  <a href="index.html#work">Work</a>
   <a href="animation.html">Animation</a>
   <a href="audio.html">Audio</a>
-  <a href="#about">About Me</a>
+  <a href="index.html#about">About Me</a>
 </nav>
+
+<button id="scroll-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <div class="page-header">
   <h1 class="page-title">Animation</h1>
@@ -43,56 +47,52 @@
     <div class="section-rule-line"></div>
   </div>
 
-  <div class="work-grid" style="margin-bottom:4rem;">
+  <div class="anim-grid">
 
-    <div class="project-card anim-card" data-title="3D Animation — Keyframe, Sequencer" data-vimeo="VIMEO_ID_1">
-      <!-- REPLACE FILE: images/ANIM_KEYFRAME.GIF -->
-      <!-- REPLACE VALUE: data-vimeo — put your Vimeo video ID here -->
-      <div class="project-thumb-wrap">
-        <img src="images/ANIM_KEYFRAME.GIF" alt="3D Animation Keyframe"
-          onerror="this.outerHTML='<div class=\'project-thumb-placeholder\'>images/ANIM_KEYFRAME.GIF</div>'">
-        <div class="project-hover-overlay">
-          <div class="project-hover-title">3D Animation — Keyframe, Sequencer</div>
-          <div class="project-hover-roles">Click to watch</div>
+    <div class="anim-card" data-title="3D Animation — Keyframe, Sequencer" data-vimeo="VIMEO_ID_1">
+      <!-- REPLACE VALUE: data-vimeo — put your Vimeo video ID here (just the number) -->
+      <!-- REPLACE FILE: images/ANIM_KEYFRAME.mp4 (was gif — looping thumbnail) -->
+      <div class="anim-thumb-wrap">
+        <video autoplay muted loop playsinline src="images/ANIM_KEYFRAME.mp4" onerror="this.parentElement.innerHTML='<div class=\'anim-thumb-placeholder\'>images/ANIM_KEYFRAME.mp4</div>'"></video>
+        <div class="anim-hover-overlay">
+          <div class="anim-hover-title">3D Animation — Keyframe, Sequencer</div>
+          <div class="anim-hover-sub">Click to watch</div>
         </div>
       </div>
     </div>
 
-    <div class="project-card anim-card" data-title="Character &amp; Facial Animation, Mocap, Keyframe" data-vimeo="VIMEO_ID_2">
-      <!-- REPLACE FILE: images/ANIM_CHAR.GIF -->
+    <div class="anim-card" data-title="Character &amp; Facial Animation, Mocap, Keyframe" data-vimeo="VIMEO_ID_2">
       <!-- REPLACE VALUE: data-vimeo -->
-      <div class="project-thumb-wrap">
-        <img src="images/ANIM_CHAR.GIF" alt="Character Animation"
-          onerror="this.outerHTML='<div class=\'project-thumb-placeholder\'>images/ANIM_CHAR.GIF</div>'">
-        <div class="project-hover-overlay">
-          <div class="project-hover-title">Character &amp; Facial Animation, Mocap, Keyframe</div>
-          <div class="project-hover-roles">Click to watch</div>
+      <!-- REPLACE FILE: images/ANIM_CHAR.mp4 -->
+      <div class="anim-thumb-wrap">
+        <video autoplay muted loop playsinline src="images/ANIM_CHAR.mp4" onerror="this.parentElement.innerHTML='<div class=\'anim-thumb-placeholder\'>images/ANIM_CHAR.mp4</div>'"></video>
+        <div class="anim-hover-overlay">
+          <div class="anim-hover-title">Character &amp; Facial Animation, Mocap, Keyframe</div>
+          <div class="anim-hover-sub">Click to watch</div>
         </div>
       </div>
     </div>
 
-    <div class="project-card anim-card" data-title="Decal Animation for Projection Mapping (Canada Day Project)" data-vimeo="VIMEO_ID_3">
-      <!-- REPLACE FILE: images/ANIM_DECAL.GIF -->
+    <div class="anim-card" data-title="Decal Animation for Projection Mapping (Canada Day Project)" data-vimeo="VIMEO_ID_3">
       <!-- REPLACE VALUE: data-vimeo -->
-      <div class="project-thumb-wrap">
-        <img src="images/ANIM_DECAL.GIF" alt="Decal Animation"
-          onerror="this.outerHTML='<div class=\'project-thumb-placeholder\'>images/ANIM_DECAL.GIF</div>'">
-        <div class="project-hover-overlay">
-          <div class="project-hover-title">Decal Animation for Projection Mapping</div>
-          <div class="project-hover-roles">Click to watch</div>
+      <!-- REPLACE FILE: images/ANIM_DECAL.mp4 -->
+      <div class="anim-thumb-wrap">
+        <video autoplay muted loop playsinline src="images/ANIM_DECAL.mp4" onerror="this.parentElement.innerHTML='<div class=\'anim-thumb-placeholder\'>images/ANIM_DECAL.mp4</div>'"></video>
+        <div class="anim-hover-overlay">
+          <div class="anim-hover-title">Decal Animation for Projection Mapping</div>
+          <div class="anim-hover-sub">Click to watch</div>
         </div>
       </div>
     </div>
 
-    <div class="project-card anim-card" data-title="Motion Graphics &amp; Kinetic Typography" data-vimeo="VIMEO_ID_4">
-      <!-- REPLACE FILE: images/ANIM_TYPOGRAPHY.GIF -->
+    <div class="anim-card" data-title="Motion Graphics &amp; Kinetic Typography" data-vimeo="VIMEO_ID_4">
       <!-- REPLACE VALUE: data-vimeo -->
-      <div class="project-thumb-wrap">
-        <img src="images/ANIM_TYPOGRAPHY.GIF" alt="Motion Graphics"
-          onerror="this.outerHTML='<div class=\'project-thumb-placeholder\'>images/ANIM_TYPOGRAPHY.GIF</div>'">
-        <div class="project-hover-overlay">
-          <div class="project-hover-title">Motion Graphics &amp; Kinetic Typography</div>
-          <div class="project-hover-roles">Click to watch</div>
+      <!-- REPLACE FILE: images/ANIM_TYPOGRAPHY.mp4 -->
+      <div class="anim-thumb-wrap">
+        <video autoplay muted loop playsinline src="images/ANIM_TYPOGRAPHY.mp4" onerror="this.parentElement.innerHTML='<div class=\'anim-thumb-placeholder\'>images/ANIM_TYPOGRAPHY.mp4</div>'"></video>
+        <div class="anim-hover-overlay">
+          <div class="anim-hover-title">Motion Graphics &amp; Kinetic Typography</div>
+          <div class="anim-hover-sub">Click to watch</div>
         </div>
       </div>
     </div>
@@ -106,12 +106,10 @@
       <div class="section-rule-line"></div>
     </div>
     <div class="gif-grid">
-      <!-- REPLACE FILE: images/FISHEAD.GIF -->
-      <img src="images/FISHEAD.GIF" alt="Fishead Studio logo animation"
-        onerror="this.style.display='none'">
-      <!-- REPLACE FILE: images/FAMFATE.GIF -->
-      <img src="images/FAMFATE.GIF" alt="A Familiar Fate logo animation"
-        onerror="this.style.display='none'">
+      <!-- REPLACE FILE: images/FISHEAD.mp4 (was gif — looping) -->
+      <video autoplay muted loop playsinline src="images/FISHEAD.mp4" title="Fishead Studio logo animation" onerror="this.style.display='none'"></video>
+      <!-- REPLACE FILE: images/FAMFATE.mp4 (was gif — looping) -->
+      <video autoplay muted loop playsinline src="images/FAMFATE.mp4" title="A Familiar Fate logo animation" onerror="this.style.display='none'"></video>
     </div>
   </div>
 
@@ -122,28 +120,28 @@
       <div class="section-rule-line"></div>
     </div>
     <div class="gif-grid">
-      <!-- REPLACE FILE: images/JELLY.GIF -->
-      <img src="images/JELLY.GIF" alt="Jelly" onerror="this.style.display='none'">
-      <!-- REPLACE FILE: images/SEAWEED.GIF -->
-      <img src="images/SEAWEED.GIF" alt="Seaweed" onerror="this.style.display='none'">
-      <!-- REPLACE FILE: images/SUBA.GIF -->
-      <img src="images/SUBA.GIF" alt="Suba" onerror="this.style.display='none'">
-      <!-- REPLACE FILE: images/TURTLE-SWIM.GIF -->
-      <img src="images/TURTLE-SWIM.GIF" alt="Turtle swim" onerror="this.style.display='none'">
-      <!-- REPLACE FILE: images/TURTLE-EAT.GIF -->
-      <img src="images/TURTLE-EAT.GIF" alt="Turtle eat" onerror="this.style.display='none'">
+      <!-- REPLACE FILE: images/JELLY.mp4 (was gif) -->
+      <video autoplay muted loop playsinline src="images/JELLY.mp4" onerror="this.style.display='none'"></video>
+      <!-- REPLACE FILE: images/SEAWEED.mp4 (was gif) -->
+      <video autoplay muted loop playsinline src="images/SEAWEED.mp4" onerror="this.style.display='none'"></video>
+      <!-- REPLACE FILE: images/SUBA.mp4 (was gif) -->
+      <video autoplay muted loop playsinline src="images/SUBA.mp4" onerror="this.style.display='none'"></video>
+      <!-- REPLACE FILE: images/TURTLE-SWIM.mp4 (was gif) -->
+      <video autoplay muted loop playsinline src="images/TURTLE-SWIM.mp4" onerror="this.style.display='none'"></video>
+      <!-- REPLACE FILE: images/TURTLE-EAT.mp4 (was gif) -->
+      <video autoplay muted loop playsinline src="images/TURTLE-EAT.mp4" onerror="this.style.display='none'"></video>
     </div>
   </div>
 
 </section>
 
 <!-- Video popup overlay -->
-<div id="overlay">
-  <div class="overlay-panel">
-    <button class="overlay-close" id="overlay-close">&times;</button>
-    <div class="overlay-video-wrap" id="ov-video"></div>
-    <div class="overlay-body">
-      <h2 id="ov-title" class="overlay-title"></h2>
+<div id="anim-overlay">
+  <div class="anim-overlay-panel">
+    <button class="anim-overlay-close" id="anim-overlay-close">&times;</button>
+    <div class="anim-overlay-title" id="anim-overlay-title"></div>
+    <div class="anim-video-wrap">
+      <iframe id="anim-iframe" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     </div>
   </div>
 </div>
@@ -178,10 +176,10 @@
         <ul class="about-awards-list">
           <li><span class="about-award-year">2020</span><span class="about-award-body">Winner, Best Interactive Experience — <a href="https://academie.ca/prixgemeaux/483/finalistes-et-laureats" target="_blank" rel="noopener" class="about-award-link">Prix Gemeaux</a></span></li>
           <li><span class="about-award-year">2021</span><span class="about-award-body">XR Experience Immersive — <a href="https://numix.ca/palmares-2021/" target="_blank" rel="noopener" class="about-award-link">Prix NUMIX</a></span></li>
-          <li><span class="about-award-year">2024</span><span class="about-award-body">Featured project — Unreal Fest Seattle 2024</span></li>
-          <li><span class="about-award-year">2026</span><span class="about-award-body">Featured project — Unreal Fest Chicago 2026</span></li>
-          <li><span class="about-award-year">2013</span><span class="about-award-body">Silver Medal, 3D Character Animation — Ontario Technological Skills Competition</span></li>
-          <li><span class="about-award-year">2014</span><span class="about-award-body">3rd Place, 3D Character Animation — Ontario Technological Skills Competition</span></li>
+          <li><span class="about-award-year">2024</span><span class="about-award-body">Featured — Unreal Fest Seattle 2024</span></li>
+          <li><span class="about-award-year">2026</span><span class="about-award-body">Featured — Unreal Fest Chicago 2026</span></li>
+          <li><span class="about-award-year">2013</span><span class="about-award-body">Silver Medal, 3D Character Animation — Ontario Skills Competition</span></li>
+          <li><span class="about-award-year">2014</span><span class="about-award-body">3rd Place, 3D Character Animation — Ontario Skills Competition</span></li>
           <li><span class="about-award-year">2014</span><span class="about-award-body">Winner, Best Concept — <a href="https://www.youtube.com/watch?v=bwYnOwjo3Z0" target="_blank" rel="noopener" class="about-award-link">#FlashForward</a></span></li>
           <li><span class="about-award-year">2013</span><span class="about-award-body">Best Band / Best Orchestra — <a href="https://youtu.be/-IJPrISodzo?t=7074" target="_blank" rel="noopener" class="about-award-link">Canada's Capital Cappies</a></span></li>
         </ul>
@@ -196,8 +194,9 @@
 </footer>
 
 <script>
+  // Hamburger
   const hamburger = document.querySelector('.nav-hamburger');
-  const drawer = document.getElementById('nav-drawer');
+  const drawer    = document.getElementById('nav-drawer');
   hamburger?.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', open);
@@ -207,36 +206,49 @@
     hamburger.classList.remove('open');
   }));
 
-  const overlay  = document.getElementById('overlay');
-  const closeBtn = document.getElementById('overlay-close');
-  const ovVideo  = document.getElementById('ov-video');
-  const ovTitle  = document.getElementById('ov-title');
+  // Scroll-to-top
+  const scrollTopBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn?.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  scrollTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Pause looping videos when off screen
+  const loopObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.play().catch(() => {}); }
+      else { e.target.pause(); }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.anim-thumb-wrap video, .gif-grid video').forEach(v => loopObs.observe(v));
+
+  // Animation card click — open Vimeo overlay
+  const animOverlay = document.getElementById('anim-overlay');
+  const animClose   = document.getElementById('anim-overlay-close');
+  const animIframe  = document.getElementById('anim-iframe');
+  const animTitle   = document.getElementById('anim-overlay-title');
 
   document.querySelectorAll('.anim-card').forEach(card => {
     card.addEventListener('click', () => {
       const id    = card.dataset.vimeo;
       const title = card.dataset.title;
-      ovTitle.textContent = title || '';
-      ovVideo.innerHTML = `<iframe
-        src="https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
-      </iframe>`;
-      overlay.classList.add('open');
+      animTitle.textContent = title || '';
+      animIframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`;
+      animOverlay.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
   });
 
-  function closeOverlay() {
-    ovVideo.innerHTML = '';
-    overlay.classList.remove('open');
+  function closeAnimOverlay() {
+    animIframe.src = '';
+    animOverlay.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  closeBtn?.addEventListener('click', closeOverlay);
-  overlay?.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+  animClose?.addEventListener('click', closeAnimOverlay);
+  animOverlay?.addEventListener('click', e => { if (e.target === animOverlay) closeAnimOverlay(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAnimOverlay(); });
 </script>
 </body>
 </html>

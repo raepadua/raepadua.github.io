@@ -8,15 +8,15 @@
 </head>
 <body>
 
-<header id="nav">
-  <a href="work.html" class="nav-logo">
+<header id="nav" class="nav-solid">
+  <a href="index.html" class="nav-logo">
     <img src="images/logo.png" alt="Raechel Padua" onerror="this.style.display='none'">
   </a>
   <nav class="nav-links">
-    <a href="work.html">Work</a>
+    <a href="index.html#work">Work</a>
     <a href="animation.html">Animation</a>
-    <a href="audio.html">Audio</a>
-    <a href="#about">About Me</a>
+    <a href="audio.html" class="active">Audio</a>
+    <a href="index.html#about">About Me</a>
   </nav>
   <button class="nav-hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -24,11 +24,15 @@
 </header>
 
 <nav class="nav-drawer" id="nav-drawer">
-  <a href="work.html">Work</a>
+  <a href="index.html#work">Work</a>
   <a href="animation.html">Animation</a>
   <a href="audio.html">Audio</a>
-  <a href="#about">About Me</a>
+  <a href="index.html#about">About Me</a>
 </nav>
+
+<button id="scroll-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <div class="page-header">
   <h1 class="page-title">Audio</h1>
@@ -37,10 +41,10 @@
 
 <section class="audio-section">
 
-  <!-- Instrumental cover video -->
+  <!-- Instrumental cover video — full width -->
   <!-- REPLACE FILE: videos/INST.mp4 -->
   <div class="inst-video-wrap">
-    <video src="videos/INST.mp4" autoplay muted loop playsinline controls></video>
+    <video src="videos/INST.mp4" controls playsinline></video>
   </div>
 
   <!-- Music Mixing -->
@@ -56,7 +60,7 @@
       <div class="audio-mix-info">
         <div class="audio-mix-title">New Light</div>
         <div class="audio-mix-meta">Folk · K-Pop · R&amp;B/Soul &nbsp;&middot;&nbsp; 5 vocalists &nbsp;&middot;&nbsp; Custom instrumental</div>
-        <p class="audio-mix-desc">Recorded guitar layers, bass and virtual strings for the instrumental. Mixed five vocalists from different parts of the world — all different mic setups — into a cohesive group sound. Most of the mixing focused on EQing vocals to make everyone sound like they recorded in the same place.</p>
+        <p class="audio-mix-desc">Recorded guitar layers, bass and virtual strings for the instrumental. Mixed five vocalists from different parts of the world — all different mic setups — into a cohesive group sound. Heavy EQ work to make everyone sound like they recorded in the same room.</p>
       </div>
     </div>
 
@@ -68,7 +72,7 @@
       <div class="audio-mix-info">
         <div class="audio-mix-title">Don't Go</div>
         <div class="audio-mix-meta">K-Pop · Ballad &nbsp;&middot;&nbsp; 5 vocalists</div>
-        <p class="audio-mix-desc">All main vocals and harmonies mixed onto an existing instrumental. All vocalists recorded from different parts of the world with different mic setups. Heavy EQ work to make five singers from different environments sound unified.</p>
+        <p class="audio-mix-desc">All main vocals and harmonies mixed onto an existing instrumental. Heavy EQ work to make five singers from different recording environments sound unified.</p>
       </div>
     </div>
 
@@ -87,7 +91,7 @@
   </div>
 
   <!-- Original Songs -->
-  <h2 class="audio-section-title" style="margin-top: 3rem;">Original Songs</h2>
+  <h2 class="audio-section-title" style="margin-top:3rem;">Original Songs</h2>
 
   <div class="yt-embed-wrap">
     <iframe src="https://www.youtube.com/embed/KISBuumM0MU" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
@@ -131,10 +135,10 @@
         <ul class="about-awards-list">
           <li><span class="about-award-year">2020</span><span class="about-award-body">Winner, Best Interactive Experience — <a href="https://academie.ca/prixgemeaux/483/finalistes-et-laureats" target="_blank" rel="noopener" class="about-award-link">Prix Gemeaux</a></span></li>
           <li><span class="about-award-year">2021</span><span class="about-award-body">XR Experience Immersive — <a href="https://numix.ca/palmares-2021/" target="_blank" rel="noopener" class="about-award-link">Prix NUMIX</a></span></li>
-          <li><span class="about-award-year">2024</span><span class="about-award-body">Featured project — Unreal Fest Seattle 2024</span></li>
-          <li><span class="about-award-year">2026</span><span class="about-award-body">Featured project — Unreal Fest Chicago 2026</span></li>
-          <li><span class="about-award-year">2013</span><span class="about-award-body">Silver Medal, 3D Character Animation — Ontario Technological Skills Competition</span></li>
-          <li><span class="about-award-year">2014</span><span class="about-award-body">3rd Place, 3D Character Animation — Ontario Technological Skills Competition</span></li>
+          <li><span class="about-award-year">2024</span><span class="about-award-body">Featured — Unreal Fest Seattle 2024</span></li>
+          <li><span class="about-award-year">2026</span><span class="about-award-body">Featured — Unreal Fest Chicago 2026</span></li>
+          <li><span class="about-award-year">2013</span><span class="about-award-body">Silver Medal, 3D Character Animation — Ontario Skills Competition</span></li>
+          <li><span class="about-award-year">2014</span><span class="about-award-body">3rd Place, 3D Character Animation — Ontario Skills Competition</span></li>
           <li><span class="about-award-year">2014</span><span class="about-award-body">Winner, Best Concept — <a href="https://www.youtube.com/watch?v=bwYnOwjo3Z0" target="_blank" rel="noopener" class="about-award-link">#FlashForward</a></span></li>
           <li><span class="about-award-year">2013</span><span class="about-award-body">Best Band / Best Orchestra — <a href="https://youtu.be/-IJPrISodzo?t=7074" target="_blank" rel="noopener" class="about-award-link">Canada's Capital Cappies</a></span></li>
         </ul>
@@ -150,7 +154,7 @@
 
 <script>
   const hamburger = document.querySelector('.nav-hamburger');
-  const drawer = document.getElementById('nav-drawer');
+  const drawer    = document.getElementById('nav-drawer');
   hamburger?.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', open);
@@ -159,6 +163,12 @@
     drawer.classList.remove('open');
     hamburger.classList.remove('open');
   }));
+
+  const scrollTopBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn?.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  scrollTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 </body>
 </html>
