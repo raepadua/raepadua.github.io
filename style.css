@@ -175,6 +175,17 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   background: var(--hero-bg);
   overflow: hidden;
 }
+#hero-video {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw; height: 56.25vw;
+  min-height: 100vh; min-width: 177.77vh;
+  pointer-events: none; border: none;
+  object-fit: cover;
+  opacity: 0.55;
+  transition: opacity 0.5s;
+}
 
 /* Video background — fills viewport */
 #hero-video-bg {
@@ -297,12 +308,21 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 /* Scroll button — bottom centre */
 .hero-scroll-btn {
   position: absolute;
-  bottom: 1.75rem; left: 50%;
+  bottom: 1.75rem;
+  left: 50%;
   transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  background: none; border: none; cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
   animation: fadeUp 0.9s var(--ease-out) 0.5s both;
-  z-index: 3; padding: 0;
+  z-index: 3;
+  padding: 0;
+  /* Important: pointer-events work even when overlapping hero-bottom */
+  pointer-events: auto;
 }
 
 .hero-scroll-text {

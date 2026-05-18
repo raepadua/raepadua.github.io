@@ -9,10 +9,8 @@
 </head>
 <body>
 
-<!-- NAV -->
 <header id="nav" class="nav-hero">
   <a href="#" class="nav-logo">
-    <!-- REPLACE FILE: images/logo.png -->
     <img src="images/logo.png" alt="Raechel Padua" onerror="this.style.display='none'">
   </a>
   <nav class="nav-links">
@@ -21,7 +19,7 @@
     <a href="audio.html">Audio</a>
     <a href="#about">About Me</a>
   </nav>
-  <button class="nav-hamburger" aria-label="Toggle menu">
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
@@ -33,28 +31,25 @@
   <a href="#about">About Me</a>
 </nav>
 
-<!-- Scroll to top -->
 <button id="scroll-top" aria-label="Back to top">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- HERO — full viewport reel with controls -->
+<!-- HERO -->
 <section id="hero">
   <!--
-    Self-hosted video background is most reliable for autoplay.
-    OPTION A (recommended): download your reel, compress as MP4, upload as videos/hero-reel.mp4
-    Then replace the iframe below with:
-    <video id="hero-video-bg" autoplay muted loop playsinline src="videos/hero-reel.mp4"></video>
-
-    OPTION B (current): YouTube iframe — autoplay muted works on most browsers
-    Note: YouTube controls are hidden so we control play/pause via postMessage API
+    Self-hosted video — no Safari redirect issues, better performance.
+    REPLACE FILE: videos/hero-reel.mp4
+    Export from Media Encoder: H.264, 1080p, 4-6 Mbps, faststart enabled.
+    Target file size: under 30MB for a 20-30 second clip.
+    If you want a poster image shown before video loads:
+    add poster="images/hero-poster.webp" to the video tag.
   -->
-  <iframe
-    id="hero-video-bg"
-    src="https://www.youtube.com/embed/ujmQUXGUZwc?autoplay=1&mute=1&loop=1&playlist=ujmQUXGUZwc&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
+  <video
+    id="hero-video"
+    autoplay muted loop playsinline
+    src="videos/hero-reel.mp4">
+  </video>
 
   <div class="hero-overlay"></div>
 
@@ -64,19 +59,13 @@
         <div class="hero-name">Raechel Padua</div>
         <div class="hero-subtitle">Realtime 3D Artist &amp; Technical Generalist</div>
       </div>
-
-      <!-- Video controls: play/pause, mute, watch full -->
       <div class="hero-controls">
         <button class="hero-ctrl-btn" id="hero-pause-btn" aria-label="Pause video" title="Pause">
-          <!-- Pause icon — shown when playing -->
           <svg id="icon-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/></svg>
-          <!-- Play icon — shown when paused -->
           <svg id="icon-play" viewBox="0 0 24 24" style="display:none;"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg>
         </button>
         <button class="hero-ctrl-btn" id="hero-mute-btn" aria-label="Toggle mute" title="Unmute">
-          <!-- Muted icon -->
           <svg id="icon-muted" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <!-- Unmuted icon -->
           <svg id="icon-unmuted" viewBox="0 0 24 24" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         </button>
         <button class="hero-watch-btn" id="hero-watch-btn">
@@ -85,17 +74,18 @@
         </button>
       </div>
     </div>
-
-    <button class="hero-scroll-btn" id="hero-scroll-btn" aria-label="Scroll to work">
-      <span class="hero-scroll-text">See My Work</span>
-      <div class="hero-scroll-arrow">
-        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-    </button>
   </div>
+
+  <!-- Scroll button — centred at bottom, separate from hero-bottom -->
+  <button class="hero-scroll-btn" id="hero-scroll-btn" aria-label="Scroll to work">
+    <span class="hero-scroll-text">See My Work</span>
+    <div class="hero-scroll-arrow">
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </button>
 </section>
 
-<!-- REEL MODAL -->
+<!-- REEL MODAL — YouTube embed with full controls, only loads on click -->
 <div id="reel-modal">
   <div class="reel-modal-inner">
     <button class="reel-modal-close" id="reel-modal-close">&times; Close</button>
@@ -115,7 +105,6 @@
 
     <div class="work-grid">
 
-      <!-- 1. CENTRE BLOCK — hero: 01-CB-Hero.mp4 (was gif, stationary 3/4 day cycle) -->
       <div class="project-card" data-project="cbr"
         data-title="Centre Block Rehabilitation"
         data-year="2023 — ongoing"
@@ -126,7 +115,6 @@
         data-links=""
         data-hero="images/projects/01-CB-Hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/cbr.jpg — grid thumbnail -->
           <div class="project-thumb-placeholder">images/projects/cbr.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Centre Block Rehabilitation</div>
@@ -135,7 +123,6 @@
         </div>
       </div>
 
-      <!-- 2. PARLIAMENT — hero: 02-PAR-Hero.webp (rotunda eye level) -->
       <div class="project-card" data-project="parliament"
         data-title="Parliament: The Virtual Experience"
         data-year="2019 — 2020"
@@ -146,7 +133,6 @@
         data-links="View experience|https://www.experienceparliament.ca/"
         data-hero="images/projects/02-PAR-Hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/parliament.jpg -->
           <div class="project-thumb-placeholder">images/projects/parliament.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Parliament: The Virtual Experience</div>
@@ -155,7 +141,6 @@
         </div>
       </div>
 
-      <!-- 3. BACKYARD BEANS — hero: 03-BB-hero.webp -->
       <div class="project-card" data-project="beans"
         data-title="Backyard Beans"
         data-year="2021 — 2024"
@@ -166,7 +151,6 @@
         data-links="Backyard Beans on Steam|https://store.steampowered.com/app/1469430/Backyard_Beans/"
         data-hero="images/projects/03-BB-hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/backyard-beans.jpg -->
           <div class="project-thumb-placeholder">images/projects/backyard-beans.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Backyard Beans</div>
@@ -175,7 +159,6 @@
         </div>
       </div>
 
-      <!-- 4. FAMILIAR FATE — hero: 04-FF-Hero.webp -->
       <div class="project-card" data-project="famfate"
         data-title="A Familiar Fate"
         data-year="2017 — 2018"
@@ -186,7 +169,6 @@
         data-links="Watch Playthrough|https://www.youtube.com/watch?v=alzvcMKcr0c"
         data-hero="images/projects/04-FF-Hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/familiar-fate.jpg -->
           <div class="project-thumb-placeholder">images/projects/familiar-fate.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">A Familiar Fate</div>
@@ -195,18 +177,16 @@
         </div>
       </div>
 
-      <!-- 5. DRAGOONS — hero: 05-Dragoons-Hero.webp -->
       <div class="project-card" data-project="dragoons"
         data-title="Royal Canadian Dragoons Medallion"
         data-year="2021"
         data-roles="Project Lead · Producer · 3D Artist"
-        data-desc="Created a full-scale, fabrication-ready 3D medallion for the Royal Canadian Dragoons' new building entrance. Developed the crest from a 2D concept into a highly detailed, accurately measured 1.6-metre digital model suitable for bronze casting. Combined precision modelling, sculpting, and procedural techniques."
+        data-desc="Created a full-scale, fabrication-ready 3D medallion for the Royal Canadian Dragoons' new building entrance. Developed the crest from a 2D concept into a highly detailed, accurately measured 1.6-metre digital model suitable for bronze casting."
         data-tools="Maya, Houdini, ZBrush, Rhinoceros 3D"
         data-awards=""
         data-links=""
         data-hero="images/projects/05-Dragoons-Hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/dragoons.jpg -->
           <div class="project-thumb-placeholder">images/projects/dragoons.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Royal Canadian Dragoons Medallion</div>
@@ -215,7 +195,6 @@
         </div>
       </div>
 
-      <!-- 6. VENUS MILL — hero: 08-VM-Hero.webp -->
       <div class="project-card" data-project="venus"
         data-title="Yukon's Venus Mill"
         data-year="2024 — 2025"
@@ -226,7 +205,6 @@
         data-links="Venus Mill Website|https://venusmillstory.ca/"
         data-hero="images/projects/08-VM-Hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/venus-mill.jpg -->
           <div class="project-thumb-placeholder">images/projects/venus-mill.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Yukon's Venus Mill</div>
@@ -235,7 +213,6 @@
         </div>
       </div>
 
-      <!-- 7. STONE FACADE — hero: 06-Stone-Hero.webp -->
       <div class="project-card" data-project="stone"
         data-title="Stone Building Facade"
         data-year="2019 — 2020"
@@ -246,7 +223,6 @@
         data-links="More photos — B+H Architects|https://bharchitects.com/en/project/library-and-archives-of-canada-gatineau-2/"
         data-hero="images/projects/06-Stone-Hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/stone-facade.jpg -->
           <div class="project-thumb-placeholder">images/projects/stone-facade.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">Stone Building Facade</div>
@@ -255,18 +231,16 @@
         </div>
       </div>
 
-      <!-- 8. BLACK DRUM — hero: 07-BD-Hero.webp -->
       <div class="project-card" data-project="blackdrum"
         data-title="The Black Drum"
         data-year="2021"
         data-roles="3D Artist · Animator · Technical Artist · Motion Capture Cleanup"
-        data-desc="Canada's first fully Deaf musical, produced by the Canadian Cultural Society of the Deaf and Deaf Culture Centre. I designed and modelled a biped CG character, built custom body and facial rigs, operated full-body and facial mocap (Vicon Blade and CaraPost), cleaned and retargeted performance data, and keyframe animated hands and arms to accurately perform ASL sign language."
+        data-desc="Canada's first fully Deaf musical, produced by the Canadian Cultural Society of the Deaf and Deaf Culture Centre. I designed and modelled a biped CG character, built custom body and facial rigs, operated full-body and facial mocap, cleaned and retargeted performance data, and keyframe animated hands and arms to accurately perform ASL sign language."
         data-tools="Maya, Vicon Blade, CaraPost"
         data-awards=""
         data-links=""
         data-hero="images/projects/07-BD-Hero.webp">
         <div class="project-thumb-wrap">
-          <!-- REPLACE FILE: images/projects/black-drum.jpg -->
           <div class="project-thumb-placeholder">images/projects/black-drum.jpg</div>
           <div class="project-hover-overlay">
             <div class="project-hover-title">The Black Drum</div>
@@ -279,12 +253,7 @@
   </div>
 </section>
 
-<!-- ================================================================
-     PROJECT CONTENT TEMPLATES
-     GIFs are now MP4 loops: <video autoplay muted loop playsinline class="ov-loop" src="..."></video>
-     Videos with controls: <video controls class="ov-video" src="..."></video>
-     Images: <img src="..." alt="...">
-     ================================================================ -->
+<!-- PROJECT TEMPLATES -->
 
 <template data-project="cbr">
   <div class="ov-section">
@@ -298,13 +267,10 @@
     </ul>
   </div>
   <div class="ov-media-full">
-    <!-- REPLACE FILE: images/projects/01-CB-PT.mp4 (was gif, 700x394 — loop) -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-PT.mp4"></video>
   </div>
   <div class="ov-media-grid ov-grid-2">
-    <!-- REPLACE FILE: images/projects/01-CB-orbit.mp4 (was gif, 900x507 — loop) -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-orbit.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
-    <!-- REPLACE FILE: images/projects/01-CB-top.mp4 (was gif, 800x800 — loop, cropped to 16/9) -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-top.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
   </div>
   <div class="ov-section">
@@ -332,17 +298,12 @@
     </ul>
   </div>
   <div class="ov-media-grid ov-grid-2">
-    <!-- REPLACE FILE: images/projects/02-PAR-Library.webp (1649x1541) -->
     <img src="images/projects/02-PAR-Library.webp" alt="Library" style="aspect-ratio:1;object-fit:cover;">
-    <!-- REPLACE FILE: images/projects/02-PAR-Rotunda-Top.webp (1916x907) -->
-    <img src="images/projects/02-PAR-Rotunda-Top.webp" alt="Rotunda top view" style="aspect-ratio:1;object-fit:cover;">
+    <img src="images/projects/02-PAR-Rotunda-Top.webp" alt="Rotunda top" style="aspect-ratio:1;object-fit:cover;">
   </div>
   <div class="ov-media-grid ov-grid-3">
-    <!-- REPLACE FILE: images/projects/02-PAR-Gold.webp (1092x830) -->
     <img src="images/projects/02-PAR-Gold.webp" alt="Gold chamber" style="aspect-ratio:4/3;object-fit:cover;">
-    <!-- REPLACE FILE: images/projects/02-PAR-Entrance.webp (1170x867) -->
     <img src="images/projects/02-PAR-Entrance.webp" alt="Entrance" style="aspect-ratio:4/3;object-fit:cover;">
-    <!-- REPLACE FILE: images/projects/02-PAR-Court.webp (1915x909) -->
     <img src="images/projects/02-PAR-Court.webp" alt="Courtyard" style="aspect-ratio:4/3;object-fit:cover;">
   </div>
   <div class="ov-section">
@@ -367,31 +328,24 @@
     </ul>
   </div>
   <div class="ov-media-grid ov-grid-2">
-    <!-- REPLACE FILE: images/projects/03-BB-Skinning.mp4 (was gif, 540x304 — loop) -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/03-BB-Skinning.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
-    <!-- REPLACE FILE: images/projects/03-BB-Expressions.mp4 (was gif, 600x379 — loop) -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/03-BB-Expressions.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Rig demonstration</div>
-    <!-- REPLACE FILE: images/projects/03-BB-rig.mp4 (870x490) -->
     <video controls class="ov-video" src="images/projects/03-BB-rig.mp4"></video>
   </div>
   <div class="ov-media-full">
-    <!-- REPLACE FILE: images/projects/03-BB-Costumes.webp (1078x485) -->
     <img src="images/projects/03-BB-Costumes.webp" alt="Character costumes">
   </div>
   <div class="ov-media-full">
-    <!-- REPLACE FILE: images/projects/03-BB-wireframe.webp (2650x558) -->
     <img src="images/projects/03-BB-wireframe.webp" alt="Wireframe">
   </div>
   <div class="ov-media-full">
-    <!-- REPLACE FILE: images/projects/03-BB-duck.webp (1125x619) -->
     <img src="images/projects/03-BB-duck.webp" alt="Duck character">
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Game trailer</div>
-    <!-- REPLACE FILE: images/projects/03-BB-Trailer.mp4 (1920x1080) -->
     <video controls class="ov-video" src="images/projects/03-BB-Trailer.mp4"></video>
   </div>
   <div class="ov-section">
@@ -407,9 +361,7 @@
 
 <template data-project="famfate">
   <div class="ov-media-grid ov-grid-2">
-    <!-- REPLACE FILE: images/projects/04-FF-Character-Full.webp (644x608) -->
     <img src="images/projects/04-FF-Character-Full.webp" alt="Main character" style="aspect-ratio:1;object-fit:cover;">
-    <!-- REPLACE FILE: images/projects/04-FF-Character-Rig.webp (644x608) -->
     <img src="images/projects/04-FF-Character-Rig.webp" alt="Main character rig" style="aspect-ratio:1;object-fit:cover;">
   </div>
   <div class="ov-section">
@@ -423,21 +375,15 @@
     </ul>
   </div>
   <div class="ov-media-grid ov-grid-2">
-    <!-- REPLACE FILE: images/projects/04-FF-Boss-rig.webp (553x506) -->
     <img src="images/projects/04-FF-Boss-rig.webp" alt="Boss rig" style="aspect-ratio:1;object-fit:cover;">
-    <!-- REPLACE FILE: images/projects/04-FF-Boss-full.webp (614x608) -->
     <img src="images/projects/04-FF-Boss-full.webp" alt="Boss in game" style="aspect-ratio:1;object-fit:cover;">
   </div>
   <div class="ov-media-grid ov-grid-3">
-    <!-- REPLACE FILE: images/projects/04-FF-Fox-anim.mp4 (was gif, 450x450 — loop) -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/04-FF-Fox-anim.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
-    <!-- REPLACE FILE: images/projects/04-FF-Fox-rig.webp (573x581) -->
     <img src="images/projects/04-FF-Fox-rig.webp" alt="Fox rig" style="aspect-ratio:1;object-fit:cover;">
-    <!-- REPLACE FILE: images/projects/04-FF-Fish-rig.webp (484x504) -->
     <img src="images/projects/04-FF-Fish-rig.webp" alt="Fish rig" style="aspect-ratio:1;object-fit:cover;">
   </div>
   <div class="ov-media-full">
-    <!-- REPLACE FILE: images/projects/04-FF-Fish-full.webp (617x608) -->
     <img src="images/projects/04-FF-Fish-full.webp" alt="Fish character">
   </div>
   <div class="ov-section">
@@ -461,9 +407,7 @@
   <div class="ov-section">
     <div class="ov-section-label">Design concept</div>
     <div class="ov-media-grid ov-grid-2">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-logo.webp (364x335) -->
       <img src="images/projects/05-Dragoons-logo.webp" alt="Dragoons logo" style="aspect-ratio:1;object-fit:contain;background:#f8f8f8;border-radius:6px;">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-ref.webp (512x512) -->
       <img src="images/projects/05-Dragoons-ref.webp" alt="Reference coin" style="aspect-ratio:1;object-fit:cover;">
     </div>
   </div>
@@ -478,45 +422,28 @@
   <div class="ov-section">
     <div class="ov-section-label">Houdini procedural workflow</div>
     <div class="ov-media-grid ov-grid-3">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-Banner.mp4 (was gif, 512x329 — loop) -->
       <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Banner.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
-      <!-- REPLACE FILE: images/projects/05-Dragoons-Lettering.mp4 (was gif, 512x452 — loop) -->
       <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Lettering.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
-      <!-- REPLACE FILE: images/projects/05-Dragoons-Combine.mp4 (was gif, 466x512 — loop) -->
       <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Combine.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
     </div>
     <div class="ov-media-full" style="margin-top:8px;">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-Medallion.webp (384x512) -->
       <img src="images/projects/05-Dragoons-Medallion.webp" alt="Final medallion in Houdini">
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Workflow for accurate measurements</div>
-    <div class="ov-media-full">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-depth.webp (512x160) -->
-      <img src="images/projects/05-Dragoons-depth.webp" alt="Depth measurement">
-    </div>
+    <div class="ov-media-full"><img src="images/projects/05-Dragoons-depth.webp" alt="Depth measurement"></div>
+    <div class="ov-media-full" style="margin-top:8px;"><img src="images/projects/05-Dragoons-workflow.webp" alt="Workflow"></div>
+    <div class="ov-media-full" style="margin-top:8px;"><img src="images/projects/05-Dragoons-bottom.webp" alt="Bottom view"></div>
     <div class="ov-media-full" style="margin-top:8px;">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-workflow.webp (1213x360) -->
-      <img src="images/projects/05-Dragoons-workflow.webp" alt="Workflow">
-    </div>
-    <div class="ov-media-full" style="margin-top:8px;">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-bottom.webp (1291x393) -->
-      <img src="images/projects/05-Dragoons-bottom.webp" alt="Bottom view">
-    </div>
-    <div class="ov-media-full" style="margin-top:8px;">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-sculpt.mp4 (was gif, 512x483 — loop) -->
       <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-sculpt.mp4"></video>
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Medallion installed at the Dragoons entrance</div>
     <div class="ov-media-grid ov-grid-3">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-installing.webp (resize to 1600px wide) -->
       <img src="images/projects/05-Dragoons-installing.webp" alt="Installing" style="aspect-ratio:4/3;object-fit:cover;">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-promo.webp (resize to 1600px wide) -->
       <img src="images/projects/05-Dragoons-promo.webp" alt="Promotional photo" style="aspect-ratio:4/3;object-fit:cover;">
-      <!-- REPLACE FILE: images/projects/05-Dragoons-floor.webp (resize to 1600px wide) -->
       <img src="images/projects/05-Dragoons-floor.webp" alt="Installed medallion" style="aspect-ratio:4/3;object-fit:cover;">
     </div>
   </div>
@@ -533,37 +460,29 @@
       <li>Optimising models, animation, and materials for web</li>
     </ul>
   </div>
-  <!-- Model + wireframe pairs — 2 col -->
   <div class="ov-section">
     <div class="ov-section-label">Boiler</div>
     <div class="ov-media-grid ov-grid-2">
-      <!-- REPLACE FILE: images/projects/08-VM-Boiler.webp -->
       <img src="images/projects/08-VM-Boiler.webp" alt="Boiler model" style="aspect-ratio:4/3;object-fit:cover;">
-      <!-- REPLACE FILE: images/projects/08-VM-Boiler-Wireframe.webp -->
       <img src="images/projects/08-VM-Boiler-Wireframe.webp" alt="Boiler wireframe" style="aspect-ratio:4/3;object-fit:cover;">
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Jaw Crusher</div>
     <div class="ov-media-grid ov-grid-2">
-      <!-- REPLACE FILE: images/projects/08-VM-Crusher.webp -->
       <img src="images/projects/08-VM-Crusher.webp" alt="Jaw Crusher model" style="aspect-ratio:4/3;object-fit:cover;">
-      <!-- REPLACE FILE: images/projects/08-VM-Crusher-Wireframe.webp -->
       <img src="images/projects/08-VM-Crusher-Wireframe.webp" alt="Jaw Crusher wireframe" style="aspect-ratio:4/3;object-fit:cover;">
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Trommel</div>
     <div class="ov-media-grid ov-grid-2">
-      <!-- REPLACE FILE: images/projects/08-VM-Trommel.webp -->
       <img src="images/projects/08-VM-Trommel.webp" alt="Trommel model" style="aspect-ratio:4/3;object-fit:cover;">
-      <!-- REPLACE FILE: images/projects/08-VM-Trommel-Wireframe.webp -->
       <img src="images/projects/08-VM-Trommel-Wireframe.webp" alt="Trommel wireframe" style="aspect-ratio:4/3;object-fit:cover;">
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Animated machinery</div>
-    <!-- REPLACE FILE: images/projects/08-VM-anim.mp4 (was gif — loop) -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/08-VM-anim.mp4"></video>
   </div>
   <div class="ov-section">
@@ -575,9 +494,7 @@
   <div class="ov-section">
     <div class="ov-section-label">Design concept</div>
     <div class="ov-media-grid ov-grid-2">
-      <!-- REPLACE FILE: images/projects/06-Stone-PanelArrange.webp (766x642) -->
       <img src="images/projects/06-Stone-PanelArrange.webp" alt="Panel arrangement" style="aspect-ratio:4/3;object-fit:cover;">
-      <!-- REPLACE FILE: images/projects/06-Stone-StoneProfile.webp (1399x662) -->
       <img src="images/projects/06-Stone-StoneProfile.webp" alt="Stone profile" style="aspect-ratio:4/3;object-fit:cover;">
     </div>
   </div>
@@ -591,10 +508,7 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Workflow for accurate measurements</div>
-    <div class="ov-media-full">
-      <!-- REPLACE FILE: images/projects/06-Stone-Workflow.webp (1464x574) -->
-      <img src="images/projects/06-Stone-Workflow.webp" alt="Workflow">
-    </div>
+    <div class="ov-media-full"><img src="images/projects/06-Stone-Workflow.webp" alt="Workflow"></div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Final panels and CNC simulations</div>
@@ -623,16 +537,13 @@
       <img src="images/projects/06-Stone-GlacialTill.webp" alt="Glacial Till panel" style="aspect-ratio:4/3;object-fit:cover;">
     </div>
     <div class="ov-media-full" style="margin-top:12px;">
-      <!-- REPLACE FILE: images/projects/06-Stone-RockGenerator.webp (2512x1412) -->
       <img src="images/projects/06-Stone-RockGenerator.webp" alt="Rock generator and tiling in Maya">
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Panel installation — facade installed in Gatineau</div>
     <div class="ov-media-grid ov-grid-2">
-      <!-- REPLACE FILE: images/projects/06-Stone-Construction.webp (952x557) -->
       <img src="images/projects/06-Stone-Construction.webp" alt="Construction" style="aspect-ratio:16/9;object-fit:cover;">
-      <!-- REPLACE FILE: images/projects/06-Stone-Facade.webp (1711x1095) -->
       <img src="images/projects/06-Stone-Facade.webp" alt="Installed facade" style="aspect-ratio:16/9;object-fit:cover;">
     </div>
   </div>
@@ -654,27 +565,19 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Angry Tree — mocap cleaned up + facial animation</div>
-    <!-- REPLACE FILE: images/projects/07-BD-AngryTree.mp4 (1080x700) -->
     <video controls class="ov-video" src="images/projects/07-BD-AngryTree.mp4"></video>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Blend shapes for Angry animation</div>
-    <div class="ov-media-full">
-      <!-- REPLACE FILE: images/projects/07-BD-BlendShapes.webp (2367x843) -->
-      <img src="images/projects/07-BD-BlendShapes.webp" alt="Blend shapes">
-    </div>
+    <div class="ov-media-full"><img src="images/projects/07-BD-BlendShapes.webp" alt="Blend shapes"></div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Happy Tree — mocap cleaned up + facial animation</div>
-    <!-- REPLACE FILE: images/projects/07-BD-HappyTree.mp4 (1080x700) -->
     <video controls class="ov-video" src="images/projects/07-BD-HappyTree.mp4"></video>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Face tracking setup</div>
-    <div class="ov-media-full">
-      <!-- REPLACE FILE: images/projects/07-BD-Facetrack.webp (2868x1036) -->
-      <img src="images/projects/07-BD-Facetrack.webp" alt="Face tracking setup">
-    </div>
+    <div class="ov-media-full"><img src="images/projects/07-BD-Facetrack.webp" alt="Face tracking setup"></div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Play trailer</div>
@@ -709,10 +612,6 @@
 <section id="about">
   <div class="about-inner">
     <div>
-      <!--
-        REPLACE: swap placeholder with your photo:
-        <img src="images/photo.jpg" alt="Raechel Padua" class="about-photo">
-      -->
       <div class="about-photo-placeholder">images/photo.jpg</div>
       <div class="about-name">Raechel Padua</div>
       <div class="about-location">Ontario, Canada</div>
@@ -720,11 +619,9 @@
         <a href="mailto:raepadua.art@gmail.com" class="about-icon-link" aria-label="Email">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
-        <!-- REPLACE: update href -->
         <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" class="about-icon-link" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
-        <!-- REPLACE: update href -->
         <a href="https://youtube.com/YOUR_CHANNEL" target="_blank" rel="noopener" class="about-icon-link" aria-label="YouTube">
           <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
@@ -759,23 +656,34 @@
 </footer>
 
 <script>
-  // ── Hamburger ──────────────────────────────────────────────────
-  const hamburger = document.querySelector('.nav-hamburger');
+  // ── Hamburger — X on open, lines on closed ─────────────────────
+  const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
 
   hamburger?.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
   });
+
   drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     drawer.classList.remove('open');
     hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
   }));
 
-  // ── Nav hero/solid based on hero visibility ────────────────────
+  document.addEventListener('click', e => {
+    const nav = document.getElementById('nav');
+    if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // ── Nav hero/solid ─────────────────────────────────────────────
   const nav         = document.getElementById('nav');
   const heroSection = document.getElementById('hero');
-  const heroIframe  = document.getElementById('hero-video-bg');
 
   const navObs = new IntersectionObserver(([e]) => {
     nav.classList.toggle('nav-hero',  e.isIntersecting);
@@ -783,87 +691,68 @@
   }, { threshold: 0.1 });
   navObs.observe(heroSection);
 
-  // ── Scroll-to-top button ───────────────────────────────────────
+  // ── Scroll-to-top ──────────────────────────────────────────────
   const scrollTopBtn = document.getElementById('scroll-top');
   window.addEventListener('scroll', () => {
     scrollTopBtn?.classList.toggle('visible', window.scrollY > window.innerHeight * 0.5);
   }, { passive: true });
   scrollTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // ── Hero video controls via postMessage ───────────────────────
-  let isPlaying = true;
-  let isMuted   = true;
-
-  function postYT(func, args) {
-    heroIframe?.contentWindow?.postMessage(
-      JSON.stringify({ event: 'command', func, args: args || '' }), '*'
-    );
-  }
-
-  // Play/pause toggle
-  const pauseBtn  = document.getElementById('hero-pause-btn');
-  const iconPause = document.getElementById('icon-pause');
-  const iconPlay  = document.getElementById('icon-play');
-
-  pauseBtn?.addEventListener('click', () => {
-    if (isPlaying) {
-      postYT('pauseVideo');
-      iconPause.style.display = 'none';
-      iconPlay.style.display  = 'block';
-    } else {
-      postYT('playVideo');
-      iconPause.style.display = 'block';
-      iconPlay.style.display  = 'none';
-    }
-    isPlaying = !isPlaying;
-  });
-
-  // Mute toggle
-  const muteBtn     = document.getElementById('hero-mute-btn');
-  const iconMuted   = document.getElementById('icon-muted');
+  // ── Self-hosted video controls ─────────────────────────────────
+  const heroVideo  = document.getElementById('hero-video');
+  const pauseBtn   = document.getElementById('hero-pause-btn');
+  const iconPause  = document.getElementById('icon-pause');
+  const iconPlay   = document.getElementById('icon-play');
+  const muteBtn    = document.getElementById('hero-mute-btn');
+  const iconMuted  = document.getElementById('icon-muted');
   const iconUnmuted = document.getElementById('icon-unmuted');
 
-  muteBtn?.addEventListener('click', () => {
-    if (isMuted) {
-      postYT('unMute');
-      postYT('setVolume', [80]);
-      iconMuted.style.display   = 'none';
-      iconUnmuted.style.display = 'block';
+  // Play/pause
+  pauseBtn?.addEventListener('click', () => {
+    if (heroVideo.paused) {
+      heroVideo.play();
+      iconPause.style.display = 'block';
+      iconPlay.style.display  = 'none';
     } else {
-      postYT('mute');
-      iconMuted.style.display   = 'block';
-      iconUnmuted.style.display = 'none';
+      heroVideo.pause();
+      iconPause.style.display = 'none';
+      iconPlay.style.display  = 'block';
     }
-    isMuted = !isMuted;
   });
 
-  // ── Scroll: dim and pause/resume video ─────────────────────────
+  // Mute/unmute
+  muteBtn?.addEventListener('click', () => {
+    heroVideo.muted = !heroVideo.muted;
+    iconMuted.style.display   = heroVideo.muted ? 'block' : 'none';
+    iconUnmuted.style.display = heroVideo.muted ? 'none'  : 'block';
+  });
+
+  // Scroll: dim video, pause when out of view, resume when back
   window.addEventListener('scroll', () => {
-    if (!heroSection || !heroIframe) return;
+    if (!heroSection || !heroVideo) return;
     const rect     = heroSection.getBoundingClientRect();
     const progress = 1 - (rect.bottom / window.innerHeight);
     const dim      = Math.max(0, Math.min(1, progress * 2.5));
-    heroIframe.style.opacity = 0.55 * (1 - dim);
+    heroVideo.style.opacity = 0.55 * (1 - dim);
 
-    // Pause when scrolled out of view
     if (rect.bottom <= 0) {
-      if (isPlaying) postYT('pauseVideo');
-    } else if (rect.bottom > 0 && rect.top < window.innerHeight) {
-      // Resume when back in view (only if user hadn't manually paused)
-      if (isPlaying) postYT('playVideo');
+      heroVideo.pause();
+    } else if (!heroVideo.paused && rect.bottom > 0) {
+      // already playing
+    } else if (heroVideo.paused && rect.bottom > 0 && rect.top < window.innerHeight) {
+      heroVideo.play().catch(() => {});
     }
   }, { passive: true });
 
-  // ── Scroll button: pause + scroll to work ─────────────────────
+  // Scroll button
   document.getElementById('hero-scroll-btn')?.addEventListener('click', () => {
-    postYT('pauseVideo');
+    heroVideo.pause();
     iconPause.style.display = 'none';
     iconPlay.style.display  = 'block';
-    isPlaying = false;
     document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // ── Watch full reel modal ──────────────────────────────────────
+  // ── Watch full reel modal — YouTube only loads on click ────────
   const reelModal       = document.getElementById('reel-modal');
   const reelModalIframe = document.getElementById('reel-modal-iframe');
   const reelModalClose  = document.getElementById('reel-modal-close');
@@ -872,9 +761,7 @@
     reelModalIframe.src = 'https://www.youtube.com/embed/ujmQUXGUZwc?autoplay=1&rel=0';
     reelModal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    // Pause background video
-    postYT('pauseVideo');
-    isPlaying = false;
+    heroVideo.pause();
     iconPause.style.display = 'none';
     iconPlay.style.display  = 'block';
   });
@@ -888,6 +775,14 @@
   reelModalClose?.addEventListener('click', closeReelModal);
   reelModal?.addEventListener('click', e => { if (e.target === reelModal) closeReelModal(); });
 
+  // ── IntersectionObserver for looping videos ────────────────────
+  const loopObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.play().catch(() => {}); }
+      else { e.target.pause(); }
+    });
+  }, { threshold: 0.1 });
+
   // ── Overlay ────────────────────────────────────────────────────
   const overlay   = document.getElementById('overlay');
   const closeBtn  = document.getElementById('overlay-close');
@@ -900,15 +795,6 @@
   const elAwards  = document.getElementById('ov-awards');
   const elLinks   = document.getElementById('ov-links');
   const elBody    = document.getElementById('ov-body');
-
-  // IntersectionObserver to pause looping videos when off screen
-  const videoObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      const v = e.target;
-      if (e.isIntersecting) { v.play().catch(() => {}); }
-      else { v.pause(); }
-    });
-  }, { threshold: 0.1 });
 
   function openOverlay(card) {
     const d    = card.dataset;
@@ -965,8 +851,8 @@
     elBody.innerHTML = '';
     if (tmpl) elBody.appendChild(tmpl.content.cloneNode(true));
 
-    // Observe looping videos inside overlay for pause-when-offscreen
-    elBody.querySelectorAll('video.ov-loop').forEach(v => videoObs.observe(v));
+    // Observe loop videos inside overlay
+    elBody.querySelectorAll('video.ov-loop').forEach(v => loopObs.observe(v));
 
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -975,7 +861,7 @@
 
   function closeOverlay() {
     overlay.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
-    overlay.querySelectorAll('video').forEach(v => { v.pause(); videoObs.unobserve(v); });
+    overlay.querySelectorAll('video').forEach(v => { v.pause(); loopObs.unobserve(v); });
     overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
@@ -983,7 +869,6 @@
   document.querySelectorAll('.project-card').forEach(c =>
     c.addEventListener('click', () => openOverlay(c))
   );
-
   closeBtn?.addEventListener('click', closeOverlay);
   overlay?.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
   document.addEventListener('keydown', e => {
