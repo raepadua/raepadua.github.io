@@ -238,11 +238,19 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 .hero-scroll-btn {
   position: absolute;
   bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  background: none; border: none; cursor: pointer;
-  z-index: 3; padding: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
   animation: fadeUp 0.9s var(--ease-out) 0.5s both;
   white-space: nowrap;
 }

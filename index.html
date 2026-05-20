@@ -57,10 +57,6 @@
           <svg id="icon-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/></svg>
           <svg id="icon-play" viewBox="0 0 24 24" style="display:none;"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg>
         </button>
-        <button class="hero-ctrl-btn" id="hero-mute-btn" aria-label="Toggle mute">
-          <svg id="icon-muted" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <svg id="icon-unmuted" viewBox="0 0 24 24" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-        </button>
         <button class="hero-watch-btn" id="hero-watch-btn">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           Watch full reel
@@ -103,7 +99,7 @@
         data-awards="" data-links=""
         data-hero="images/projects/01-CB-Hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/cbr.webp</div>
+          <img src="images/projects/cbr.webp" alt="Centre Block Rehabilitation">
           <div class="project-hover-overlay">
             <div class="project-hover-title">Centre Block Rehabilitation</div>
             <div class="project-hover-roles">Team Lead · Cinematics · Look Dev</div>
@@ -121,7 +117,7 @@
         data-links="View experience|https://www.experienceparliament.ca/"
         data-hero="images/projects/02-PAR-Hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/parliament.webp</div>
+          <img src="images/projects/parliament.webp" alt="Parliament: The Virtual Experience">
           <div class="project-hover-overlay">
             <div class="project-hover-title">Parliament: The Virtual Experience</div>
             <div class="project-hover-roles">3D Lead · Unity Look Dev</div>
@@ -139,7 +135,7 @@
         data-links="Backyard Beans on Steam|https://store.steampowered.com/app/1469430/Backyard_Beans/"
         data-hero="images/projects/03-BB-hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/backyard-beans.webp</div>
+          <img src="images/projects/backyard-beans.webp" alt="Backyard Beans">
           <div class="project-hover-overlay">
             <div class="project-hover-title">Backyard Beans</div>
             <div class="project-hover-roles">Character Pipeline · Animator · Costume</div>
@@ -157,7 +153,7 @@
         data-links="Watch Playthrough|https://www.youtube.com/watch?v=alzvcMKcr0c"
         data-hero="images/projects/04-FF-Hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/familiar-fate.webp</div>
+          <img src="images/projects/familiar-fate.webp" alt="A Familiar Fate">
           <div class="project-hover-overlay">
             <div class="project-hover-title">A Familiar Fate</div>
             <div class="project-hover-roles">3D Lead · Animation · Cinematics</div>
@@ -174,7 +170,7 @@
         data-awards="" data-links=""
         data-hero="images/projects/05-Dragoons-Hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/dragoons.webp</div>
+          <img src="images/projects/dragoons.webp" alt="Royal Canadian Dragoons Medallion">
           <div class="project-hover-overlay">
             <div class="project-hover-title">Royal Canadian Dragoons Medallion</div>
             <div class="project-hover-roles">Lead · Sculpting · Fabrication</div>
@@ -192,7 +188,7 @@
         data-links="Venus Mill Website|https://venusmillstory.ca/"
         data-hero="images/projects/08-VM-Hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/venus-mill.webp</div>
+          <img src="images/projects/venus-mill.webp" alt="Yukon's Venus Mill">
           <div class="project-hover-overlay">
             <div class="project-hover-title">Yukon's Venus Mill</div>
             <div class="project-hover-roles">Lead · Environment · Look Dev</div>
@@ -210,7 +206,7 @@
         data-links="More photos — B+H Architects|https://bharchitects.com/en/project/library-and-archives-of-canada-gatineau-2/"
         data-hero="images/projects/06-Stone-Hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/stone-facade.webp</div>
+          <img src="images/projects/stone-facade.webp" alt="Stone Building Facade">
           <div class="project-hover-overlay">
             <div class="project-hover-title">Stone Building Facade</div>
             <div class="project-hover-roles">Lead · Procedural · Fabrication</div>
@@ -227,7 +223,7 @@
         data-awards="" data-links=""
         data-hero="images/projects/07-BD-Hero.webp">
         <div class="project-thumb-wrap">
-          <div class="project-thumb-placeholder">images/projects/black-drum.webp</div>
+          <img src="images/projects/black-drum.webp" alt="The Black Drum">
           <div class="project-hover-overlay">
             <div class="project-hover-title">The Black Drum</div>
             <div class="project-hover-roles">Rigging · Mocap · ASL Animation</div>
@@ -692,9 +688,6 @@
   const pauseBtn    = document.getElementById('hero-pause-btn');
   const iconPause   = document.getElementById('icon-pause');
   const iconPlay    = document.getElementById('icon-play');
-  const muteBtn     = document.getElementById('hero-mute-btn');
-  const iconMuted   = document.getElementById('icon-muted');
-  const iconUnmuted = document.getElementById('icon-unmuted');
 
   pauseBtn?.addEventListener('click', () => {
     if (heroVideo.paused) {
@@ -708,11 +701,7 @@
     }
   });
 
-  muteBtn?.addEventListener('click', () => {
-    heroVideo.muted = !heroVideo.muted;
-    iconMuted.style.display   = heroVideo.muted ? 'block' : 'none';
-    iconUnmuted.style.display = heroVideo.muted ? 'none'  : 'block';
-  });
+
 
   // Dim on scroll, pause when hero exits view, resume when back
   let userPaused = false;
