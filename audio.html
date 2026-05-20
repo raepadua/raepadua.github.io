@@ -18,7 +18,7 @@
     <a href="audio.html" class="active">Audio</a>
     <a href="index.html#about">About Me</a>
   </nav>
-  <button class="nav-hamburger" aria-label="Toggle menu">
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
@@ -41,13 +41,11 @@
 
 <section class="audio-section">
 
-  <!-- Instrumental cover video — full width -->
   <!-- REPLACE FILE: videos/INST.mp4 -->
   <div class="inst-video-wrap">
     <video src="videos/INST.mp4" controls playsinline></video>
   </div>
 
-  <!-- Music Mixing -->
   <h2 class="audio-section-title">Music Mixing Examples</h2>
 
   <div class="audio-mixing-grid">
@@ -90,9 +88,9 @@
 
   </div>
 
-  <!-- Original Songs -->
   <h2 class="audio-section-title" style="margin-top:3rem;">Original Songs</h2>
 
+  <!-- Not your channel — keeping as YT -->
   <div class="yt-embed-wrap">
     <iframe src="https://www.youtube.com/embed/KISBuumM0MU" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
   </div>
@@ -105,7 +103,6 @@
 
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
     <div>
@@ -153,16 +150,27 @@
 </footer>
 
 <script>
-  const hamburger = document.querySelector('.nav-hamburger');
+  const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
+
   hamburger?.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
   });
+
   drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     drawer.classList.remove('open');
     hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
   }));
+
+  document.addEventListener('click', e => {
+    if (!document.getElementById('nav').contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+    }
+  });
 
   const scrollTopBtn = document.getElementById('scroll-top');
   window.addEventListener('scroll', () => {

@@ -18,7 +18,7 @@
     <a href="audio.html">Audio</a>
     <a href="index.html#about">About Me</a>
   </nav>
-  <button class="nav-hamburger" aria-label="Toggle menu">
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
@@ -41,7 +41,6 @@
 
 <section class="grid-section">
 
-  <!-- 3D Animation grid -->
   <div class="section-rule">
     <span class="section-rule-label">3D Animation &amp; Motion Graphics</span>
     <div class="section-rule-line"></div>
@@ -50,8 +49,8 @@
   <div class="anim-grid">
 
     <div class="anim-card" data-title="3D Animation — Keyframe, Sequencer" data-vimeo="VIMEO_ID_1">
-      <!-- REPLACE VALUE: data-vimeo — put your Vimeo video ID here (just the number) -->
-      <!-- REPLACE FILE: images/ANIM_KEYFRAME.mp4 (was gif — looping thumbnail) -->
+      <!-- REPLACE VALUE: data-vimeo with your Vimeo video ID -->
+      <!-- REPLACE FILE: images/ANIM_KEYFRAME.mp4 (was gif) -->
       <div class="anim-thumb-wrap">
         <video autoplay muted loop playsinline src="images/ANIM_KEYFRAME.mp4" onerror="this.parentElement.innerHTML='<div class=\'anim-thumb-placeholder\'>images/ANIM_KEYFRAME.mp4</div>'"></video>
         <div class="anim-hover-overlay">
@@ -99,43 +98,40 @@
 
   </div>
 
-  <!-- Logo Animations -->
   <div class="anim-sub-section">
     <div class="section-rule">
       <span class="section-rule-label">Logo Animations</span>
       <div class="section-rule-line"></div>
     </div>
     <div class="gif-grid">
-      <!-- REPLACE FILE: images/FISHEAD.mp4 (was gif — looping) -->
-      <video autoplay muted loop playsinline src="images/FISHEAD.mp4" title="Fishead Studio logo animation" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/FAMFATE.mp4 (was gif — looping) -->
-      <video autoplay muted loop playsinline src="images/FAMFATE.mp4" title="A Familiar Fate logo animation" onerror="this.style.display='none'"></video>
+      <!-- REPLACE FILE: images/FISHEAD.mp4 (was gif) -->
+      <video autoplay muted loop playsinline src="images/FISHEAD.mp4" onerror="this.style.display='none'"></video>
+      <!-- REPLACE FILE: images/FAMFATE.mp4 (was gif) -->
+      <video autoplay muted loop playsinline src="images/FAMFATE.mp4" onerror="this.style.display='none'"></video>
     </div>
   </div>
 
-  <!-- 2D Game Asset Animations -->
   <div class="anim-sub-section">
     <div class="section-rule">
       <span class="section-rule-label">2D Game Asset Animations</span>
       <div class="section-rule-line"></div>
     </div>
     <div class="gif-grid">
-      <!-- REPLACE FILE: images/JELLY.mp4 (was gif) -->
+      <!-- REPLACE FILE: images/JELLY.mp4 -->
       <video autoplay muted loop playsinline src="images/JELLY.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/SEAWEED.mp4 (was gif) -->
+      <!-- REPLACE FILE: images/SEAWEED.mp4 -->
       <video autoplay muted loop playsinline src="images/SEAWEED.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/SUBA.mp4 (was gif) -->
+      <!-- REPLACE FILE: images/SUBA.mp4 -->
       <video autoplay muted loop playsinline src="images/SUBA.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/TURTLE-SWIM.mp4 (was gif) -->
+      <!-- REPLACE FILE: images/TURTLE-SWIM.mp4 -->
       <video autoplay muted loop playsinline src="images/TURTLE-SWIM.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/TURTLE-EAT.mp4 (was gif) -->
+      <!-- REPLACE FILE: images/TURTLE-EAT.mp4 -->
       <video autoplay muted loop playsinline src="images/TURTLE-EAT.mp4" onerror="this.style.display='none'"></video>
     </div>
   </div>
 
 </section>
 
-<!-- Video popup overlay -->
 <div id="anim-overlay">
   <div class="anim-overlay-panel">
     <button class="anim-overlay-close" id="anim-overlay-close">&times;</button>
@@ -146,7 +142,6 @@
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
     <div>
@@ -194,26 +189,35 @@
 </footer>
 
 <script>
-  // Hamburger
-  const hamburger = document.querySelector('.nav-hamburger');
+  const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
+
   hamburger?.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
   });
+
   drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     drawer.classList.remove('open');
     hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
   }));
 
-  // Scroll-to-top
+  document.addEventListener('click', e => {
+    if (!document.getElementById('nav').contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+    }
+  });
+
   const scrollTopBtn = document.getElementById('scroll-top');
   window.addEventListener('scroll', () => {
     scrollTopBtn?.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
   scrollTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Pause looping videos when off screen
+  // Pause loop videos when off screen
   const loopObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.play().catch(() => {}); }
@@ -223,7 +227,7 @@
 
   document.querySelectorAll('.anim-thumb-wrap video, .gif-grid video').forEach(v => loopObs.observe(v));
 
-  // Animation card click — open Vimeo overlay
+  // Anim overlay — Vimeo
   const animOverlay = document.getElementById('anim-overlay');
   const animClose   = document.getElementById('anim-overlay-close');
   const animIframe  = document.getElementById('anim-iframe');
@@ -231,24 +235,23 @@
 
   document.querySelectorAll('.anim-card').forEach(card => {
     card.addEventListener('click', () => {
-      const id    = card.dataset.vimeo;
-      const title = card.dataset.title;
-      animTitle.textContent = title || '';
+      const id = card.dataset.vimeo;
+      animTitle.textContent = card.dataset.title || '';
       animIframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`;
       animOverlay.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
   });
 
-  function closeAnimOverlay() {
+  function closeAnim() {
     animIframe.src = '';
     animOverlay.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  animClose?.addEventListener('click', closeAnimOverlay);
-  animOverlay?.addEventListener('click', e => { if (e.target === animOverlay) closeAnimOverlay(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAnimOverlay(); });
+  animClose?.addEventListener('click', closeAnim);
+  animOverlay?.addEventListener('click', e => { if (e.target === animOverlay) closeAnim(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAnim(); });
 </script>
 </body>
 </html>

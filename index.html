@@ -35,21 +35,14 @@
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- HERO -->
 <section id="hero">
   <!--
-    Self-hosted video — no Safari redirect issues, better performance.
     REPLACE FILE: videos/hero-reel.mp4
-    Export from Media Encoder: H.264, 1080p, 4-6 Mbps, faststart enabled.
-    Target file size: under 30MB for a 20-30 second clip.
-    If you want a poster image shown before video loads:
-    add poster="images/hero-poster.webp" to the video tag.
+    Self-hosted video — no Safari redirect issues.
+    Export: H.264, 1080p, 4-6 Mbps, faststart enabled. Target under 30MB.
+    Optional poster image: add poster="images/hero-poster.webp" to the video tag.
   -->
-  <video
-    id="hero-video"
-    autoplay muted loop playsinline
-    src="videos/hero-reel.mp4">
-  </video>
+  <video id="hero-video" autoplay muted loop playsinline src="videos/hero-reel.mp4"></video>
 
   <div class="hero-overlay"></div>
 
@@ -60,11 +53,11 @@
         <div class="hero-subtitle">Realtime 3D Artist &amp; Technical Generalist</div>
       </div>
       <div class="hero-controls">
-        <button class="hero-ctrl-btn" id="hero-pause-btn" aria-label="Pause video" title="Pause">
+        <button class="hero-ctrl-btn" id="hero-pause-btn" aria-label="Pause video">
           <svg id="icon-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/></svg>
           <svg id="icon-play" viewBox="0 0 24 24" style="display:none;"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg>
         </button>
-        <button class="hero-ctrl-btn" id="hero-mute-btn" aria-label="Toggle mute" title="Unmute">
+        <button class="hero-ctrl-btn" id="hero-mute-btn" aria-label="Toggle mute">
           <svg id="icon-muted" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <svg id="icon-unmuted" viewBox="0 0 24 24" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         </button>
@@ -76,7 +69,6 @@
     </div>
   </div>
 
-  <!-- Scroll button — centred at bottom, separate from hero-bottom -->
   <button class="hero-scroll-btn" id="hero-scroll-btn" aria-label="Scroll to work">
     <span class="hero-scroll-text">See My Work</span>
     <div class="hero-scroll-arrow">
@@ -85,7 +77,6 @@
   </button>
 </section>
 
-<!-- REEL MODAL — YouTube embed with full controls, only loads on click -->
 <div id="reel-modal">
   <div class="reel-modal-inner">
     <button class="reel-modal-close" id="reel-modal-close">&times; Close</button>
@@ -95,14 +86,12 @@
   </div>
 </div>
 
-<!-- WORK GRID -->
 <section id="work" style="background:var(--page);">
   <div class="section-wrap">
     <div class="section-rule">
       <span class="section-rule-label">Selected Work</span>
       <div class="section-rule-line"></div>
     </div>
-
     <div class="work-grid">
 
       <div class="project-card" data-project="cbr"
@@ -111,8 +100,7 @@
         data-roles="Team Lead · Producer · Cinematics Director · Unreal Engine Look Dev · Technical 3D Artist"
         data-desc="A joint effort between Carleton Immersive Media Studio and CENTRUS to create an interactive Pixel Streaming application serving as a Visual Twin of Parliament's Centre Block Rehabilitation. I led the team, directed cinematic sequences in Unreal Sequencer, handled look development end-to-end, and optimised BIM, photogrammetry, and pointcloud data for realtime use. Featured at Unreal Fest Seattle 2024 and Unreal Fest Chicago 2026."
         data-tools="Unreal Engine 5, Maya, Houdini, Substance Painter"
-        data-awards=""
-        data-links=""
+        data-awards="" data-links=""
         data-hero="images/projects/01-CB-Hero.webp">
         <div class="project-thumb-wrap">
           <div class="project-thumb-placeholder">images/projects/cbr.jpg</div>
@@ -183,8 +171,7 @@
         data-roles="Project Lead · Producer · 3D Artist"
         data-desc="Created a full-scale, fabrication-ready 3D medallion for the Royal Canadian Dragoons' new building entrance. Developed the crest from a 2D concept into a highly detailed, accurately measured 1.6-metre digital model suitable for bronze casting."
         data-tools="Maya, Houdini, ZBrush, Rhinoceros 3D"
-        data-awards=""
-        data-links=""
+        data-awards="" data-links=""
         data-hero="images/projects/05-Dragoons-Hero.webp">
         <div class="project-thumb-wrap">
           <div class="project-thumb-placeholder">images/projects/dragoons.jpg</div>
@@ -237,8 +224,7 @@
         data-roles="3D Artist · Animator · Technical Artist · Motion Capture Cleanup"
         data-desc="Canada's first fully Deaf musical, produced by the Canadian Cultural Society of the Deaf and Deaf Culture Centre. I designed and modelled a biped CG character, built custom body and facial rigs, operated full-body and facial mocap, cleaned and retargeted performance data, and keyframe animated hands and arms to accurately perform ASL sign language."
         data-tools="Maya, Vicon Blade, CaraPost"
-        data-awards=""
-        data-links=""
+        data-awards="" data-links=""
         data-hero="images/projects/07-BD-Hero.webp">
         <div class="project-thumb-wrap">
           <div class="project-thumb-placeholder">images/projects/black-drum.jpg</div>
@@ -267,20 +253,25 @@
     </ul>
   </div>
   <div class="ov-media-full">
+    <!-- REPLACE FILE: images/projects/01-CB-PT.mp4 — looping clip -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-PT.mp4"></video>
   </div>
   <div class="ov-media-grid ov-grid-2">
+    <!-- REPLACE FILE: images/projects/01-CB-orbit.mp4 -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-orbit.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
+    <!-- REPLACE FILE: images/projects/01-CB-top.mp4 -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-top.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">ArchViz Reel — includes CBR shots</div>
+    <!-- This is your own upload on YT — keeping as YT embed, loads on user scroll not on page load -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/oe2zM_vsr4g" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Featured at Unreal Fest Seattle 2024</div>
+    <!-- Not your upload — keeping as YT embed -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/zVLCuKxAdjk" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -307,7 +298,8 @@
     <img src="images/projects/02-PAR-Court.webp" alt="Courtyard" style="aspect-ratio:4/3;object-fit:cover;">
   </div>
   <div class="ov-section">
-    <div class="ov-section-label">Experience walkthrough</div>
+    <div class="ov-section-label">Experience walkthrough — Parliament VR channel</div>
+    <!-- Not your upload — keeping as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/1K4cXuOl_lM" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -335,21 +327,16 @@
     <div class="ov-section-label">Rig demonstration</div>
     <video controls class="ov-video" src="images/projects/03-BB-rig.mp4"></video>
   </div>
-  <div class="ov-media-full">
-    <img src="images/projects/03-BB-Costumes.webp" alt="Character costumes">
-  </div>
-  <div class="ov-media-full">
-    <img src="images/projects/03-BB-wireframe.webp" alt="Wireframe">
-  </div>
-  <div class="ov-media-full">
-    <img src="images/projects/03-BB-duck.webp" alt="Duck character">
-  </div>
+  <div class="ov-media-full"><img src="images/projects/03-BB-Costumes.webp" alt="Costumes"></div>
+  <div class="ov-media-full"><img src="images/projects/03-BB-wireframe.webp" alt="Wireframe"></div>
+  <div class="ov-media-full"><img src="images/projects/03-BB-duck.webp" alt="Duck character"></div>
   <div class="ov-section">
     <div class="ov-section-label">Game trailer</div>
     <video controls class="ov-video" src="images/projects/03-BB-Trailer.mp4"></video>
   </div>
   <div class="ov-section">
-    <div class="ov-section-label">Official launch showcase — Gamescom 2024, Cologne</div>
+    <div class="ov-section-label">Official launch showcase — Gamescom 2024 (Rocket Beans TV)</div>
+    <!-- Not your upload — keeping as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/fnI0SbfGBI8" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -383,17 +370,17 @@
     <img src="images/projects/04-FF-Fox-rig.webp" alt="Fox rig" style="aspect-ratio:1;object-fit:cover;">
     <img src="images/projects/04-FF-Fish-rig.webp" alt="Fish rig" style="aspect-ratio:1;object-fit:cover;">
   </div>
-  <div class="ov-media-full">
-    <img src="images/projects/04-FF-Fish-full.webp" alt="Fish character">
-  </div>
+  <div class="ov-media-full"><img src="images/projects/04-FF-Fish-full.webp" alt="Fish character"></div>
   <div class="ov-section">
     <div class="ov-section-label">All cutscenes and loading screens (2D &amp; 3D)</div>
+    <!-- Your own upload — fine as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/wyVrJ3wnHB0" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">In-game supercut</div>
+    <!-- Not your upload — keeping as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/tphRthrthpk" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -427,12 +414,12 @@
       <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Combine.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
     </div>
     <div class="ov-media-full" style="margin-top:8px;">
-      <img src="images/projects/05-Dragoons-Medallion.webp" alt="Final medallion in Houdini">
+      <img src="images/projects/05-Dragoons-Medallion.webp" alt="Final medallion">
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Workflow for accurate measurements</div>
-    <div class="ov-media-full"><img src="images/projects/05-Dragoons-depth.webp" alt="Depth measurement"></div>
+    <div class="ov-media-full"><img src="images/projects/05-Dragoons-depth.webp" alt="Depth"></div>
     <div class="ov-media-full" style="margin-top:8px;"><img src="images/projects/05-Dragoons-workflow.webp" alt="Workflow"></div>
     <div class="ov-media-full" style="margin-top:8px;"><img src="images/projects/05-Dragoons-bottom.webp" alt="Bottom view"></div>
     <div class="ov-media-full" style="margin-top:8px;">
@@ -537,7 +524,7 @@
       <img src="images/projects/06-Stone-GlacialTill.webp" alt="Glacial Till panel" style="aspect-ratio:4/3;object-fit:cover;">
     </div>
     <div class="ov-media-full" style="margin-top:12px;">
-      <img src="images/projects/06-Stone-RockGenerator.webp" alt="Rock generator and tiling in Maya">
+      <img src="images/projects/06-Stone-RockGenerator.webp" alt="Rock generator in Maya">
     </div>
   </div>
   <div class="ov-section">
@@ -577,10 +564,11 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Face tracking setup</div>
-    <div class="ov-media-full"><img src="images/projects/07-BD-Facetrack.webp" alt="Face tracking setup"></div>
+    <div class="ov-media-full"><img src="images/projects/07-BD-Facetrack.webp" alt="Face tracking"></div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Play trailer</div>
+    <!-- Not your upload — keeping as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/Z3SynP1OJj0" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -612,6 +600,7 @@
 <section id="about">
   <div class="about-inner">
     <div>
+      <!-- REPLACE: <img src="images/photo.jpg" alt="Raechel Padua" class="about-photo"> -->
       <div class="about-photo-placeholder">images/photo.jpg</div>
       <div class="about-name">Raechel Padua</div>
       <div class="about-location">Ontario, Canada</div>
@@ -619,9 +608,11 @@
         <a href="mailto:raepadua.art@gmail.com" class="about-icon-link" aria-label="Email">
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
+        <!-- REPLACE href -->
         <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" class="about-icon-link" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
+        <!-- REPLACE href -->
         <a href="https://youtube.com/YOUR_CHANNEL" target="_blank" rel="noopener" class="about-icon-link" aria-label="YouTube">
           <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
@@ -656,7 +647,7 @@
 </footer>
 
 <script>
-  // ── Hamburger — X on open, lines on closed ─────────────────────
+  // ── Hamburger — lines to X ─────────────────────────────────────
   const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
 
@@ -673,8 +664,7 @@
   }));
 
   document.addEventListener('click', e => {
-    const nav = document.getElementById('nav');
-    if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+    if (!document.getElementById('nav').contains(e.target) && !drawer.contains(e.target)) {
       drawer.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
@@ -682,14 +672,13 @@
   });
 
   // ── Nav hero/solid ─────────────────────────────────────────────
-  const nav         = document.getElementById('nav');
-  const heroSection = document.getElementById('hero');
+  const nav     = document.getElementById('nav');
+  const heroSec = document.getElementById('hero');
 
-  const navObs = new IntersectionObserver(([e]) => {
+  new IntersectionObserver(([e]) => {
     nav.classList.toggle('nav-hero',  e.isIntersecting);
     nav.classList.toggle('nav-solid', !e.isIntersecting);
-  }, { threshold: 0.1 });
-  navObs.observe(heroSection);
+  }, { threshold: 0.1 }).observe(heroSec);
 
   // ── Scroll-to-top ──────────────────────────────────────────────
   const scrollTopBtn = document.getElementById('scroll-top');
@@ -699,15 +688,14 @@
   scrollTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   // ── Self-hosted video controls ─────────────────────────────────
-  const heroVideo  = document.getElementById('hero-video');
-  const pauseBtn   = document.getElementById('hero-pause-btn');
-  const iconPause  = document.getElementById('icon-pause');
-  const iconPlay   = document.getElementById('icon-play');
-  const muteBtn    = document.getElementById('hero-mute-btn');
-  const iconMuted  = document.getElementById('icon-muted');
+  const heroVideo   = document.getElementById('hero-video');
+  const pauseBtn    = document.getElementById('hero-pause-btn');
+  const iconPause   = document.getElementById('icon-pause');
+  const iconPlay    = document.getElementById('icon-play');
+  const muteBtn     = document.getElementById('hero-mute-btn');
+  const iconMuted   = document.getElementById('icon-muted');
   const iconUnmuted = document.getElementById('icon-unmuted');
 
-  // Play/pause
   pauseBtn?.addEventListener('click', () => {
     if (heroVideo.paused) {
       heroVideo.play();
@@ -720,62 +708,66 @@
     }
   });
 
-  // Mute/unmute
   muteBtn?.addEventListener('click', () => {
     heroVideo.muted = !heroVideo.muted;
     iconMuted.style.display   = heroVideo.muted ? 'block' : 'none';
     iconUnmuted.style.display = heroVideo.muted ? 'none'  : 'block';
   });
 
-  // Scroll: dim video, pause when out of view, resume when back
+  // Dim on scroll, pause when hero exits view, resume when back
+  let userPaused = false;
+
   window.addEventListener('scroll', () => {
-    if (!heroSection || !heroVideo) return;
-    const rect     = heroSection.getBoundingClientRect();
-    const progress = 1 - (rect.bottom / window.innerHeight);
-    const dim      = Math.max(0, Math.min(1, progress * 2.5));
+    if (!heroSec || !heroVideo) return;
+    const rect  = heroSec.getBoundingClientRect();
+    const prog  = 1 - (rect.bottom / window.innerHeight);
+    const dim   = Math.max(0, Math.min(1, prog * 2.5));
     heroVideo.style.opacity = 0.55 * (1 - dim);
 
-    if (rect.bottom <= 0) {
+    if (rect.bottom <= 0 && !heroVideo.paused) {
       heroVideo.pause();
-    } else if (!heroVideo.paused && rect.bottom > 0) {
-      // already playing
-    } else if (heroVideo.paused && rect.bottom > 0 && rect.top < window.innerHeight) {
+    } else if (rect.bottom > 0 && rect.top < window.innerHeight && heroVideo.paused && !userPaused) {
       heroVideo.play().catch(() => {});
     }
   }, { passive: true });
 
+  // Track if user manually paused
+  pauseBtn?.addEventListener('click', () => { userPaused = heroVideo.paused; });
+
   // Scroll button
   document.getElementById('hero-scroll-btn')?.addEventListener('click', () => {
+    userPaused = true;
     heroVideo.pause();
     iconPause.style.display = 'none';
     iconPlay.style.display  = 'block';
     document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // ── Watch full reel modal — YouTube only loads on click ────────
-  const reelModal       = document.getElementById('reel-modal');
-  const reelModalIframe = document.getElementById('reel-modal-iframe');
-  const reelModalClose  = document.getElementById('reel-modal-close');
+  // ── Watch full reel modal ──────────────────────────────────────
+  const reelModal  = document.getElementById('reel-modal');
+  const reelIframe = document.getElementById('reel-modal-iframe');
+  const reelClose  = document.getElementById('reel-modal-close');
 
   document.getElementById('hero-watch-btn')?.addEventListener('click', () => {
-    reelModalIframe.src = 'https://www.youtube.com/embed/ujmQUXGUZwc?autoplay=1&rel=0';
+    reelIframe.src = 'https://www.youtube.com/embed/ujmQUXGUZwc?autoplay=1&rel=0';
     reelModal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    userPaused = true;
     heroVideo.pause();
     iconPause.style.display = 'none';
     iconPlay.style.display  = 'block';
   });
 
   function closeReelModal() {
-    reelModalIframe.src = '';
+    reelIframe.src = '';
     reelModal.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  reelModalClose?.addEventListener('click', closeReelModal);
+  reelClose?.addEventListener('click', closeReelModal);
   reelModal?.addEventListener('click', e => { if (e.target === reelModal) closeReelModal(); });
 
-  // ── IntersectionObserver for looping videos ────────────────────
+  // ── Loop video observer — pause when off screen ────────────────
   const loopObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.play().catch(() => {}); }
@@ -798,9 +790,7 @@
 
   function openOverlay(card) {
     const d    = card.dataset;
-    const tmpl = d.project
-      ? document.querySelector(`template[data-project="${d.project}"]`)
-      : null;
+    const tmpl = d.project ? document.querySelector(`template[data-project="${d.project}"]`) : null;
 
     if (d.hero) {
       elHeroImg.innerHTML = `<img src="${d.hero}" alt="${d.title || ''}">`;
@@ -851,7 +841,6 @@
     elBody.innerHTML = '';
     if (tmpl) elBody.appendChild(tmpl.content.cloneNode(true));
 
-    // Observe loop videos inside overlay
     elBody.querySelectorAll('video.ov-loop').forEach(v => loopObs.observe(v));
 
     overlay.classList.add('open');
@@ -866,14 +855,10 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.project-card').forEach(c =>
-    c.addEventListener('click', () => openOverlay(c))
-  );
+  document.querySelectorAll('.project-card').forEach(c => c.addEventListener('click', () => openOverlay(c)));
   closeBtn?.addEventListener('click', closeOverlay);
   overlay?.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeOverlay(); closeReelModal(); }
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeOverlay(); closeReelModal(); } });
 </script>
 </body>
 </html>
