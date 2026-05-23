@@ -462,17 +462,7 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 }
 .ov-btn:hover { background: var(--azure); color: #fff; border-color: var(--azure); }
 
-/* Clickable images in overlay — zoom in cursor */
-.overlay-rich-body img,
-.ov-media-full img,
-.ov-media-grid img {
-  cursor: zoom-in;
-  transition: opacity 0.2s;
-}
 
-.overlay-rich-body img:hover,
-.ov-media-full img:hover,
-.ov-media-grid img:hover { opacity: 0.88; }
 
 @keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
 
@@ -485,38 +475,6 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 
 @media (max-width: 480px) { .ov-grid-2, .ov-grid-3 { grid-template-columns: 1fr; } }
 
-/* ================================================================
-   LIGHTBOX
-   ================================================================ */
-
-#lightbox {
-  display: none;
-  position: fixed; inset: 0; z-index: 1000;
-  background: rgba(5,9,14,0.95);
-  align-items: center; justify-content: center;
-  padding: 1.5rem;
-  cursor: zoom-out;
-}
-
-#lightbox.open { display: flex; }
-
-#lightbox img {
-  max-width: 100%; max-height: 90vh;
-  object-fit: contain; border-radius: 6px;
-  box-shadow: 0 8px 60px rgba(0,0,0,0.6);
-  animation: scaleIn 0.2s var(--ease-out) both;
-  cursor: zoom-out; display: block;
-}
-
-.lightbox-close {
-  position: absolute; top: 1.25rem; right: 1.25rem;
-  background: none; border: none; cursor: pointer;
-  font-size: 1.5rem; color: rgba(200,225,245,0.6);
-  font-family: var(--font-body); line-height: 1;
-  padding: 4px 10px; transition: color 0.2s; z-index: 2;
-}
-
-.lightbox-close:hover { color: #fff; }
 
 /* ================================================================
    ABOUT

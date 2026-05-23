@@ -240,12 +240,16 @@
       <li>Creating PBR materials and visual effects</li>
     </ul>
   </div>
+  <!-- First clip on its own -->
   <div class="ov-media-full">
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-PT.mp4"></video>
   </div>
-  <div class="ov-media-grid ov-grid-2">
-    <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-orbit.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
-    <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-top.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
+  <!-- Each of the other two on their own line -->
+  <div class="ov-media-full" style="margin-top:8px;">
+    <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-orbit.mp4"></video>
+  </div>
+  <div class="ov-media-full" style="margin-top:8px;">
+    <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-top.mp4"></video>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">ArchViz Reel — includes CBR shots</div>
@@ -346,12 +350,16 @@
     <img src="images/projects/04-FF-Boss-rig.webp" alt="Boss rig" style="aspect-ratio:1;object-fit:cover;">
     <img src="images/projects/04-FF-Boss-full.webp" alt="Boss in game" style="aspect-ratio:1;object-fit:cover;">
   </div>
-  <div class="ov-media-grid ov-grid-3">
+  <!-- Both foxes side by side -->
+  <div class="ov-media-grid ov-grid-2">
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/04-FF-Fox-anim.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
     <img src="images/projects/04-FF-Fox-rig.webp" alt="Fox rig" style="aspect-ratio:1;object-fit:cover;">
-    <img src="images/projects/04-FF-Fish-rig.webp" alt="Fish rig" style="aspect-ratio:1;object-fit:cover;">
   </div>
-  <div class="ov-media-full"><img src="images/projects/04-FF-Fish-full.webp" alt="Fish character"></div>
+  <!-- Both fish side by side -->
+  <div class="ov-media-grid ov-grid-2">
+    <img src="images/projects/04-FF-Fish-rig.webp" alt="Fish rig" style="aspect-ratio:1;object-fit:cover;">
+    <img src="images/projects/04-FF-Fish-full.webp" alt="Fish character" style="aspect-ratio:1;object-fit:cover;">
+  </div>
   <div class="ov-section">
     <div class="ov-section-label">All cutscenes and loading screens (2D &amp; 3D)</div>
     <div class="ov-embed">
@@ -387,13 +395,15 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Houdini procedural workflow</div>
-    <div class="ov-media-grid ov-grid-3">
+    <!-- 2x2: first row -->
+    <div class="ov-media-grid ov-grid-2">
       <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Banner.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
       <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Lettering.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
-      <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Combine.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
     </div>
-    <div class="ov-media-full" style="margin-top:8px;">
-      <img src="images/projects/05-Dragoons-Medallion.webp" alt="Final medallion">
+    <!-- 2x2: second row -->
+    <div class="ov-media-grid ov-grid-2" style="margin-top:8px;">
+      <video autoplay muted loop playsinline class="ov-loop" src="images/projects/05-Dragoons-Combine.mp4" style="aspect-ratio:1;object-fit:cover;"></video>
+      <img src="images/projects/05-Dragoons-Medallion.webp" alt="Final medallion" style="aspect-ratio:1;object-fit:cover;">
     </div>
   </div>
   <div class="ov-section">
@@ -407,10 +417,14 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Medallion installed at the Dragoons entrance</div>
-    <div class="ov-media-grid ov-grid-3">
+    <!-- First two side by side -->
+    <div class="ov-media-grid ov-grid-2">
       <img src="images/projects/05-Dragoons-installing.webp" alt="Installing" style="aspect-ratio:4/3;object-fit:cover;">
       <img src="images/projects/05-Dragoons-promo.webp" alt="Promotional photo" style="aspect-ratio:4/3;object-fit:cover;">
-      <img src="images/projects/05-Dragoons-floor.webp" alt="Installed medallion" style="aspect-ratio:4/3;object-fit:cover;">
+    </div>
+    <!-- Last one on its own -->
+    <div class="ov-media-full" style="margin-top:8px;">
+      <img src="images/projects/05-Dragoons-floor.webp" alt="Installed medallion">
     </div>
   </div>
 </template>
@@ -508,9 +522,11 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Panel installation — facade installed in Gatineau</div>
-    <div class="ov-media-grid ov-grid-2">
-      <img src="images/projects/06-Stone-Construction.webp" alt="Construction" style="aspect-ratio:16/9;object-fit:cover;">
-      <img src="images/projects/06-Stone-Facade.webp" alt="Installed facade" style="aspect-ratio:16/9;object-fit:cover;">
+    <div class="ov-media-full">
+      <img src="images/projects/06-Stone-Construction.webp" alt="Construction">
+    </div>
+    <div class="ov-media-full" style="margin-top:8px;">
+      <img src="images/projects/06-Stone-Facade.webp" alt="Installed facade">
     </div>
   </div>
   <div class="ov-section">
@@ -572,12 +588,6 @@
     </div>
     <div id="ov-body" class="overlay-rich-body"></div>
   </div>
-</div>
-
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <button class="lightbox-close" id="lightbox-close">&times;</button>
-  <img id="lightbox-img" src="" alt="">
 </div>
 
 <!-- ABOUT -->
@@ -812,43 +822,7 @@
   document.querySelectorAll('.project-card').forEach(c => c.addEventListener('click', () => openOverlay(c)));
   closeBtn?.addEventListener('click', closeOverlay);
   overlay?.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
-
-  // ── Lightbox ───────────────────────────────────────────────────
-  const lightbox      = document.getElementById('lightbox');
-  const lightboxImg   = document.getElementById('lightbox-img');
-  const lightboxClose = document.getElementById('lightbox-close');
-
-  function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
-    lightbox.classList.add('open');
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightboxImg.src = '';
-  }
-
-  // Delegate — catches images added dynamically from templates
-  document.addEventListener('click', e => {
-    const img = e.target.closest('.overlay-rich-body img, .ov-media-full img, .ov-media-grid img');
-    if (img) {
-      e.stopPropagation();
-      openLightbox(img.src, img.alt);
-      return;
-    }
-    if (e.target === lightbox) closeLightbox();
-    if (e.target === overlay)  closeOverlay();
-  });
-
-  lightboxClose?.addEventListener('click', closeLightbox);
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      if (lightbox.classList.contains('open')) { closeLightbox(); return; }
-      closeOverlay();
-    }
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
 </script>
 </body>
 </html>
