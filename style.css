@@ -73,7 +73,6 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 #nav.nav-solid .nav-links a:hover,
 #nav.nav-solid .nav-links a.active { color: var(--azure); }
 
-/* Hamburger — lines become X when open */
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -91,7 +90,6 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 #nav.nav-hero  .nav-hamburger span { background: rgba(255,255,255,0.85); }
 #nav.nav-solid .nav-hamburger span { background: var(--ink); }
 
-/* X state */
 .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -118,7 +116,6 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 .nav-drawer a:last-child { border-bottom: none; }
 .nav-drawer a:hover { color: var(--azure); }
 
-/* Scroll-to-top */
 #scroll-top {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 400;
   width: 44px; height: 44px; border-radius: 50%;
@@ -164,7 +161,6 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   opacity: 0.55; transition: opacity 0.5s;
 }
 
-/* Gradient only at bottom — keeps top of video clear */
 .hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(
@@ -211,7 +207,7 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   border: 1px solid rgba(180,215,245,0.35);
   background: rgba(9,13,18,0.4); color: rgba(220,238,255,0.85);
   backdrop-filter: blur(4px);
-  transition: border-color 0.2s, background 0.2s; cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
 }
 
 .hero-ctrl-btn:hover { border-color: rgba(180,215,245,0.8); background: rgba(9,13,18,0.65); }
@@ -228,29 +224,23 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   background: rgba(9,13,18,0.4); color: rgba(220,238,255,0.85);
   font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
   backdrop-filter: blur(4px); transition: border-color 0.2s, background 0.2s, color 0.2s;
+  text-decoration: none;
 }
 
 .hero-watch-btn:hover { border-color: rgba(180,215,245,0.8); background: rgba(9,13,18,0.65); color: #fff; }
 
 .hero-watch-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 
-/* Scroll button — absolutely centred at bottom, never overlaps controls */
+/* Scroll button — centred using margin auto, reliable on mobile Safari */
 .hero-scroll-btn {
   position: absolute;
   bottom: 1.5rem;
-  left: 0;
-  right: 0;
+  left: 0; right: 0;
   margin: 0 auto;
   width: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 3;
-  padding: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: none; border: none; cursor: pointer;
+  z-index: 3; padding: 0;
   animation: fadeUp 0.9s var(--ease-out) 0.5s both;
   white-space: nowrap;
 }
@@ -278,20 +268,13 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
 }
 
-/* Mobile hero adjustments */
 @media (max-width: 768px) {
   .hero-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 0 1.25rem 5rem; /* extra bottom padding so scroll btn has room */
+    flex-direction: column; align-items: flex-start;
+    gap: 1rem; padding: 0 1.25rem 5rem;
   }
-
   .hero-name { font-size: 2rem; }
-
-  /* Hide text label on mobile, show only animated arrow */
   .hero-scroll-text { display: none; }
-
   .hero-scroll-btn { bottom: 1.25rem; }
 }
 
@@ -304,37 +287,6 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(5px); }
 }
-
-/* ================================================================
-   REEL MODAL
-   ================================================================ */
-
-#reel-modal {
-  display: none; position: fixed; inset: 0; z-index: 900;
-  background: rgba(5,9,14,0.92); backdrop-filter: blur(10px);
-  align-items: center; justify-content: center; padding: 2rem;
-}
-
-#reel-modal.open { display: flex; }
-
-.reel-modal-inner { position: relative; width: 100%; max-width: 1000px; }
-
-.reel-modal-close {
-  position: absolute; top: -2.5rem; right: 0;
-  background: none; border: none; cursor: pointer;
-  font-size: 1.25rem; color: rgba(200,225,245,0.6);
-  font-family: var(--font-body); line-height: 1; padding: 4px 8px;
-  transition: color 0.2s;
-}
-
-.reel-modal-close:hover { color: #fff; }
-
-.reel-modal-wrap {
-  position: relative; padding-bottom: 56.25%; height: 0;
-  overflow: hidden; border-radius: 10px; background: #000;
-}
-
-.reel-modal-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 
 /* ================================================================
    SECTIONS SHARED
@@ -438,8 +390,15 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 
 .overlay-close:hover { background: var(--azure-pale); color: var(--azure); }
 
-.overlay-hero-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 12px 12px 0 0; background: var(--azure-pale); }
-.overlay-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.overlay-hero-img {
+  width: 100%; aspect-ratio: 16/9; overflow: hidden;
+  border-radius: 12px 12px 0 0; background: var(--azure-pale);
+}
+
+.overlay-hero-img img,
+.overlay-hero-img video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
 
 .overlay-body { padding: 1.5rem 2rem 1rem; border-bottom: 1px solid var(--border); }
 
@@ -470,7 +429,6 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 
 .overlay-rich-body { padding: 1.5rem 2rem 2rem; }
 
-/* Rich content */
 .ov-section { margin-bottom: 1.5rem; }
 .ov-section:last-child { margin-bottom: 0; }
 
@@ -504,6 +462,18 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 }
 .ov-btn:hover { background: var(--azure); color: #fff; border-color: var(--azure); }
 
+/* Clickable images in overlay — zoom in cursor */
+.overlay-rich-body img,
+.ov-media-full img,
+.ov-media-grid img {
+  cursor: zoom-in;
+  transition: opacity 0.2s;
+}
+
+.overlay-rich-body img:hover,
+.ov-media-full img:hover,
+.ov-media-grid img:hover { opacity: 0.88; }
+
 @keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
 
 @media (max-width: 768px) {
@@ -514,6 +484,39 @@ button { font-family: var(--font-body); cursor: pointer; border: none; backgroun
 }
 
 @media (max-width: 480px) { .ov-grid-2, .ov-grid-3 { grid-template-columns: 1fr; } }
+
+/* ================================================================
+   LIGHTBOX
+   ================================================================ */
+
+#lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(5,9,14,0.95);
+  align-items: center; justify-content: center;
+  padding: 1.5rem;
+  cursor: zoom-out;
+}
+
+#lightbox.open { display: flex; }
+
+#lightbox img {
+  max-width: 100%; max-height: 90vh;
+  object-fit: contain; border-radius: 6px;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+  animation: scaleIn 0.2s var(--ease-out) both;
+  cursor: zoom-out; display: block;
+}
+
+.lightbox-close {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  background: none; border: none; cursor: pointer;
+  font-size: 1.5rem; color: rgba(200,225,245,0.6);
+  font-family: var(--font-body); line-height: 1;
+  padding: 4px 10px; transition: color 0.2s; z-index: 2;
+}
+
+.lightbox-close:hover { color: #fff; }
 
 /* ================================================================
    ABOUT

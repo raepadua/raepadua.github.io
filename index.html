@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raechel Padua Portfolio</title>
   <meta name="description" content="Portfolio of Raechel Padua, Realtime 3D Artist based in Ontario, Canada.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,9 +40,7 @@
 <section id="hero">
   <!--
     REPLACE FILE: videos/hero-reel.mp4
-    Self-hosted video — no Safari redirect issues.
-    Export: H.264, 1080p, 4-6 Mbps, faststart enabled. Target under 30MB.
-    Optional poster image: add poster="images/hero-poster.webp" to the video tag.
+    H.264, 1080p or 720p, 4 Mbps, faststart enabled. Target under 30MB.
   -->
   <video id="hero-video" autoplay muted loop playsinline src="videos/hero-reel.mp4"></video>
 
@@ -57,10 +57,11 @@
           <svg id="icon-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/></svg>
           <svg id="icon-play" viewBox="0 0 24 24" style="display:none;"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg>
         </button>
-        <button class="hero-watch-btn" id="hero-watch-btn">
+        <!-- Watch full reel — opens YouTube in new tab, no choppy in-site player -->
+        <a href="https://www.youtube.com/watch?v=ujmQUXGUZwc" target="_blank" rel="noopener" class="hero-watch-btn">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           Watch full reel
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -72,15 +73,6 @@
     </div>
   </button>
 </section>
-
-<div id="reel-modal">
-  <div class="reel-modal-inner">
-    <button class="reel-modal-close" id="reel-modal-close">&times; Close</button>
-    <div class="reel-modal-wrap">
-      <iframe id="reel-modal-iframe" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-    </div>
-  </div>
-</div>
 
 <section id="work" style="background:var(--page);">
   <div class="section-wrap">
@@ -97,7 +89,7 @@
         data-desc="A joint effort between Carleton Immersive Media Studio and CENTRUS to create an interactive Pixel Streaming application serving as a Visual Twin of Parliament's Centre Block Rehabilitation. I led the team, directed cinematic sequences in Unreal Sequencer, handled look development end-to-end, and optimised BIM, photogrammetry, and pointcloud data for realtime use. Featured at Unreal Fest Seattle 2024 and Unreal Fest Chicago 2026."
         data-tools="Unreal Engine 5, Maya, Houdini, Substance Painter"
         data-awards="" data-links=""
-        data-hero="images/projects/01-CB-Hero.webp">
+        data-hero="images/projects/01-CB-Hero.mp4">
         <div class="project-thumb-wrap">
           <img src="images/projects/cbr.webp" alt="Centre Block Rehabilitation">
           <div class="project-hover-overlay">
@@ -192,7 +184,7 @@
           <div class="project-hover-overlay">
             <div class="project-hover-title">Yukon's Venus Mill</div>
             <div class="project-hover-roles">Lead · Environment · Look Dev</div>
-          </div> 
+          </div>
         </div>
       </div>
 
@@ -249,25 +241,20 @@
     </ul>
   </div>
   <div class="ov-media-full">
-    <!-- REPLACE FILE: images/projects/01-CB-PT.mp4 — looping clip -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-PT.mp4"></video>
   </div>
   <div class="ov-media-grid ov-grid-2">
-    <!-- REPLACE FILE: images/projects/01-CB-orbit.mp4 -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-orbit.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
-    <!-- REPLACE FILE: images/projects/01-CB-top.mp4 -->
     <video autoplay muted loop playsinline class="ov-loop" src="images/projects/01-CB-top.mp4" style="aspect-ratio:16/9;object-fit:cover;"></video>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">ArchViz Reel — includes CBR shots</div>
-    <!-- This is your own upload on YT — keeping as YT embed, loads on user scroll not on page load -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/oe2zM_vsr4g" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Featured at Unreal Fest Seattle 2024</div>
-    <!-- Not your upload — keeping as YT embed -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/zVLCuKxAdjk" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -294,8 +281,7 @@
     <img src="images/projects/02-PAR-Court.webp" alt="Courtyard" style="aspect-ratio:4/3;object-fit:cover;">
   </div>
   <div class="ov-section">
-    <div class="ov-section-label">Experience walkthrough — Parliament VR channel</div>
-    <!-- Not your upload — keeping as YT -->
+    <div class="ov-section-label">Experience walkthrough</div>
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/1K4cXuOl_lM" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -332,7 +318,6 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Official launch showcase — Gamescom 2024 (Rocket Beans TV)</div>
-    <!-- Not your upload — keeping as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/fnI0SbfGBI8" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -369,14 +354,12 @@
   <div class="ov-media-full"><img src="images/projects/04-FF-Fish-full.webp" alt="Fish character"></div>
   <div class="ov-section">
     <div class="ov-section-label">All cutscenes and loading screens (2D &amp; 3D)</div>
-    <!-- Your own upload — fine as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/wyVrJ3wnHB0" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
   <div class="ov-section">
     <div class="ov-section-label">In-game supercut</div>
-    <!-- Not your upload — keeping as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/tphRthrthpk" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -564,7 +547,6 @@
   </div>
   <div class="ov-section">
     <div class="ov-section-label">Play trailer</div>
-    <!-- Not your upload — keeping as YT -->
     <div class="ov-embed">
       <iframe src="https://www.youtube.com/embed/Z3SynP1OJj0" allowfullscreen loading="lazy"></iframe>
     </div>
@@ -590,6 +572,12 @@
     </div>
     <div id="ov-body" class="overlay-rich-body"></div>
   </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
 </div>
 
 <!-- ABOUT -->
@@ -642,7 +630,7 @@
 </footer>
 
 <script>
-  // ── Hamburger — lines to X ─────────────────────────────────────
+  // ── Hamburger ──────────────────────────────────────────────────
   const hamburger = document.getElementById('nav-hamburger');
   const drawer    = document.getElementById('nav-drawer');
 
@@ -682,34 +670,33 @@
   }, { passive: true });
   scrollTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // ── Self-hosted video controls ─────────────────────────────────
-  const heroVideo   = document.getElementById('hero-video');
-  const pauseBtn    = document.getElementById('hero-pause-btn');
-  const iconPause   = document.getElementById('icon-pause');
-  const iconPlay    = document.getElementById('icon-play');
+  // ── Hero video controls ────────────────────────────────────────
+  const heroVideo  = document.getElementById('hero-video');
+  const pauseBtn   = document.getElementById('hero-pause-btn');
+  const iconPause  = document.getElementById('icon-pause');
+  const iconPlay   = document.getElementById('icon-play');
+  let userPaused   = false;
 
   pauseBtn?.addEventListener('click', () => {
     if (heroVideo.paused) {
       heroVideo.play();
       iconPause.style.display = 'block';
       iconPlay.style.display  = 'none';
+      userPaused = false;
     } else {
       heroVideo.pause();
       iconPause.style.display = 'none';
       iconPlay.style.display  = 'block';
+      userPaused = true;
     }
   });
 
-
-
-  // Dim on scroll, pause when hero exits view, resume when back
-  let userPaused = false;
-
+  // Dim on scroll, pause when off screen, resume when back
   window.addEventListener('scroll', () => {
     if (!heroSec || !heroVideo) return;
-    const rect  = heroSec.getBoundingClientRect();
-    const prog  = 1 - (rect.bottom / window.innerHeight);
-    const dim   = Math.max(0, Math.min(1, prog * 2.5));
+    const rect = heroSec.getBoundingClientRect();
+    const prog = 1 - (rect.bottom / window.innerHeight);
+    const dim  = Math.max(0, Math.min(1, prog * 2.5));
     heroVideo.style.opacity = 0.55 * (1 - dim);
 
     if (rect.bottom <= 0 && !heroVideo.paused) {
@@ -718,9 +705,6 @@
       heroVideo.play().catch(() => {});
     }
   }, { passive: true });
-
-  // Track if user manually paused
-  pauseBtn?.addEventListener('click', () => { userPaused = heroVideo.paused; });
 
   // Scroll button
   document.getElementById('hero-scroll-btn')?.addEventListener('click', () => {
@@ -731,31 +715,7 @@
     document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // ── Watch full reel modal ──────────────────────────────────────
-  const reelModal  = document.getElementById('reel-modal');
-  const reelIframe = document.getElementById('reel-modal-iframe');
-  const reelClose  = document.getElementById('reel-modal-close');
-
-  document.getElementById('hero-watch-btn')?.addEventListener('click', () => {
-    reelIframe.src = 'https://www.youtube.com/embed/ujmQUXGUZwc?autoplay=1&rel=0';
-    reelModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    userPaused = true;
-    heroVideo.pause();
-    iconPause.style.display = 'none';
-    iconPlay.style.display  = 'block';
-  });
-
-  function closeReelModal() {
-    reelIframe.src = '';
-    reelModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  reelClose?.addEventListener('click', closeReelModal);
-  reelModal?.addEventListener('click', e => { if (e.target === reelModal) closeReelModal(); });
-
-  // ── Loop video observer — pause when off screen ────────────────
+  // ── Loop video observer ────────────────────────────────────────
   const loopObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.play().catch(() => {}); }
@@ -780,8 +740,14 @@
     const d    = card.dataset;
     const tmpl = d.project ? document.querySelector(`template[data-project="${d.project}"]`) : null;
 
+    // Hero — supports both image and video
     if (d.hero) {
-      elHeroImg.innerHTML = `<img src="${d.hero}" alt="${d.title || ''}">`;
+      const isVideo = d.hero.endsWith('.mp4') || d.hero.endsWith('.webm');
+      if (isVideo) {
+        elHeroImg.innerHTML = `<video autoplay muted loop playsinline src="${d.hero}" style="width:100%;height:100%;object-fit:cover;display:block;"></video>`;
+      } else {
+        elHeroImg.innerHTML = `<img src="${d.hero}" alt="${d.title || ''}">`;
+      }
       elHeroImg.style.display = 'block';
     } else {
       elHeroImg.style.display = 'none';
@@ -846,7 +812,43 @@
   document.querySelectorAll('.project-card').forEach(c => c.addEventListener('click', () => openOverlay(c)));
   closeBtn?.addEventListener('click', closeOverlay);
   overlay?.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeOverlay(); closeReelModal(); } });
+
+  // ── Lightbox ───────────────────────────────────────────────────
+  const lightbox      = document.getElementById('lightbox');
+  const lightboxImg   = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  }
+
+  // Delegate — catches images added dynamically from templates
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.overlay-rich-body img, .ov-media-full img, .ov-media-grid img');
+    if (img) {
+      e.stopPropagation();
+      openLightbox(img.src, img.alt);
+      return;
+    }
+    if (e.target === lightbox) closeLightbox();
+    if (e.target === overlay)  closeOverlay();
+  });
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (lightbox.classList.contains('open')) { closeLightbox(); return; }
+      closeOverlay();
+    }
+  });
 </script>
 </body>
 </html>
