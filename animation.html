@@ -122,7 +122,7 @@
   <div class="anim-reel-item">
     <div class="anim-reel-label">Decal Animation for Projection Mapping — Canada Day Project</div>
     <!-- REPLACE FILE: videos/anim-decal.mp4 -->
-    <video class="anim-reel-video" controls muted playsinline src="videos/ANIM_DECAL.mp4"></video>
+    <video class="anim-reel-video" controls unmuted playsinline src="videos/ANIM_DECAL.mp4"></video>
   </div>
 
   <div class="anim-reel-item">
@@ -167,17 +167,19 @@
       <span class="section-rule-label">2D Game Asset Animations</span>
       <div class="section-rule-line"></div>
     </div>
+
+    <!-- Turtles — two in a row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <video autoplay muted loop playsinline src="videos/TURTLE-SWIM.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
+      <video autoplay muted loop playsinline src="videos/TURTLE-EAT.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
+    </div>
     <!-- Jelly, Seaweed, Suba — three in a row -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem;">
       <video autoplay muted loop playsinline src="videos/JELLY.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
       <video autoplay muted loop playsinline src="videos/SEAWEED.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
       <video autoplay muted loop playsinline src="videos/SUBA.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
     </div>
-    <!-- Turtles — two in a row -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-      <video autoplay muted loop playsinline src="videos/TURTLE-SWIM.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
-      <video autoplay muted loop playsinline src="videos/TURTLE-EAT.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
-    </div>
+
   </div>
 
 </section>
