@@ -85,7 +85,7 @@
 
 <section class="anim-reel-section">
 
-  <div class="section-rule">
+  <div class="section-rule" style="margin-top:3rem;">
     <span class="section-rule-label">3D Animation &amp; Motion Graphics</span>
     <div class="section-rule-line"></div>
   </div>
@@ -120,14 +120,28 @@
 
   <div class="anim-sub-section">
     <div class="section-rule">
+      <span class="section-rule-label">Layout Reel</span>
+      <div class="section-rule-line"></div>
+    </div>
+
+    <div class="anim-reel-item">
+      <div class="anim-reel-label">Layout Reel — 2024</div>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;background:#000;">
+        <iframe
+          src="https://www.youtube.com/embed/ujmQUXGUZwc"
+          style="position:absolute;inset:0;width:100%;height:100%;border:none;"
+          allowfullscreen allow="autoplay; encrypted-media"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <div class="section-rule">
       <span class="section-rule-label">Logo Animations</span>
       <div class="section-rule-line"></div>
     </div>
-    <div class="gif-grid">
-      <!-- REPLACE FILE: images/FISHEAD.mp4 -->
-      <video autoplay muted loop playsinline src="videos/FISHEAD.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/FAMFATE.mp4 -->
-      <video autoplay muted loop playsinline src="videos/FAMFATE.mp4" onerror="this.style.display='none'"></video>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <video autoplay muted loop playsinline src="videos/FISHEAD.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
+      <video autoplay muted loop playsinline src="videos/FAMFATE.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
     </div>
   </div>
 
@@ -136,17 +150,16 @@
       <span class="section-rule-label">2D Game Asset Animations</span>
       <div class="section-rule-line"></div>
     </div>
-    <div class="gif-grid">
-      <!-- REPLACE FILE: images/JELLY.mp4 -->
-      <video autoplay muted loop playsinline src="videos/JELLY.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/SEAWEED.mp4 -->
-      <video autoplay muted loop playsinline src="videos/SEAWEED.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/SUBA.mp4 -->
-      <video autoplay muted loop playsinline src="videos/SUBA.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/TURTLE-SWIM.mp4 -->
-      <video autoplay muted loop playsinline src="videos/TURTLE-SWIM.mp4" onerror="this.style.display='none'"></video>
-      <!-- REPLACE FILE: images/TURTLE-EAT.mp4 -->
-      <video autoplay muted loop playsinline src="videos/TURTLE-EAT.mp4" onerror="this.style.display='none'"></video>
+    <!-- Jelly, Seaweed, Suba — three in a row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem;">
+      <video autoplay muted loop playsinline src="videos/JELLY.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
+      <video autoplay muted loop playsinline src="videos/SEAWEED.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
+      <video autoplay muted loop playsinline src="videos/SUBA.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
+    </div>
+    <!-- Turtles — two in a row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <video autoplay muted loop playsinline src="videos/TURTLE-SWIM.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
+      <video autoplay muted loop playsinline src="videos/TURTLE-EAT.mp4" style="width:100%;border-radius:6px;display:block;" onerror="this.style.display='none'"></video>
     </div>
   </div>
 
@@ -266,7 +279,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.gif-grid video').forEach(v => loopObs.observe(v));
+  document.querySelectorAll('.gif-grid video, .anim-sub-section video').forEach(v => loopObs.observe(v));
 </script>
 </body>
 </html>
